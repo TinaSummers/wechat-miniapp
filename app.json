@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/findModule/pages/index/index",
+    "pages/homeModule/pages/index/index",
 
 
     "pages/memberModule/pages/index/index",
@@ -59,10 +59,10 @@
     "position": "bottom",
     "list": [
       {
-        "pagePath": "pages/findModule/pages/index/index",
+        "pagePath": "pages/homeModule/pages/index/index",
         "text": "发现",
-        "iconPath": "/assets/images/icon_find_init.png",
-        "selectedIconPath": "/assets/images/icon_find_select.png"
+        "iconPath": "/assets/images/icon_home_init.png",
+        "selectedIconPath": "/assets/images/icon_home_select.png"
       },
       {
         "pagePath": "pages/memberModule/pages/index/index",
