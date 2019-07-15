@@ -60,7 +60,7 @@
     "list": [
       {
         "pagePath": "pages/homeModule/pages/index/index",
-        "text": "发现",
+        "text": "首页",
         "iconPath": "/assets/images/icon_home_init.png",
         "selectedIconPath": "/assets/images/icon_home_select.png"
       },
