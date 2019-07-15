@@ -1,0 +1,56 @@
+view,
+cover-view,
+cover-image,
+text,
+swiper,
+swiper-item,
+input,
+picker,
+textarea,
+form {
+  box-sizing: border-box;
+}
+
+image{
+  display: block;
+}
+
+.flex(@direction: row, @justify: center, @align: center) {
+  display: flex;
+  flex-direction: @direction;
+  justify-content: @justify; 
+  align-items: @align;
+}
+
+@keyframes loading_run {
+  0% {
+    transform: rotate(-180deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+.ant-image-pre-wrapper {
+  position: relative;
+  overflow-x: hidden;
+  .image-hide{
+    position: absolute;
+    z-index: -99;
+    opacity: 0;
+  }
+  .loading-area { 
+    background: #f2f5f7;
+    .flex(row, center, center);
+    .loading { 
+      width: 50rpx !important;
+      height: 50rpx !important;
+      animation: loading_run 1s linear infinite;
+    }
+  }
+}

@@ -1,0 +1,111 @@
+view,
+cover-view,
+cover-image,
+text,
+swiper,
+swiper-item,
+input,
+picker,
+textarea,
+form {
+  box-sizing: border-box;
+}
+
+.flex(@direction: row, @justify: center, @align: center) {
+  display: flex;
+  flex-direction: @direction;
+  justify-content: @justify;
+  align-items: @align;
+}
+
+.ant-calendar-wrapper {
+  width: 750rpx;
+  background: #fff;
+  padding: 40rpx 0;
+  .month-area {
+    text-align: center;
+    font-size: 32rpx;
+    font-weight: 600;
+  }
+  .week-area {
+    padding: 30rpx 80rpx;
+    .flex(row, space-between, center);
+    >view {
+      flex: 1;
+      text-align: center;
+      &:first-child, &:last-child{
+        color: #999;
+      }
+    }
+  }
+  .swiper-wrapper {
+    width: 100%;
+    padding: 0 80rpx;
+    position: relative;
+    .arrow {
+      position: absolute;
+      top: 28rpx;
+      width: 60rpx;
+      height: 60rpx;
+      .flex(row, center, center);
+      text{
+        width: 16rpx;
+        height: 16rpx;
+        border: 4rpx solid #cd1434;
+        border-bottom: none;
+        border-left: none;
+        &.disabled{
+          border-color: #ccc; 
+        }
+      }
+    }
+    .arrow-ahead {
+      transform: translateY(-50%) rotate(45deg);
+      right: 20rpx; 
+    }
+    .arrow-previous {
+      left: 20rpx;
+      transform: translateY(-50%) rotate(-135deg);
+    }
+    swiper {
+      height: 80rpx;
+      swiper-item {
+        height: 100%;
+        .flex(row, space-between, center);
+        >view {
+          flex: 1;
+          height: 100%;
+          .flex(column, flex-start, center);
+          position: relative;
+          .num {
+            color: #000;
+            width: 56rpx;
+            height: 56rpx;
+            .flex(row, center, center);
+            border-radius: 50%;
+            &.selected {
+              color: #fff;
+              background: #cd1434;
+            }
+          }
+          .dot{
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 12rpx;
+            height: 12rpx;
+            border-radius: 50%;
+            background: #999;
+          }
+        }
+      }
+    }
+  }
+  .group-area {
+    text-align: center;
+    font-size: 28rpx;
+    color: #999;
+    margin-top: 40rpx;
+  }
+}

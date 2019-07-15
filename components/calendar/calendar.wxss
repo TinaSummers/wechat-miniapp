@@ -1,0 +1,119 @@
+view,
+cover-view,
+cover-image,
+text,
+swiper,
+swiper-item,
+input,
+picker,
+textarea,
+form {
+  box-sizing: border-box;
+}
+.ant-calendar-wrapper {
+  width: 750rpx;
+  background: #fff;
+  padding: 40rpx 0;
+}
+.ant-calendar-wrapper .month-area {
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: 600;
+}
+.ant-calendar-wrapper .week-area {
+  padding: 30rpx 80rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.ant-calendar-wrapper .week-area > view {
+  flex: 1;
+  text-align: center;
+}
+.ant-calendar-wrapper .week-area > view:first-child,
+.ant-calendar-wrapper .week-area > view:last-child {
+  color: #999;
+}
+.ant-calendar-wrapper .swiper-wrapper {
+  width: 100%;
+  padding: 0 80rpx;
+  position: relative;
+}
+.ant-calendar-wrapper .swiper-wrapper .arrow {
+  position: absolute;
+  top: 28rpx;
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.ant-calendar-wrapper .swiper-wrapper .arrow text {
+  width: 16rpx;
+  height: 16rpx;
+  border: 4rpx solid #cd1434;
+  border-bottom: none;
+  border-left: none;
+}
+.ant-calendar-wrapper .swiper-wrapper .arrow text.disabled {
+  border-color: #ccc;
+}
+.ant-calendar-wrapper .swiper-wrapper .arrow-ahead {
+  transform: translateY(-50%) rotate(45deg);
+  right: 20rpx;
+}
+.ant-calendar-wrapper .swiper-wrapper .arrow-previous {
+  left: 20rpx;
+  transform: translateY(-50%) rotate(-135deg);
+}
+.ant-calendar-wrapper .swiper-wrapper swiper {
+  height: 80rpx;
+}
+.ant-calendar-wrapper .swiper-wrapper swiper swiper-item {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.ant-calendar-wrapper .swiper-wrapper swiper swiper-item > view {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+}
+.ant-calendar-wrapper .swiper-wrapper swiper swiper-item > view .num {
+  color: #000;
+  width: 56rpx;
+  height: 56rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.ant-calendar-wrapper .swiper-wrapper swiper swiper-item > view .num.selected {
+  color: #fff;
+  background: #cd1434;
+}
+.ant-calendar-wrapper .swiper-wrapper swiper swiper-item > view .dot {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  background: #999;
+}
+.ant-calendar-wrapper .group-area {
+  text-align: center;
+  font-size: 28rpx;
+  color: #999;
+  margin-top: 40rpx;
+}

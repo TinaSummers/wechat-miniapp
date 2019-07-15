@@ -1,0 +1,140 @@
+radio,
+checkbox {
+  transform: scale(0.6);
+}
+/*设置单行文本超出隐藏*/
+.hidden-e {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.hidden-e-r2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  /*设置多行文本超出隐藏*/
+}
+.hidden-e-r3 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  /*设置多行文本超出隐藏*/
+}
+.placeholder {
+  color: #999;
+}
+.btn {
+  width: 658rpx;
+  height: 98rpx;
+  line-height: 98rpx;
+  color: #fff;
+  background-image: linear-gradient(-179deg, #0C4CA8 0%, #3062EF 100%);
+  border-radius: 4px;
+  font-size: 36rpx;
+}
+.status_btn {
+  width: 94rpx;
+  height: 36rpx;
+  padding-left: 0;
+  padding-right: 0;
+  display: inline-block;
+  font-size: 22rpx;
+  color: #fff;
+  background: #FF671F;
+  border-radius: 0;
+  line-height: 36rpx;
+  position: relative;
+  top: 1px;
+}
+.tobe_status .status_btn {
+  background: #1194F6;
+}
+.havebeen_status .status_btn {
+  background: #23A43E ;
+}
+.tips {
+  font-size: 22rpx;
+  color: #999;
+}
+.job_status {
+  font-size: 22rpx;
+  width: 94rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  background: #999;
+  color: #fff;
+  display: inline-block;
+  border-radius: 0;
+  padding-left: 0;
+  padding-right: 0;
+  position: relative;
+  top: 1px;
+}
+.job_status_change .job_status {
+  background: #23A43E;
+  color: #fff;
+}
+/*没有数据提示*/
+.no_data_tips {
+  color: #999;
+  font-size: 24rpx;
+  text-align: center;
+}
+/*固定的导航*/
+.job_nav {
+  width: 100%;
+  height: 132rpx;
+  font-size: 30rpx;
+  line-height: 132rpx;
+  display: flex;
+  color: #999;
+  text-align: center;
+  background: #fff;
+  box-shadow: 1px 1px 3px #dfdfdf;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+.job_nav .item {
+  flex: 1;
+}
+.job_nav .item text {
+  height: 132rpx;
+  display: inline-block;
+}
+.job_nav .active text {
+  color: #333;
+  border-bottom: 6rpx solid #121D57;
+}
+.job_collect_wrap {
+  padding-top: 1px;
+  padding-top: 133rpx;
+  position: relative;
+  z-index: 88;
+}
+.job_collect_no {
+  padding-top: 244rpx;
+  text-align: center;
+}
+.collect_no_img {
+  width: 202rpx;
+  height: 200rpx;
+  display: block;
+  margin: 0 auto;
+}
+.collect_no_tip {
+  font-size: 24rpx;
+  color: #999;
+  position: relative;
+  top: 12rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.look_job {
+  margin-top: 200rpx;
+}

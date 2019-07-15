@@ -1,0 +1,69 @@
+<comp-nav-dynamic id='comp-nav-dynamic'></comp-nav-dynamic>
+<comp-register id='comp-register'></comp-register>
+<view class='container' wx:if='{{pageShow}}'>
+  <view class='banner-wrapper'>
+    <image class='banner' mode='widthFix' src='{{imgModel.info_header_bg}}' />
+    <view class="avatar-area">
+      <view class="userAvatarUrl">
+        <open-data wx:if='{{!avatar.length}}' style="width: 140rpx;height: 140rpx;display: block;overflow: hidden;border-radius:50%;" type="userAvatarUrl"></open-data>
+        <image wx:else style="width: 160rpx;height: 160rpx;" src="{{avatar}}" />
+      </view>
+      <!-- <text>点击修改头像</text> -->
+    </view>
+    
+  </view>
+  <view class='label-wrapper'>
+    <image mode='widthFix' src='{{imgModel.icon_info}}' />
+    <text class='label'>基本信息</text>
+    <text class='desc'>(请准确填写您的个人信息)</text>
+  </view>
+  <form class='form-wrapper' report-submit='true' bindsubmit="submitHandle">
+    <view class="profile-area">
+      <view class='{{item.value?"":"unvalue"}}' wx:for="{{formItems}}" wx:key="{{index}}" wx:if="{{item.choiced==1}}">
+        <view class="name-box">
+          <text class='name'>{{item.name}}</text>
+          <!-- <text class='star' wx:if='{{item.must==1}}'>*</text> -->
+          <text class='mark {{item.disabled==1?"disabled":""}} '>{{item.mark}}</text>
+        </view>
+        <view class='element-box'>
+          <input wx:if="{{item.ele=='input' && item.type!='radio'}}" disabled='{{item.disabled==1}}' placeholder-class="placeholder" bindinput="inputHandle" value='{{item.value}}' data-index="{{index}}" placeholder="{{item.placeholder}}" type="{{item.type}}" />
+          <picker wx:if="{{item.ele=='picker' && item.type=='selector'}}" disabled='{{item.disabled==1}}' bindchange="formChange" data-index="{{index}}" mode="{{item.type}}" range='{{item.items}}' range-key='k'>
+            {{item.value_k ? item.value_k : item.placeholder}}
+          </picker>
+          <picker wx:if="{{item.ele=='picker' && item.type=='date'}}" disabled='{{item.disabled==1}}' bindchange="formChange" start='{{date_start}}' data-index="{{index}}" end='{{date_end}}' mode="{{item.type}}">
+            {{item.value ? item.value : item.placeholder}}
+          </picker>
+          <radio-group wx:if="{{(item.ele=='input') && (item.type=='radio')}}" bindchange="formChange" data-index="{{index}}">
+            <label wx:for="{{item.items}}" wx:for-index="i" wx:for-item="v" wx:key="{{i}}">
+              <radio disabled='{{item.disabled==1}}' color="black" value="{{v.v}}" checked="{{item.value==v.v}}" />
+              <text>{{v.k}}</text>
+            </label>
+          </radio-group>
+          <button wx:if="{{item.action == 'phonenumber'}}" class='btn-getPhoneNumber' open-type='getPhoneNumber' bindgetphonenumber='getPhoneNumberHandle'>
+            <text></text>
+            手机授权
+          </button>
+          <button wx:if="{{item.action == 'verify' && time_show == 0}}" bindtap='sendVerifyHandle' class='btn-code'>
+            <text></text>
+            获验证码
+          </button>
+          <button wx:if="{{item.action == 'verify' && time_show != 0}}" disabled class='btn-code'>
+            {{time_show<10?'0'+time_show:time_show}}s
+          </button>
+          <textarea wx:if="{{item.ele=='textarea'}}" disabled='{{item.disabled==1}}' bindinput="formChange" value='{{item.value}}' data-index="{{index}}" placeholder="{{item.placeholder}}"></textarea>
+        </view>
+        <view class='arrow-ahead' wx:if="{{item.ele == 'picker'}}"></view>
+      </view>
+    </view>
+    <view class='rule-area' wx:if='{{false}}' bindtap='ruleHandle'>
+      <checkbox color='#bc1c23' checked="{{checked}}" />
+      <view>
+        我接受
+        <text data-pathname='mc_statement' catchtap='jumpPage'>《用户协议》</text>
+        及其相关的条款，并承诺点击 “绑定” 按钮即表示我已阅读并接受用户协议
+      </view>
+    </view>
+    <view class='hint-area'>{{errorText}}</view>
+    <button class='btn-main' formType="submit" hover-class="tap" hover-stay-time="100">提交</button>
+  </form>
+</view>

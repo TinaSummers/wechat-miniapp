@@ -1,0 +1,76 @@
+{
+  "pages": [
+    "pages/findModule/pages/index/index",
+
+
+    "pages/memberModule/pages/index/index",
+    "pages/memberModule/pages/screen/screen",
+    "pages/memberModule/pages/info/info",
+    "pages/memberModule/pages/share-record/share-record",
+	  "pages/memberModule/pages/signin/signin",
+	  "pages/memberModule/pages/member-right/member-right",
+    "pages/memberModule/pages/rule/rule",
+    "pages/memberModule/pages/coupon/coupon",
+    "pages/memberModule/pages/coupon-select/coupon-select",
+    "pages/memberModule/pages/coupon-detail/coupon-detail",
+    "pages/memberModule/pages/wish/wish",
+    "pages/memberModule/pages/trace/trace",
+    "pages/memberModule/pages/webview/webview",
+    "pages/memberModule/pages/register/register"
+  ],
+  "subpackages": [
+    {
+      "root": "subpages",
+      "pages": [
+        "pointModule/pages/index/index",
+        "pointModule/pages/product-detail/product-detail",
+        "pointModule/pages/point/point",
+        "pointModule/pages/point-prize/point-prize",
+        "pointModule/pages/turntable/turntable",
+        "pointModule/pages/point-rule/point-rule"
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#db291e",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "小马扎",
+    "backgroundColor": "#D3D3D3",
+    "backgroundTextStyle": "light",
+    "navigationStyle": "custom"
+  },
+  "usingComponents": {
+    "comp-nav-dynamic": "/components/nav-dynamic/nav-dynamic",
+    "comp-image-pre": "/components/image-pre/image-pre",
+    "comp-banner-swiper": "/components/banner-swiper/banner-swiper",
+    "comp-ad": "/pages/memberModule/components/ad/ad",
+    "comp-register": "/pages/memberModule/components/register/register"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "tabBar": {
+    "color": "#545759",
+    "selectedColor": "#ef8c91",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/findModule/pages/index/index",
+        "text": "发现",
+        "iconPath": "/assets/images/icon_find_init.png",
+        "selectedIconPath": "/assets/images/icon_find_select.png"
+      },
+      {
+        "pagePath": "pages/memberModule/pages/index/index",
+        "text": "我的",
+        "iconPath": "/assets/images/icon_member_init.png",
+        "selectedIconPath": "/assets/images/icon_member_select.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

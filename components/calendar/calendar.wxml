@@ -1,0 +1,21 @@
+<view class='ant-calendar-wrapper'>
+  <view class='month-area'>{{month}}月</view>
+  <view class='week-area'>
+    <view wx:for='{{weekGroup}}' wx:key='{{index}}'>{{item}}</view>
+  </view>
+  <view class='swiper-wrapper'>
+    <view class='arrow arrow-ahead' bindtap='aheadHandle'><text class='{{canAhead?"":"disabled"}}'></text></view>
+    <view class='arrow arrow-previous' bindtap='previousHandle'><text class='{{canPrevious?"":"disabled"}}'></text></view>
+    <swiper indicator-dots="{{false}}" autoplay="{{false}}" interval="{{5000}}" duration="{{1000}}" current='{{swiperIndex}}' bindchange='swiperChange'>
+      <block wx:for="{{renderList}}" wx:key='{{index}}'>
+        <swiper-item>
+          <view wx:for="{{item}}" wx:for-item='v' wx:for-index='k' wx:key='{{k}}' data-index1='{{index}}' data-index2='{{k}}' bindtap='toggleDate'>
+            <view class='num {{v.group==currDate.group?"selected":""}}'>{{v.day}}</view>
+            <view class='dot' wx:if='{{v.hasDot==1}}'></view>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class='group-area'>{{currDate.group}}</view>
+</view>

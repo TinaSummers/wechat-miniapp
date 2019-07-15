@@ -1,0 +1,420 @@
+@import '../../assets/styles/common.less';
+.container{
+    background: #fff;
+    .header-wrapper{
+        width: 100%;
+        height: 865rpx;
+        position: relative;
+        overflow: hidden;
+        transition: height 0.35s ease-out;
+        &.no-member{
+            height: 684rpx;
+        }
+        &.scroll{
+            height: 530rpx;
+        }
+        image.bg{
+            width: 100%;
+            height: 865rpx;
+        }
+        .area{
+            position: absolute;
+            width: 100%;
+            height: 865rpx;
+            top: 50%;
+            transform: translateY(-50%);
+            .flex(column, center, center);
+            .avatar-area{
+                .flex(column, center, center);
+                opacity: 1;
+                transition: opacity 0.35s ease-out;
+                &.scroll{
+                    opacity: 0;
+                }
+            }
+            .avatar-box{
+                display: inline-block;
+                width: 140rpx;
+                height: 140rpx;
+                background: rgba(255, 255, 255, 0.5);
+                border: 10rpx solid transparent;
+                box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.1);
+                border-radius: 50%;
+            }
+            .nick-box{
+                .flex(row, center, center);
+                font-size: 36rpx;
+                color: #545759;
+                font-weight: bold;
+                margin-top: 16rpx;
+                image.edit{
+                    width: 24rpx;
+                    height: 23rpx;
+                    margin-left: 12rpx;
+                }
+            }
+            .point-box{
+                font-size: 28rpx;
+                color: #545759;
+                margin-top: 20rpx;
+            }
+            .card-box{
+                display: inline-block;
+                width: 711rpx;
+                height: 426rpx;
+                background: #fff;
+                border-radius: 15rpx;
+                margin-top: 28rpx;
+                box-shadow: 0 0 20rpx rgba(51, 51, 51, 0.2);
+                position: relative;
+                opacity: 1;
+                transition: width,margin-top,opacity 0.35s ease-out;
+                &.no-member{
+                    margin-top: 120rpx;
+                }
+                &.scroll{
+                    margin-top: 270rpx;
+                    width: 650rpx;
+                    opacity: .8;
+                }
+                .top-chunk{
+                    position: absolute;
+                    width: 100%;
+                    top: 46rpx;
+                    padding: 0 40rpx;
+                    .flex(row, space-between, top);
+                    .lf{
+                        image{
+                            width: 255rpx;
+                            height: 50rpx;
+                        }
+                        text{
+                            display: block;
+                            font-size: 36rpx;
+                            color: #656766;
+                            margin-top: 20rpx; 
+                        }
+                    }
+                    .rg{
+                        image{
+                            width: 57rpx;
+                            height: 42rpx;
+                        }
+                    }
+                }
+                .bottom-chunk{
+                    position: absolute;
+                    width: 100%;
+                    bottom: 59rpx;
+                    padding: 0 30rpx 0 40rpx;
+                    .flex(row, space-between, center);
+                    .code{
+                        font-size: 36rpx;
+                        color: #656766;
+                        
+                    }
+                    .btn-detail{
+                        display: inline-block;
+                        width: 202rpx;
+                        height: 60rpx;
+                        background: #f68b92;
+                        line-height: 60rpx;
+                        text-align: center;
+                        font-size: 29rpx;
+                        color: #fff;
+                        font-weight: bold;
+                        &.tap{
+                            background: #e86971;
+                        }
+                    }
+                }
+                .content-chunk{
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 38rpx;
+                    right: 38rpx;
+                    .flex(column, top, center);
+                    .logo{
+                        width: 360rpx;
+                        height: 69rpx;
+                        margin-top: 100rpx;
+                    }
+                    .line{
+                        width: 100%;
+                        height: 1rpx;
+                        background: #cdcdcd;
+                        margin-top: 86rpx;
+                    }
+                    .btn-receive{
+                        margin-top: 46rpx;
+                        width: 251rpx;
+                        height: 60rpx;
+                        line-height: 60rpx;
+                        text-align: center;
+                        font-size: 29rpx;
+                        color: #fff;
+                        font-weight: bold;
+                        background: #f68b92;
+                        &.tap{
+                            background: #e86971;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .model-wrapper{
+        width: 100%;
+        background: #fff;
+        border-top: 10rpx solid #f1f2ed;
+        &:first-child{
+            border-top: 0;
+        }
+        .title-area{
+            width: 100%;
+            height: 80rpx;
+            .flex(row, space-between, center);
+            .lf{
+                .flex(row, flex-start, center);
+                .icon{
+                    display: inline-block;
+                    width: 20rpx;
+                    height: 35rpx;
+                    border-right: 8rpx solid #fcc9c7;
+                    background: #f19499; 
+                }
+                text{
+                    font-size: 30rpx;
+                    color: #545759;
+                    margin-left: 20rpx;
+                }
+            }
+            .rg{
+                .flex(row, flex-end, center);
+                text{
+                    margin-right: 10rpx;
+                    font-size: 26rpx;
+                    color: #545759;
+                }
+                .arrow-right{
+                    width: 17rpx;
+                    height: 17rpx;
+                    border-right: 6rpx solid #cbcccd;
+                    border-bottom: 6rpx solid #cbcccd;
+                    transform: rotate(-45deg);
+                    margin-right: 40rpx;
+                }
+            }
+        }
+        .content-area{
+            width: 100%;
+            padding: 0 20rpx;
+            position: relative;
+            &::before{
+                content: '';
+                width: 710rpx;
+                height: 1rpx;
+                background: #e5e6e6;
+                position: absolute;
+                top: 0;
+                left: 20rpx;
+            }
+            .order-box{
+                width: 100%;
+                height: 170rpx;
+                .flex(row, center, center);
+                .chunk{
+                    flex: 1;
+                    position: relative;
+                    text-align: center;
+                    &.tap{
+                        background: #f6f6f6;
+                    }
+                    image{
+                        width: 70rpx;
+                        height: 50rpx;
+                        display: inline-block;
+                    }
+                    text{
+                        display: block;
+                        font-size: 26rpx;
+                        color: #545759;
+                        margin-top: 24rpx;
+                    }
+                    .icon{
+                        display: inline-block;
+                        width: 36rpx;
+                        height: 36rpx;
+                        border-radius: 50%;
+                        background: #f68b92;
+                        position: absolute;
+                        top: -15rpx;
+                        right: 36rpx;
+                        color: #fff;
+                        line-height: 36rpx;
+                        text-align: center;
+                        font-size: 20rpx;
+                        font-weight: bold;
+                    }
+                }
+            }
+            .member-wrapper{
+                width: 100%;
+                .area{
+                    width: 100%;
+                    .flex(row, center, center);
+                    border-top: 1rpx solid #e5e6e6;
+                    .chunk{
+                        flex: 1;
+                        height: 162rpx;
+                        border-right: 1rpx solid #e5e6e6;
+                        &.tap{
+                            background: #f6f6f6;
+                        }
+                        &:last-child{
+                            border-right: 0;
+                        }
+                        .flex(column, center, center);
+                        image{
+                            width: 60rpx;
+                            height: 60rpx;
+                        }
+                        text{
+                            font-size: 28rpx;
+                            color: #545759;
+                            margin-top: 18rpx;
+                        }
+                    }
+                }
+            }
+            .center-wrapper{
+                width: 100%;
+                .area{
+                    width: 100%;
+                    height: 89rpx;
+                    padding: 0 20rpx;
+                    border-bottom: 1rpx solid #e5e6e6;
+                    .flex(row, space-between, center);
+                    &.tap{
+                        background: #f6f6f6;
+                    }
+                    .chunk{
+                        .flex(row, flex-start, center);
+                        image{
+                            width: 54rpx;
+                            height: 50rpx;
+                        }
+                        text{
+                            font-size: 30rpx;
+                            color: #545759;
+                            margin-left: 14rpx;
+                        }
+                    }
+                    .sub-title{
+                        font-size: 26rpx;
+                        color: #999999;
+                    }
+                }
+            }
+        }
+    }
+    .bottom-banner-wrapper{
+        padding: 22rpx 0 30rpx 0;
+        image{
+            align-self: center;
+            width: 710rpx;
+            height: 300rpx;
+        }
+    }
+}
+
+.mask-wrapper .content-area{
+    transform: none;
+    width: 100%;
+    height: 350rpx;
+    bottom: -30rpx;
+    left: 0;
+    top: auto;
+    background: #fff;
+    padding: 0 10rpx;
+    opacity: 0;
+    &.barcode{
+        width: 640rpx;
+        height: 731rpx;
+        top: 50%;
+        left: 50%;
+        bottom: auto;
+        margin-top: -300rpx;
+        margin-left: -320rpx;
+        .flex(column, top, center);
+        .close-box{
+            position: absolute;
+            width: 56rpx;
+            height: 56rpx;
+            background: #f68b92;
+            right: 20rpx;
+            top: -56rpx;
+            .flex(row, center, center);
+            image{
+                width: 30rpx;
+                height: 30rpx;
+            }
+        }
+        .card-box{
+            margin-top: 60rpx;
+            width: 574rpx;
+            height: 345rpx;
+            position: relative; 
+            image{
+                width: 574rpx;
+                height: 345rpx;
+            }
+            .card-type{
+                font-size: 30rpx;
+                font-weight: bold;
+                color: #fff;
+                position: absolute;
+                top: 38rpx;
+                left: 40rpx;
+            }
+            .card-num{
+                font-size: 28rpx;
+                color: #fff;
+                position: absolute;
+                bottom: 48rpx;
+                left: 40rpx;
+            }
+        }
+        .barcode{
+            width: 501rpx;
+            height: 82rpx;
+            margin-top: 22rpx;
+        }
+        .code{
+            font-size: 26rpx;
+            color: #000;
+            margin-top: 42rpx;
+        }
+        .notice{
+            font-size: 26rpx;
+            color: #666666;
+            margin-top: 45rpx;
+        }
+    }
+    .box{
+        width: 100%;
+        height: 88rpx;
+        border-bottom: 1rpx solid #cacaca;
+        line-height: 88rpx;
+        text-align: center;
+        font-size: 35rpx;
+        color: #535758;
+        &.cancel{
+            color: #ea9197;
+        }
+        &.tap{
+            background: #f6f6f6;
+        }
+    }
+}

@@ -1,0 +1,189 @@
+@import '../../assets/styles/common.less';
+
+.container {
+  background-size: 100%;
+
+  .header-wrapper {
+    .flex(column, flex-start, center);
+    padding-top: 20rpx;
+
+    .title {
+      width: 496rpx;
+      height: 124rpx;
+      padding-bottom: 10rpx 0;
+    }
+
+    .subtitle {
+      width: 603rpx;
+      height: 50rpx;
+    }
+  }
+
+  .board-wrapper {
+    .flex(column, flex-start, center);
+    .font(30rpx);
+    position: relative;
+    z-index: 10;
+    padding-top: 36rpx;
+    margin-top: 30rpx;
+    background-size: 100%;
+    width: 505rpx;
+    height: 350rpx;
+
+    .point {
+      .font(40rpx, @color-main);
+      font-weight: bold;
+      padding: 14rpx 0;
+    }
+  }
+
+  .turntable-wrapper {
+    position: relative;
+    width: 100vw;
+    height: 620rpx;
+    z-index: 20;
+    display: flex;
+
+    .turntable-bg {
+      position: absolute;
+      top: -165rpx;
+      width: 750rpx;
+      height: 870rpx;
+    }
+
+    @turntableSize: 616rpx;
+    /*------ 转盘 -------*/
+    .turntable-area {
+      position: relative;
+      width:  @turntableSize;
+      height: @turntableSize;
+      transform: translateX(-50%);
+      top: -37rpx;
+      left: 50%;
+      z-index: 25;
+
+      .turntable-custom {
+        border: 4rpx solid #bdbebe;
+        font-size: 24rpx;
+      }
+
+       @dottedSize: @turntableSize - 20;
+      .dotted-circle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 50;
+        transform: translate(-50%, -50%);
+        width: @dottedSize;
+        height: @dottedSize;
+        border: 10rpx dotted #f8c9c7;
+        border-radius: 50%;
+      }
+      .pointer {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -120rpx);
+        z-index: 60;
+        
+        button {
+          background: transparent;
+        }
+  
+        .turntable-pointer {
+          width: 175rpx;
+          height: 215rpx;
+        }
+      }
+    }
+    /*-----------------*/
+  }
+
+  &.sm {
+    
+    .board-wrapper {
+      .font(26rpx);
+      width: 433rpx;
+      height: 300rpx;
+      padding-top: 27rpx;
+      margin-top: 20rpx;
+      .point {
+        font-size: 38rpx;
+      }
+    }
+
+    .turntable-wrapper {
+      height: 500rpx;
+
+      .turntable-bg {
+        position: absolute;
+        top: -155rpx;
+        width: 750rpx;
+        height: 765rpx;
+      }
+
+      @turntableSize: 520rpx;
+      .turntable-area {
+        width:  @turntableSize;
+        height: @turntableSize;
+        top: -32rpx;
+  
+        .border-gray {
+          border-width: 4rpx;
+        }
+
+        @dottedSize: @turntableSize - 20;
+        .dotted-circle {
+          width: @dottedSize;
+          height: @dottedSize;
+          border-width: 8rpx;
+        }
+
+        .pointer {
+          transform: translate(-50%, -105rpx);
+          .turntable-pointer {
+            width: 150rpx;
+            height: 185rpx;
+          }
+        }
+  
+      }
+    }
+  }
+
+  .footer-wrapper {
+    .flex(row, center, center);
+    width: 100vw;
+    padding: 35rpx 120rpx;
+    position: relative;
+    z-index: 30;
+
+    button:first-child {
+      margin-right: 60rpx;
+    }
+  }
+
+}
+
+.rule-modal {
+  padding: 40rpx 0 60rpx 0;
+
+  .title {
+    .font(32rpx, #000);
+    padding-bottom: 20rpx;
+    border-bottom: 2rpx solid #d7d7d7;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .content {
+    .font(24rpx, lighten(#000, 60%));
+    padding: 25rpx;
+    line-height: 40rpx;
+
+    view:first-child {
+      padding-bottom: 20rpx;
+    }
+  }
+}
+

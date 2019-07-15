@@ -1,0 +1,63 @@
+<comp-nav-dynamic id='comp-nav-dynamic'></comp-nav-dynamic>
+<chooseProductType bindclosed="closed" bindconfirmChoose="confirmChoose" systemSku="{{choosedSystemSku}}" productId="{{choosedProductedId}}" choosedIndex="{{choosedIndex}}" product_num="{{choosedProductNum}}" cartId="{{cartId}}" hidden="{{!show_jiarugouwuche}}" tableData="{{tableData}}" show_jiarugouwuche="{{show_jiarugouwuche}}" showList="{{showList}}"></chooseProductType>
+<view class='container'>
+  <scroll-view wx:if='{{!zeroShow}}' scroll-y='{{true}}' bindscrolltolower='downPullHandle' style="padding-top: {{navHeight}}px;">
+    <view class='list-wrapper'>
+      <view class='block-wrapper' wx:for='{{renderList}}' wx:key='{{index}}'>
+        <view class='select-box' wx:if='{{isEdit}}' data-index='{{index}}' bindtap='toggleSelect'>
+          <image mode='widthFix' wx:if='{{!item.isSelect}}' src='{{imgModel.icon_unselect_c}}' />
+          <image mode='widthFix' wx:if='{{item.isSelect}}' src='{{imgModel.icon_select_c}}' />
+        </view>
+        <view class='cover' data-index="{{index}}" bindtap='jumpGoodDetail'>
+          <image mode='widthFix' src='{{item.cover_pic}}' />
+        </view>
+        <view class="content-wrapper">
+          <view class='title-status-price {{isEdit?"edit":""}}' data-index="{{index}}" bindtap='jumpGoodDetail'>
+            <view class='title-status hidden-e-r2'>
+              <text class='title'>{{item.product_name}}</text>
+              <!-- <text wx:if='{{item.shop_is_delete==1}}' class='hint none'>商品已删除</text>
+              <text wx:if='{{item.shop_is_delete==0 && item.shop_is_sale!=2}}' class='hint none'>商品已下架</text>
+              <text wx:if='{{item.shop_is_delete==0 && item.shop_is_sale==2 && item.is_warning==0}}' class='hint'></text>
+              <text wx:if='{{item.shop_is_delete==0 && item.shop_is_sale==2 && item.is_warning==1 && item.wx_stock>0}}' class='hint less'>库存紧张</text>
+              <text wx:if='{{item.shop_is_delete==0 && item.shop_is_sale==2 && item.is_warning==1 && item.wx_stock==0}}' class='hint none'>无库存</text> -->
+            </view>
+            <view class='price-icon'>
+              <text class='price'><text>¥</text>{{item.wx_min_price}}</text>
+              <!-- <image mode='widthFix' class='icon_cart' data-index="{{index}}" catchtap='addCart' src='{{imgModel.icon_cart}}' /> -->
+            </view>
+          </view>
+          <view class="car-box" data-index="{{index}}" catchtap='addCart'>
+            <text wx:if='{{item.shop_is_delete==1}}'>已删除</text>
+            <text wx:if='{{item.shop_is_delete==0 && item.shop_is_sale!=2}}'>已下架</text>
+            <text wx:if='{{item.shop_is_delete==0 && item.shop_is_sale==2 && item.is_warning==0}}'></text>
+            <text wx:if='{{item.shop_is_delete==0 && item.shop_is_sale==2 && item.is_warning==1 && item.wx_stock>0}}' class="notice">库存紧张</text>
+            <text wx:if='{{item.shop_is_delete==0 && item.shop_is_sale==2 && item.is_warning==1 && item.wx_stock==0}}'>无库存</text>
+            <image mode="widthFix" src='{{imgModel.icon_cart}}' />
+          </view>
+        </view>
+          
+      </view>
+    </view>
+  </scroll-view>
+  <view class='btn-edit' data-status='0' bindtap='toggleEdit' wx:if='{{!zeroShow && !isEdit}}'>
+    编辑
+  </view>
+  <view class='edit-wrapper' wx:if='{{!zeroShow && isEdit}}'>
+    <view class='all-box' bindtap='allHandle'>
+      <image wx:if='{{!isAll}}' mode='widthFix' src='{{imgModel.icon_unselect_c}}' />
+      <image wx:if='{{isAll}}' mode='widthFix' src='{{imgModel.icon_select_c}}' />
+      {{isAll?"不全选":"全选"}}
+    </view>
+    <view class='btn-remove' bindtap='removeHandle'>移出收藏</view>
+    <view data-status='1' bindtap='toggleEdit' class='btn-cancel'>取消</view>
+  </view>
+  <view class='loading-wrapper' wx:if='{{loadingShow}}'>
+    <text wx:if='{{params.page < params.totalPage}}'>正在加载中……</text>
+    <text wx:if='{{params.page == params.totalPage}}'>已全部加载</text>
+  </view>
+  <view class='zero-wrapper' wx:if='{{zeroShow}}'>
+    <image mode='widthFix' src='{{imgModel.icon_no}}' />
+    <text>暂无数据</text>
+  </view>
+  <comp-ad position='9' class='comp-ad-wrapper' wx:if='{{zeroShow}}'></comp-ad>
+</view>

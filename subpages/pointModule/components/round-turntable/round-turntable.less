@@ -1,0 +1,112 @@
+@maxNum: 12;
+@minNum: 3;
+
+.round-turntable {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  border-radius: 50%;
+  overflow: hidden;
+ 
+  .prize-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: 'all' 5s;
+
+    .prize-box {
+      position: absolute;
+      right: 50%;
+      bottom: 50%;
+      transform-origin: right bottom 0;
+
+      .prize-chunk {
+        text-align: center;
+        overflow: hidden;
+        transform-origin: right bottom 0;
+        position: absolute;
+    
+        .prize-content {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          text-align: center;
+          font-size: 1em;
+          transform-origin: right bottom 0;
+          padding: 0 50rpx;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+
+          .subtitle {
+            padding-top: 10rpx;
+          }
+
+          image.prize-image {
+            display: inline-block;
+            margin-top: 20rpx;
+            width: 25%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.loop(@num) when (@num <= @maxNum) {
+  @rotateDeg: 360deg / @num;
+  @skewYDeg: 90deg - @rotateDeg;
+
+  @prizeBoxSize: 70%;
+  /* 圆盘直径的50% */
+  @dSize: (100% / @prizeBoxSize); // 等于圆盘直径
+  @contentBoxSize: @dSize * 50%;
+  @contentBoxPadding: @dSize * 5%;
+  @paddingTimes: 5;
+
+  .round-turntable {
+
+    .prize-@{num}.prize-container {
+      // transform: rotate(@rotateDeg/2);
+
+      .prize-box {
+        width: @prizeBoxSize;
+        height: @prizeBoxSize;
+        
+        .rotate(@index: 1) when (@index <= @num) {
+          &:nth-child(@{index}) {
+            transform: rotate((@index - 1)*@rotateDeg);
+          }
+          .rotate(@index + 1)
+        }
+
+        .rotate();
+
+        /* 倾斜形成扇形 */
+        .prize-chunk {
+          width: 100%;
+          height: 100%;
+          transform: skewY(@skewYDeg);
+
+          .prize-content {
+            width: @contentBoxSize;
+            height: @contentBoxSize;
+            transform: skewY(-@skewYDeg) rotate(-@rotateDeg/2) translateX(50%);
+            padding-top: @contentBoxPadding;
+            padding-bottom: @paddingTimes * @contentBoxPadding;
+          }
+        }
+      }
+    }
+  }
+
+  .loop(@num + 1);
+}
+
+.loop(@minNum);

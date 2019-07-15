@@ -1,0 +1,16 @@
+<!--pages/memberModule/pages/register/register.wxml-->
+<!--pages/memberModule/pages/screen/screen.wxml-->
+<comp-nav-dynamic id='comp-nav-dynamic'></comp-nav-dynamic>
+<comp-register id='comp-register'></comp-register>
+<view class="container">
+    <comp-image-pre mode="widthFix" src="{{isBigScreen?imgModel.register_banner_bg:imgModel.register_banner}}" height='{{isBigScreen?1000:800}}'></comp-image-pre>
+    <view class="content-wrapper">
+        <image class='logo' mode='widthFix' src='{{imgModel.footer_logo}}' style="width: 416rpx;height: 74rpx;"/>
+        <view class="line" style="width: 406rpx;margin-top: 35rpx;"></view>
+        <!-- <view class="title">欢迎来到卓诗尼</view> -->
+        <view class="sub-title" style="margin-top: 54rpx;">加入卓诗尼会员，享受更多福利，快来体验吧</view>
+        <!-- <button class="btn-auth" hover-class="tap" hover-stay-time="100" wx:if='{{btnShow && !userModel.isAuthUnionid}}' bindgetuserinfo="getUserInfo" open-type="getUserInfo">微信授权</button> -->
+        <button class="btn-auth" hover-class="tap" hover-stay-time="100" style="widht: 364rpx;height: 80rpx;" wx:if='{{userModel.isBind}}' bindtap="jumpPage">前往商城首页</button>
+        <button class="btn-auth" hover-class="tap" hover-stay-time="100" style="widht: 364rpx;height: 80rpx;" wx:else bindtap="judgeRegisterStatus">立即加入</button>
+    </view>
+</view>

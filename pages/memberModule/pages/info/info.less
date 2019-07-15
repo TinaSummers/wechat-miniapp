@@ -1,0 +1,102 @@
+@import '../../assets/styles/common.less';
+
+.container {
+  background: #fff;
+
+  .banner-wrapper {
+    width: 100%;
+    position: relative;
+
+    .banner {
+      width: 100%;
+      height: 543rpx;
+    }
+    .avatar-area{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      margin-top: 50rpx;
+      .userAvatarUrl {
+        width: 160rpx;
+        height: 160rpx;
+        background: rgba(255, 255, 255, 0.5);
+        border: 10rpx solid transparent;
+        box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.1);
+        .flex(row, center, center);
+      }
+      text{
+        display: block;
+        font-size: 28rpx;
+        color: #525355;
+        margin-top: 34rpx;
+      }
+    }
+    
+  }
+
+  .label-wrapper {
+    width: 100%;
+    padding: 0 40rpx;
+    letter-spacing: 0;
+    .flex(row, flex-start, center);
+    height: 100rpx;
+
+    image {
+      width: 31rpx;
+      height: 32rpx;
+    }
+
+    .label {
+      font-size: 34rpx;
+      color: #505455;
+      margin: 0 10rpx 0 16rpx;
+    }
+
+    .desc {
+      font-size: 26rpx;
+      color: #979797; 
+    }
+  }
+
+  .form-wrapper {
+
+    .profile-area {
+      border-top: 1rpx solid #ddd;
+      border-bottom: 1rpx solid #ddd;
+      padding: 0 0 0 20rpx;
+      >view {
+        padding: 0 66rpx 0 20rpx;
+        .element-box{
+          min-height:100rpx;
+        }
+        .name-box{
+          .mark{
+            &.disabled{
+              color: #999;
+            }
+          }
+        }
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+
+    .btn-main {
+      width: 520rpx;
+      height: 80rpx;
+      background: #eb9296;
+      font-size: 35rpx;
+      &.tap{
+        background: #d36267;
+      }
+    }
+    .arrow-ahead{
+      margin-right: -23rpx;
+      border:5rpx solid #cfcfcf;
+      border-bottom:none;
+      border-left:none;
+    }
+  }
+}

@@ -1,0 +1,170 @@
+@import '../../assets/wxss/common.less';
+.container {
+  scroll-view {
+    bottom: 88rpx;
+    background: #fff;
+    .list-wrapper {
+      padding: 0 40rpx;
+      background: #fff;
+      .block-wrapper {
+        .flex(row, flex-start, center);
+        border-bottom: 1rpx solid #e4e4e4;
+        padding: 30rpx 0;
+        .select-box {
+          width: 60rpx;
+          height: 120rpx;
+          .flex(row, center, center);
+          image { 
+            width: 26rpx;
+            height: 26rpx;
+          }
+        }  
+        .cover {
+          width: 120rpx;
+          height: 120rpx;
+          border: 1rpx solid @color-border;
+          overflow: hidden;
+          position: relative;
+          image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+          }
+        }
+        .content-wrapper{
+          .flex(row, flex-start, center);
+          .title-status-price {
+            // width: 570rpx;
+            width: 414rpx;
+            padding: 0 20rpx;
+            height: 120rpx;
+            &.edit {
+              // width: 510rpx;
+              width: 354rpx;
+            }
+            .flex(column, space-between, flex-start);
+            .title-status {
+              .title {
+                font-size: 28rpx;
+                line-height: 30rpx;
+              }
+              // .hint {
+              //   margin-left: 10rpx;
+              //   font-size: 24rpx;
+              //   &.less {
+              //     color: @color-danger;
+              //   }
+              //   &.none {
+              //     color: #989898;
+              //   }
+              // }
+            }
+            .price-icon {
+              .flex(row, flex-start, center);
+              .price {
+                font-size: 36rpx;
+                font-weight: bold;
+                color: #ef8c91;
+                flex: 1;
+                text{
+                  font-size: 28rpx;
+                  font-weight: normal;
+                  margin-right: 12rpx;
+                }
+              }
+              // .icon_cart {
+              //   width: 38rpx;
+              //   height: 42rpx;
+              //   margin: 0 20rpx;
+              // }
+            }
+          }
+          .car-box{
+            width: 136rpx;
+            height: 120rpx;
+            border-left: 1rpx solid #e4e4e4;
+            padding-left: 30rpx;
+            .flex(column, space-between, center);
+            text{
+              font-size: 26rpx;
+              margin-top: 20rpx;
+              &.notice{
+                color: #ef8c91;
+              }
+            }
+            image{
+              width: 41rpx;
+              height: 42rpx;
+            }
+          }
+        }
+        
+      }
+    }
+  }
+  .btn-edit {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 88rpx;
+    background: #f1979c;
+    color: #fff;
+    text-align: center;
+    line-height: 88rpx;
+  }
+  .edit-wrapper { 
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 88rpx;
+    .flex(row, flex-start, center);
+    >view {
+      height: 100%;
+      .flex(row, center, center);
+      &.all-box {
+        background: #f7f7f7;
+        width: 180rpx;
+        image {
+          width: 26rpx;
+          height: 26rpx;
+          margin-right: 10rpx;
+        }
+      }
+      &.btn-remove {
+        background: #333333;
+        color: #fff;
+        flex: 1;
+      }
+      &.btn-cancel {
+        background: #f1979c;
+        color: #fff;
+        flex: 1;
+      }
+    }
+  }
+  .loading-wrapper {
+    bottom: 88rpx;
+  }
+  .zero-wrapper {
+    .flex(column, flex-start, center);
+    padding-top: 170rpx;
+    image {
+      width: 330rpx;
+      height: 330rpx;
+    }
+    text {
+      font-size: 30rpx;
+      margin-top: 30rpx;
+      color: #55585a;
+    }
+  }
+  .comp-ad-wrapper {
+    position: fixed;
+    bottom: 0;
+  }
+}

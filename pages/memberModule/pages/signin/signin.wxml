@@ -1,0 +1,43 @@
+<!--pages/memberModule/pages/signin/signin.wxml-->
+<comp-nav-dynamic id='comp-nav-dynamic'></comp-nav-dynamic>
+<view class="container" wx:if='{{isPageShow}}'>
+    <comp-image-pre class="banner" mode="widthFix" src="{{imgModel.signin_banner}}" height='552'></comp-image-pre>
+    <view class="signin-wrapper">
+        <view class="title">连续签到天数越多，奖励越丰富</view>
+        <view class="days-area">
+            <view class="box" wx:for='{{ruleList}}' wx:key='{{index}}'>
+                <view wx:for='{{item}}' wx:for-index="idx" wx:for-item="subItem" wx:key="{{idx}}" class="chunk {{subItem.signed ? 'sel':''}}" style="opacity: {{subItem.isShow ? 1:0}};">
+                    <image wx:if='{{subItem.signed}}' class="icon-sel" mode="widthFix" src="{{imgModel.icon_signin_sel}}" />
+                    <view wx:if='{{subItem.award_type == 1}}' class="ico-box">
+                        <image class="badge" mode="widthFix" src="{{subItem.signed ? imgModel.icon_badge:imgModel.icon_badge_un}}" />
+                        <text>{{subItem.integral}}</text>
+                    </view>
+                    <view wx:elif='{{subItem.award_type == 2}}' class="ico-box">
+                        <image class="coupon" mode="widthFix" src="{{subItem.signed ? imgModel.icon_coupon:imgModel.icon_coupon_un}}" />
+                    </view>
+                    <text class="txt">第{{index*4 + idx + 1}}天</text>
+                </view>
+            </view>
+        </view>
+        <view class="footer-area">
+            <view class="box">
+                已连续签到：<text>{{signDays}}</text>天
+            </view>
+            <view class="btn" hover-class="tap" hover-stay-time="100" bindtap='onSign'>签到</view>
+        </view>
+    </view>
+    <view class="title-wrapper">
+        <image mode='widthFix' src="{{imgModel.icon_signin}}" />
+        <text>专属推荐</text>
+    </view>
+    <scroll-view class="good-wrapper" scroll-x="{{true}}" scroll-with-animation="{{true}}">
+        <view class="good-container">
+            <view class="good-area" wx:for='{{recommendList}}' wx:key='{{index}}' data-product-id='{{item.product_id}}' bindtap='linkProductDetail'>
+                <view class="icon-box">
+                    <comp-image-pre mode='widthFix' src="{{item.cover_pic}}" width='255' height='255'></comp-image-pre>
+                </view>
+                <view class="title">{{item.product_name}}</view>
+            </view>
+        </view>
+    </scroll-view>
+</view>

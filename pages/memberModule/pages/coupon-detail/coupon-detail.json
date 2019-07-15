@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "comp-coupon": "/pages/memberModule/components/coupon-other/coupon"
+  }
+}

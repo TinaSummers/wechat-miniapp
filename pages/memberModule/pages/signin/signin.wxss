@@ -1,0 +1,481 @@
+/**
+* 样式命名规范：
+* 容器层级 container > wrapper > area > box > chunk
+*/
+page {
+  width: 100%;
+  height: 100%;
+  line-height: normal;
+  background: #f1f2ec;
+  letter-spacing: 2rpx;
+}
+view,
+text,
+swiper,
+swiper-item,
+input,
+picker,
+textarea,
+scroll-view,
+rich-text,
+image,
+form {
+  box-sizing: border-box;
+  word-break: break-all;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.scroll-view-container {
+  width: 100%;
+  flex: 1;
+  position: relative;
+}
+scroll-view {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 40rpx;
+  bottom: 40rpx;
+}
+image {
+  display: block;
+}
+.container {
+  width: 100%;
+  min-height: 100%;
+  font-size: 28rpx;
+  color: #1c1d22;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+radio,
+checkbox {
+  transform: scale(0.6);
+}
+.userAvatarUrl {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  display: block;
+}
+.arrow-ahead {
+  /*向前箭头*/
+  width: 16rpx;
+  height: 16rpx;
+  border: 2rpx solid #454545;
+  border-bottom: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+.arrow-push {
+  /*下推箭头*/
+  width: 16rpx;
+  height: 16rpx;
+  border: 2rpx solid #454545;
+  border-bottom: none;
+  border-left: none;
+  transform: rotate(135deg);
+}
+.arrow-push-solid {
+  /*下推实心箭头*/
+  width: 0;
+  height: 0;
+  border-width: 20rpx 12rpx 0 12rpx;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
+.hidden-e {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.hidden-e-r2 {
+  /*设置多行文本超出隐藏*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.placeholder {
+  color: #999;
+}
+.blank {
+  /*占位行*/
+  flex: 1;
+}
+button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+}
+button::after {
+  border-radius: 0;
+  border: none;
+}
+button.btn-main {
+  width: 500rpx;
+  height: 80rpx;
+  background: #c9192e;
+  color: #fff;
+  border-radius: 6rpx;
+  font-size: 32rpx;
+}
+.loading-wrapper {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #fff;
+  z-index: 99;
+  color: #999;
+}
+.loading-wrapper text {
+  display: block;
+  text-align: center;
+}
+.zero-wrapper {
+  width: 100%;
+  padding: 40rpx 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.form-wrapper {
+  width: 100%;
+}
+.form-wrapper .profile-area {
+  background: #fff;
+  padding: 0 40rpx;
+}
+.form-wrapper .profile-area > view {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1rpx solid #c8caca;
+  position: relative;
+}
+.form-wrapper .profile-area > view.disabled .name-box,
+.form-wrapper .profile-area > view.disabled .element-box {
+  color: #ccc;
+}
+.form-wrapper .profile-area > view.unvalue .element-box {
+  color: #999;
+}
+.form-wrapper .profile-area > view .name-box {
+  min-width: 160rpx;
+  color: #666666;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.form-wrapper .profile-area > view .name-box .star {
+  font-size: 32rpx;
+  color: #c61c32;
+}
+.form-wrapper .profile-area > view .element-box {
+  position: relative;
+  flex: 1;
+  padding-left: 8rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  min-height: 90rpx;
+  color: #333333;
+  font-size: 24rpx;
+}
+.form-wrapper .profile-area > view .element-box input,
+.form-wrapper .profile-area > view .element-box picker,
+.form-wrapper .profile-area > view .element-box text {
+  flex: 1;
+  min-height: 90rpx;
+  line-height: 90rpx;
+  text-align: right;
+}
+.form-wrapper .profile-area > view .element-box textarea {
+  width: 100%;
+  height: 120rpx;
+  padding: 10rpx;
+  margin: 12rpx 0;
+  border: 1rpx solid #c8caca;
+}
+.form-wrapper .profile-area > view .element-box label {
+  margin-right: 12rpx;
+}
+.form-wrapper .profile-area > view .element-box .btn-getPhoneNumber,
+.form-wrapper .profile-area > view .element-box .btn-code {
+  position: relative;
+  width: 150rpx;
+  height: 100%;
+  background: transparent;
+  border: none;
+  font-size: 24rpx;
+  font-weight: 500;
+  color: #5a9cc3;
+}
+.form-wrapper .profile-area > view .element-box .btn-getPhoneNumber::after,
+.form-wrapper .profile-area > view .element-box .btn-code::after {
+  border: none;
+}
+.form-wrapper .profile-area > view .element-box .btn-getPhoneNumber text,
+.form-wrapper .profile-area > view .element-box .btn-code text {
+  position: absolute;
+  left: 6rpx;
+  top: 50%;
+  width: 2rpx;
+  height: 50%;
+  transform: translateY(-50%);
+  background: #c8caca;
+  min-height: auto;
+}
+.form-wrapper .profile-area > view .arrow-ahead {
+  margin-left: 10rpx;
+}
+.form-wrapper .rule-area {
+  padding: 20rpx;
+  color: #999;
+  font-size: 22rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.form-wrapper .rule-area checkbox {
+  transform: scale(0.5);
+}
+.form-wrapper .rule-area view {
+  flex: 1;
+}
+.form-wrapper .rule-area view text {
+  text-decoration: underline;
+  color: #5a9cc3;
+}
+.form-wrapper .hint-area {
+  color: #c61c32;
+  text-align: center;
+  margin: 30rpx 0;
+  font-size: 28rpx;
+  min-height: 44rpx;
+  font-weight: 600;
+}
+.form-wrapper .btn-main {
+  margin: auto;
+}
+.mask-wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+}
+.mask-wrapper .mask-area {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+.mask-wrapper .content-area {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.mask-wrapper .content-area .icon-close {
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+.container {
+  background: #fff;
+}
+.container .signin-wrapper {
+  display: inline-block;
+  width: 670rpx;
+  height: 480rpx;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 30rpx rgba(0, 0, 0, 0.2);
+  border-radius: 15rpx;
+  align-self: center;
+  margin-top: -47rpx;
+  padding: 26rpx 39rpx;
+  position: relative;
+  z-index: 10;
+}
+.container .signin-wrapper .title {
+  font-size: 30rpx;
+  color: #545759;
+  text-align: center;
+}
+.container .signin-wrapper .days-area {
+  padding: 10rpx 11rpx 30rpx;
+  border-bottom: 1rpx solid #e5d9c8;
+}
+.container .signin-wrapper .days-area .box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20rpx;
+}
+.container .signin-wrapper .days-area .box .chunk {
+  width: 120rpx;
+  height: 120rpx;
+  background: #f3f1f1;
+  border-radius: 10rpx;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container .signin-wrapper .days-area .box .chunk .icon-sel {
+  width: 34rpx;
+  height: 33rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.container .signin-wrapper .days-area .box .chunk .ico-box {
+  width: 50rpx;
+  height: 62rpx;
+  position: relative;
+}
+.container .signin-wrapper .days-area .box .chunk .ico-box image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.container .signin-wrapper .days-area .box .chunk .ico-box image.badge {
+  width: 45rpx;
+  height: 62rpx;
+}
+.container .signin-wrapper .days-area .box .chunk .ico-box image.coupon {
+  width: 50rpx;
+  height: 37rpx;
+}
+.container .signin-wrapper .days-area .box .chunk .ico-box text {
+  font-size: 20rpx;
+  color: #b0afaf;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 12rpx;
+  display: inline-block;
+  width: 30rpx;
+  text-align: center;
+  letter-spacing: 0rpx;
+}
+.container .signin-wrapper .days-area .box .chunk .txt {
+  display: block;
+  color: #999999;
+  font-size: 20rpx;
+  margin-top: 6rpx;
+}
+.container .signin-wrapper .days-area .box .chunk.sel {
+  background: #fff;
+  border: 1px solid #f09196;
+}
+.container .signin-wrapper .days-area .box .chunk.sel .ico-box text {
+  color: #f09196;
+}
+.container .signin-wrapper .days-area .box .chunk.sel .txt {
+  color: #f09196;
+}
+.container .signin-wrapper .footer-area {
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .signin-wrapper .footer-area .box {
+  margin-left: 11rpx;
+  font-size: 24rpx;
+  color: #545759;
+}
+.container .signin-wrapper .footer-area .box text {
+  font-size: 30rpx;
+  color: #f09196;
+  font-weight: bold;
+  margin: 0 8rpx;
+}
+.container .signin-wrapper .footer-area .btn {
+  width: 140rpx;
+  height: 50rpx;
+  border: 1px solid #f58b92;
+  line-height: 50rpx;
+  text-align: center;
+  color: #f58b92;
+  font-size: 26rpx;
+}
+.container .signin-wrapper .footer-area .btn.tap {
+  background: rgba(254, 146, 159, 0.2);
+}
+.container .title-wrapper {
+  width: 100%;
+  padding: 65rpx 0 48rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.container .title-wrapper image {
+  width: 24rpx;
+  height: 27rpx;
+}
+.container .title-wrapper text {
+  font-size: 30rpx;
+  color: #545759;
+  margin-left: 10rpx;
+  font-weight: bold;
+}
+.container .good-wrapper {
+  position: initial;
+  padding-bottom: 40rpx;
+}
+.container .good-wrapper .good-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 40rpx;
+}
+.container .good-wrapper .good-container .good-area {
+  display: inline-block;
+  padding-right: 35rpx;
+}
+.container .good-wrapper .good-container .good-area .icon-box {
+  width: 255rpx;
+  height: 255rpx;
+  border: 1rpx solid #cdcdcd;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.container .good-wrapper .good-container .good-area .title {
+  margin-top: 22rpx;
+  font-size: 24rpx;
+  color: #545759;
+}

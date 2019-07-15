@@ -1,0 +1,64 @@
+@import '../../assets/styles/common.less';
+
+.container {
+  background-size: 100%;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  padding-bottom: 6vh;
+  height: 100vh;
+
+  .list-wrapper {
+    margin-top: 3vh;
+    background: #fff;
+    height: 100%;
+    width: 100%;
+    padding: 0 30rpx;
+    overflow: hidden;
+    .flex(column, flex-start, center);
+
+    .scroll-view-container {
+      .list-item-area {
+        .font(36rpx);
+        border-bottom: 2rpx solid #bdbdbd;
+        padding: 30rpx 20rpx;
+
+        &:first-child {
+          padding-top: 0;
+        }
+  
+        .dec-box {
+          .flex(row, flex-start, center);
+          padding-bottom: 20rpx;
+
+          .icon-chunk {
+            width: 60rpx;
+            height: 40rpx;
+
+            image { height: 40rpx; }
+
+            .icon-coupon { width: 50rpx; }
+            .icon-point { width: 40rpx; }
+            .icon-turntable { width: 40rpx; }            
+          }
+        }
+  
+        .date-box {
+          .font(30rpx);
+          color: #876f6f;
+        }
+      }
+    }
+
+    .no-data {
+      .flex(column, center, center);
+      padding-top: 20vh;
+
+      .no-prize {
+        width: 210rpx;
+        height: 220rpx;
+        margin-bottom: 30rpx;
+      }
+    }
+
+  }
+}

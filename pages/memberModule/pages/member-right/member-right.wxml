@@ -1,0 +1,7 @@
+<!--pages/memberModule/pages/member-right/member-right.wxml-->
+<comp-nav-dynamic id='comp-nav-dynamic'></comp-nav-dynamic>
+<view class="container">
+    <block wx:for='{{list}}' wx:key='{{index}}'>
+        <comp-image-pre mode='widthFix' src='{{item}}'></comp-image-pre>
+    </block>
+</view>

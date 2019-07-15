@@ -1,0 +1,33 @@
+<view class='ant-comp-common ant-register-wrapper' wx:if='{{compShow}}'>
+  <view class='mask-area'></view>
+  <view class='content-area'>
+    <image class='logo' mode='widthFix' src='{{imgModel.icon_card_logo}}' /> 
+    <view class='hint-box'>
+      <view class='hint'>加入会员立即获得200积分</view>
+      <view class='hint'>并可享受更多会员权益</view>
+      <!-- <view class='point-chunk'><text class='point'>100</text>积分</view> -->
+    </view>
+    <view class='rule-box' catchtap='ruleHandle'>
+      <image class='icon-select' src='{{checked?"selected.png":"unselect.png"}}' mode='widthFix'/>
+      <view class='rule-chunk'>
+        我接受
+        <text class='rule' catchtap='jumpRule'>《用户协议》</text>
+        及其相关的条款并承诺点击"立即加入"按钮表示我已阅读并接受。
+      </view>
+    </view>
+    <view class='btns-box'>
+      <form report-submit='true' bindsubmit="submitHandle">
+        <button class='btn-main btn-success' wx:if='{{checked}}' formType="submit" open-type='getPhoneNumber' bindgetphonenumber='getphonenumberHandle'>
+          立即加入
+        </button>
+        <button class='btn-main btn-success btn-disabled' wx:if='{{!checked}}' catchtap='hintHandle'>
+          立即加入
+        </button>
+        <!-- <view class='btn-cancel' catchtap='cancelHandle'>暂不加入</view> -->
+      </form>
+    </view>
+    <view class="close-box" wx:if='{{closeBtnShow==1}}' catchtap='closeHandle'>
+      <image class='icon-close' mode='widthFix' src='{{imgModel.icon_close}}' />
+    </view>
+  </view>
+</view>

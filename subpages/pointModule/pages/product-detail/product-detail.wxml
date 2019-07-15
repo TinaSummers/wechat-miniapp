@@ -1,0 +1,30 @@
+<comp-nav-dynamic id="compNavDynamic"></comp-nav-dynamic>
+<comp-register id="compRegister"></comp-register>
+
+<view class="container">
+  <comp-banner-swiper class="banner-wrapper"
+    indicator-dots="false" indicator-color="#fff" indicator-active-color="#ef8c91" 
+    circular="true" autoplay="true"
+    width="750" height="620"
+    renderDetail="{{pImgs}}"
+  ></comp-banner-swiper>
+ 
+  <view class="dec-wrapper">
+    <view class="dec-detail-area">
+      <view class="text-gray-darkest dec-title">{{pTitle}}</view>
+      <view class="text-gray">市场参考价：{{pMarketVal}}元</view>
+    </view>
+    <view class="point-area">{{point}}积分</view>
+  </view>
+  <view class="detail-wrapper">
+    <view class="title-area text-gray-darkest">兑换须知</view>
+    <view class="content-area">
+      <rich-text nodes="{{detail}}"></rich-text>
+    </view>
+    <form bindsubmit="exchange" report-submit="true" class="btn-area">
+      <button class="btn btn-main btn-radius" form-type="submit">立即兑换</button>
+    </form>
+  </view>
+</view>
+
+<comp-modal id="compModal"></comp-modal>

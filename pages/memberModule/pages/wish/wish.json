@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "comp-ad": "/pages/memberModule/components/ad/ad",
+    "chooseProductType": "/pages/eshopModule/pages/components/chooseProductType/index"
+  }
+}

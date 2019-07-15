@@ -1,0 +1,200 @@
+/**
+* 样式命名规范：
+* 容器层级 container > wrapper > area > box > chunk
+*/
+page {
+  width: 100%;
+  height: 100%;
+  line-height: normal;
+  background-color:#fff;
+  letter-spacing: 2rpx;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+image {
+  display: block;
+}
+.container {
+  width: 100%;
+  min-height: 100%;
+  font-size:28rpx;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.content-wrapper{
+	position:relative;
+}
+.img-area{
+	width:750rpx;
+	height:552rpx;
+}
+.content-area{
+	display: flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items: center;
+	position: absolute;
+	left: 50%;
+	bottom: 45rpx;
+	width:100%;
+	transform: translateX(-50%);
+}
+.num-box{
+	display: flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items: center;
+	width:160rpx;
+	height:160rpx;
+	border-radius:50%;
+	background-color:rgba(255, 255, 255, 0.5);
+	overflow:hidden;
+	border:10rpx solid transparent;
+	box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.1);
+
+}
+.img-chunk{
+	display:block;
+	width:160rpx;
+	height:160rpx;
+}
+.record-box{
+	margin-top:30rpx;
+	width:100%;
+	display: flex;
+	flex-direction:row;
+	justify-content: space-around;
+}
+.line-chunk{
+	width:2rpx;
+	background-color: rgba(204,202,203,0.7);
+}
+.record-chunk{
+	display: flex;
+	flex-direction:column;
+	justify-content: center;
+	align-items: center;
+	color: #535353;
+	font-size:28rpx;
+}
+.record-block{
+	margin-top:20rpx;
+	color:#eb9596;
+	font-size:60rpx;
+	font-weight: bold;
+}
+.pictext-wrapper{
+	position:relative;
+	background-color:#fff;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	border-top-right-radius:15rpx;
+	-webkit-border-top-right-radius:15rpx;
+	border-top-left-radius:15rpx;
+	-webkit-border-top-left-radius:15rpx;
+	display: flex;
+	flex-direction:column;
+	padding-bottom:90rpx;
+}
+.pictext-area{
+	height: 100rpx;
+	display: flex;
+	flex-direction:row;
+	align-items: center;
+	padding:0 34rpx;
+	color:#555658;
+	font-size:36rpx;
+	border-bottom:0.5rpx solid #eee;
+}
+.pictext-area image{
+	width:36rpx;
+	height:36rpx;
+	margin-right:10rpx;
+}
+.pictext-area text{
+	font-size: 26rpx;
+	color: #909090;
+	margin-left: 6rpx;
+}
+.items-area{
+	min-height:360rpx;
+	display:flex;
+	flex-direction:column;
+	padding: 0 20rpx;
+}
+.memeber-box{
+	padding:30rpx 20rpx;
+	display: flex;
+	flex-direction:row;
+	justify-content: space-between;
+	border-bottom: 1rpx dashed #e9ecee;
+}
+.icon-chunk{
+	display: flex;
+	flex-direction:row;
+	align-items: center;
+	color:#6f7e87;
+	font-size:36rpx;
+	font-weight: 600;
+}
+.icon-chunk image{
+	width:110rpx;
+	height:110rpx;
+	border-radius:55rpx;
+	margin-left: 20rpx;
+	margin-right:26rpx;
+}
+.time-chunk{
+	color:#a2abb0;
+	font-size:28rpx;
+	display: flex;
+	flex-direction:row;
+	align-items: center;
+}
+.btn-area{
+	width:520rpx;
+	margin-top:100rpx;
+	align-self: center;
+	line-height:80rpx;
+	color:#fff;
+	font-size:36rpx;
+	text-align:center;
+	background: #eb9296;
+}
+.no-area{
+	min-height:380rpx;
+	display:flex;
+	flex-direction:column;
+	justify-content: flex-end;
+	align-items: center;
+}
+.no-box{
+	width:110rpx;
+	height:118rpx;
+}
+.tips-box{
+	margin-top:26rpx;
+	color:#535456;
+	font-size:30rpx;
+	display:flex;
+	flex-direction:column;
+	justify-content: center;
+	align-items: center;
+}
+button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+}
+button::after {
+  border-radius: 0;
+  border: none;
+}

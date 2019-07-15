@@ -1,0 +1,85 @@
+@import '../../assets/styles/common.less';
+.container{
+    background: #fff;
+    .scroll-view-container{
+        padding: 0 20rpx;
+        scroll-view{
+            top: 0;
+            bottom: 0;
+            .good-wrapper{
+                width: 100%;
+                padding: 20rpx;
+                .good-box{
+                    display: inline-block;
+                    width: 50%;
+                    padding: 20rpx;
+                    .icon{
+                        width: 100%;
+                        height: 420rpx;
+                        border: 1rpx solid #e4e4e4;
+                        overflow: hidden;
+                        .flex(row, center, center);
+                        // image{
+                        //     width: 100%;
+                        // }
+                    }
+                    .title{
+                        width: 100%;
+                        height: 70rpx;
+                        margin-top: 16rpx;
+                        font-size: 28rpx;
+                        color: #000;
+                        line-height: 35rpx;
+                        overflow: hidden;
+                    }
+                    .price{
+                        width: 100%;
+                        margin-top: 25rpx;
+                        .flex(row, space-between, center);
+                        view{
+                            &:first-child{
+                                font-size: 36rpx;
+                                font-weight: bold;
+                                color: #ef8c91;
+                                text{
+                                    font-size: 28rpx;
+                                    font-weight: normal;
+                                    margin-right: 10rpx;
+                                }
+                            }
+                            &:last-child{
+                                font-size: 28rpx;
+                                color: #c0c0c0;
+                                text-decoration: line-through;
+                            }
+                        }
+                    }
+                }
+                .load-more{
+                    font-size: 28rpx;
+                    color: #ccc;
+                    padding: 20rpx 0;
+                    text-align: center;
+                }
+            }
+            .zero-wrapper{
+                position: absolute;
+                top: 35%;
+                left: 50%;
+                transform: translateX(-50%) translateY(-50%);
+                image{
+                    width: 330rpx;
+                    height: 330rpx;
+                }
+                text{
+                    display: block;
+                    font-size: 30rpx;
+                    color: #55585a;
+                    margin-top: 30rpx;
+                    text-align: center;
+                }
+            }
+            
+        }
+    }
+}

@@ -1,0 +1,8 @@
+<comp-nav-dynamic id='comp-nav-dynamic'></comp-nav-dynamic>
+<comp-register id='comp-register'></comp-register>
+<view class="container" style='padding-top: {{navHeight}}px;'>
+  <view class='build-wrapper'>
+    <image class='icon-build' src='{{imgModel.icon_build}}' />
+    <text>正在建设中</text>
+  </view>
+</view>

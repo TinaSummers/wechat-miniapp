@@ -1,0 +1,121 @@
+view,
+text,
+swiper,
+swiper-item,
+input,
+picker,
+textarea,
+scroll-view,
+rich-text,
+image,
+form {
+  box-sizing: border-box;
+  word-break: break-all;
+}
+.coupon-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.coupon-container.tap::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+.coupon-container .checkbox {
+  display: inline-block;
+  width: 30rpx;
+  height: 30rpx;
+  background: #fff;
+  border-radius: 50%;
+  border: 1rpx solid #999;
+  margin-right: 20rpx;
+}
+.coupon-container .checkbox.select {
+  border: 9rpx solid #f38f91;
+}
+.coupon-container .coupon-wrapper {
+  position: relative;
+}
+.coupon-container .coupon-wrapper .bg {
+  width: 668rpx;
+  height: 143rpx;
+}
+.coupon-container .coupon-wrapper .bg.select {
+  width: 618rpx;
+}
+.coupon-container .coupon-wrapper .name {
+  position: absolute;
+  left: 26rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 25rpx;
+  font-size: 22rpx;
+  color: #f694a2;
+}
+.coupon-container .coupon-wrapper .name.disabled {
+  color: #cccccc;
+}
+.coupon-container .coupon-wrapper .box {
+  position: absolute;
+  left: 138rpx;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.coupon-container .coupon-wrapper .box.select {
+  left: 120rpx;
+}
+.coupon-container .coupon-wrapper .box .title {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  color: #fff;
+  text-shadow: 0 0 10rpx rgba(218, 59, 51, 0.3);
+}
+.coupon-container .coupon-wrapper .box .title .balance {
+  width: 200rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.coupon-container .coupon-wrapper .box .title .balance .unit {
+  font-size: 31rpx;
+  font-weight: bold;
+  align-self: flex-start;
+}
+.coupon-container .coupon-wrapper .box .title .balance .amount {
+  font-size: 100rpx;
+  font-weight: bold;
+  line-height: 80rpx;
+}
+.coupon-container .coupon-wrapper .box .title .balance .txt {
+  font-size: 60rpx;
+  font-weight: bold;
+  align-self: flex-end;
+}
+.coupon-container .coupon-wrapper .box .title .remark {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.coupon-container .coupon-wrapper .box .title .remark text {
+  font-size: 30rpx;
+}
+.coupon-container .coupon-wrapper .box .sub-title {
+  font-size: 22rpx;
+  color: #fff;
+  text-shadow: 0 0 10rpx rgba(218, 59, 51, 0.3);
+  margin-top: 10rpx;
+}

@@ -1,0 +1,81 @@
+<import src="../../templates/product.wxml" />
+
+<comp-nav-dynamic id="compNavDynamic"></comp-nav-dynamic>
+<comp-register id="compRegister"></comp-register>
+
+<view class="container">
+  <view class="banner-wrapper">
+    <comp-image-pre src="{{imgModel.banner}}" width="750" height="500"></comp-image-pre>
+  </view>
+  <view class="balance-wrapper">
+    <view class="balance">{{balance}}</view>
+  </view>
+  <!-- 我的积分 & 积分抽奖 -->
+  <view class="menu-bar-wrapper">
+    <view class="point-area menu-bar-item" bindtap="toPointPage">
+      <image class="tab-point" src="{{imgModel.tab_point}}"/>
+      <view class="title-box">
+        <view>我的积分</view>
+      </view>
+    </view>
+    <view class="turntable-area menu-bar-item" bindtap="toTurntablePage">
+      <image class="tab-turntable" src="{{imgModel.tab_turntable}}"/>
+      <view class="title-box">积分抽奖</view>
+    </view>
+  </view>
+
+  <view class="exchange-wrapper">
+    <!-- 标题 -->
+    <view class="exchange-title-area">
+      <image class="title-left" src="{{imgModel.title_left}}" />
+      <view class="title-box">积分兑换</view>
+      <image class="title-right" src="{{imgModel.title_right}}" />
+    </view>
+    <!-- tabbar -->
+    <view class="exchange-tab-area">
+      <block wx:for="{{tabs}}" wx:for-item="tab" wx:key="{{tab.id}}">
+        <view class="tab-box {{currentTab == tab.id ? 'active' : ''}}"
+          bindtap="changeTab" data-id="{{tab.id}}"
+        >{{tab.text}}</view>
+      </block>
+    </view>
+    <!-- 列表内容 -->
+    <view class="exchange-list-area" wx:if="{{!!list}}">
+      <view class="list-content" wx:if="{{list.length}}">
+        <block wx:for="{{list}}" wx:key="{{item.id}}">
+          <!-- 积分商品列表 -->
+          <view class="list-item" wx:if="{{currentTab == PRODUCT}}" bindtap="toProductDetail" data-id="{{item.id}}">
+            <template is="product" data="{{...item, imgModel}}"></template>
+          </view>
+          <!-- 积分兑换记录 -->
+          <view class="list-item with-footer" wx:else>
+            <template is="product" data="{{...item.product, imgModel}}"></template>
+            <view class="list-item-footer">
+              <view class="point-chunk">
+                <text class="text-full-black">共消费:</text>
+                <image class="icon-point" src="{{imgModel.icon_point}}"/>
+                <text class="text-main">{{item.point}}积分</text>
+              </view>
+              <view class="date-chunk text-gray">
+                <text class="mr">{{item.createDate}}</text>
+                <text>{{item.createTime}}</text>
+              </view>
+            </view>
+          </view>
+        </block>
+        <view class="list-footer">{{isEnd ? '没有更多了' : '查看更多'}}</view>
+      </view>
+      
+      <view class="no-data" wx:else>
+        <block wx:if="{{currentTab == PRODUCT}}">
+          <text class="text-gray-darkest">暂无数据</text>
+        </block>
+        <block wx:else>
+          <image class="no-recode" src="{{imgModel.no_recode}}" />
+          <text>您还没有兑换记录哦~</text>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>
+

@@ -1,0 +1,43 @@
+<comp-nav-dynamic id='comp-nav-dynamic'></comp-nav-dynamic>
+<view class='container' wx:if='{{isShow}}'>
+	<view class='content-wrapper'>
+		<image class="img-area" src="{{imgModel.info_header_bg}}" />
+		
+		<view class='content-area'>
+			<view class='num-box'>
+				<open-data class='img-chunk' type="userAvatarUrl"></open-data>
+			</view>
+			<view class='record-box'>
+				<view class='record-chunk'>
+					<text>成功邀请人数</text>
+					<text class='record-block'>{{successNum}}</text>
+				</view>
+				<view class='line-chunk'></view>
+				<view class='record-chunk'>
+					<text>累计获得积分</text>
+					<text class='record-block'>{{totalPoints}}</text>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class='pictext-wrapper'>
+		<view class='pictext-area' wx:if="{{list.length}}">
+			<image src="{{imgModel.icon_ask}}" />邀请记录<text>(邀请好友注册奖励20积分)</text>
+		</view>
+		<view class='items-area' wx:if="{{list.length}}">
+			<view class='memeber-box' wx:for='{{list}}' wx:key='{{index}}'>
+				<view class='icon-chunk'>
+					<image src="{{item.avatar_url}}" />{{item.nickname}}
+				</view>
+				<view class='time-chunk'>{{item.registered_time}}</view>
+			</view>
+		</view>
+		<view class='no-area' wx:else>
+			<image class='no-box' src="{{imgModel.icon_noPart}}" />
+			<view class='tips-box'><text>邀请好友注册</text><text>奖励20积分</text></view>
+		</view>
+		<button class="btn-area" open-type='share'>
+			发送我的专属邀请
+		</button>
+	</view>
+</view>

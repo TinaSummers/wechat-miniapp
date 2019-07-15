@@ -1,0 +1,85 @@
+view,
+text,
+swiper,
+swiper-item,
+input,
+picker,
+textarea,
+scroll-view,
+rich-text,
+image,
+form {
+  box-sizing: border-box;
+  word-break: break-all;
+}
+.ant-comp-common {
+  width: 750rpx;
+  font-size: 28rpx;
+  color: #1c1d22;
+}
+.ant-comp-common image {
+  display: block;
+}
+.ant-comp-common radio,
+.ant-comp-common checkbox {
+  transform: scale(0.6);
+}
+.ant-comp-common .userAvatarUrl {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  display: block;
+}
+.ant-comp-common .arrow-ahead {
+  width: 16rpx;
+  height: 16rpx;
+  border: 2rpx solid #454545;
+  border-bottom: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+.ant-comp-common .hidden-e {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.ant-comp-common .hidden-e-r2 {
+  /*设置多行文本超出隐藏*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.ant-comp-common .placeholder {
+  color: #999;
+}
+.ant-comp-common .blank {
+  /*占位行*/
+  flex: 1;
+}
+.ant-comp-common button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+}
+.ant-comp-common button::after {
+  border-radius: 0;
+  border: none;
+}
+.ant-comp-common button.btn-main {
+  width: 500rpx;
+  height: 80rpx;
+  background: #f08c91;
+  color: #fff;
+  font-size: 32rpx;
+}
+.ant-ad-wrapper image {
+  width: 100%;
+  height: 200rpx;
+}

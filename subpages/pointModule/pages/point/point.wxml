@@ -1,0 +1,63 @@
+<comp-nav-dynamic id="compNavDynamic"></comp-nav-dynamic>
+<comp-register id="compRegister"></comp-register>
+
+<view class="container">
+  <view class="banner-wrapper" style="padding-top: {{navHeight}}px">
+    <comp-image-pre class="banner-bg" src="{{imgModel.point_page_bg}}" width="750" height="540"></comp-image-pre>
+    <view class="banner-content-area">
+      <view class="rule-box" bindtap="showRule">
+        <image class="icon-rule" src="{{imgModel.icon_rule}}"/>
+        积分规则
+      </view>
+      <view class="point-box" style="background-image: url({{imgModel.point_circle}})">
+        <view class="point-chunk">{{point}}</view>
+        <view>积分余额</view>
+      </view>
+      <view class="footer-box">
+        <view>{{aboutExpire}}积分即将过期</view>
+        <!-- <view>距离升级还需完成{{aboutUpgrade}}积分</view> -->
+      </view>
+    </view>
+  </view>
+  <view class="content-wrapper">
+    <view class="tab-area">
+      <block wx:for="{{tabs}}" wx:key="{{item.val}}">
+        <view bindtap="changeTab" data-val="{{item.val}}" class="tab-box {{activeTab == item.val ? 'active' : ''}}">{{item.text}}</view>
+      </block>
+    </view>
+    <!-- 列表 -->
+    <view class="list-area scroll-view-container" wx:if="{{!!list}}">
+      <view class="list-content" wx:if="{{list.length}}">
+        <scroll-view class="" scroll-y bindscrolltolower="updateList" scroll-into-view="{{toTop}}">
+          <view class="card-box" id="{{toTop}}">
+            <view class="card-header">
+              <view class="text-main">我的积分</view>
+            </view>
+            <view class="card-body">
+              <block wx:for="{{list}}" wx:key="{{index}}">
+                <view class="card-item">
+                  <view>
+                    <view class="dec-chunk">{{item.dec}}</view>
+                    <view class="text-gray">{{item.date}}</view>
+                  </view>
+                  <view class="text-main">{{item.point}}</view>
+                </view>
+              </block>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+
+      <view class="no-data" wx:else>
+        <block wx:if="{{activeTab != LIST_TYPE.CONSUME}}">
+          <text class="text-gray-darkest">暂无数据</text>
+        </block>
+          
+        <block wx:else>
+          <image class="no-consume" src="{{imgModel.no_consume}}" />
+          <text class="text-gray-darkest">您还没有使用过积分，快去使用吧~</text>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>
