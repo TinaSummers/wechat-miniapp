@@ -16,7 +16,7 @@ class MainService {
     this.throttle = this.throttleFn(); // 节流
     this.debounce = this.debounceFn(); // 防抖
     this.lastJumpUrl = ''; // 记录上一次页面跳转url
-    this.tabRoute = ['mc_index']; // 底部tabber路由集合（路由别名）
+    this.tabRoute = ['hm_index', 'mc_index']; // 底部tabber路由集合（路由别名）
   }
 
   /**

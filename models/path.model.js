@@ -3,6 +3,9 @@
  */
 
 export default {
+  // 我的主页
+  hm_index: "/pages/homeModule/pages/index/index", // 首页
+
   // 会员中心
   mc_index: "/pages/memberModule/pages/index/index", // 首页
   mc_screen: "/pages/memberModule/pages/screen/screen", // 开屏页
