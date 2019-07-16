@@ -10,6 +10,3 @@ textarea,
 form {
   box-sizing: border-box;
 }
-image {
-  display: block;
-}

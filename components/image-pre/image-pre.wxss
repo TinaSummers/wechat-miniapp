@@ -10,9 +10,6 @@ textarea,
 form {
   box-sizing: border-box;
 }
-image {
-  display: block;
-}
 @keyframes loading_run {
   0% {
     transform: rotate(-180deg);

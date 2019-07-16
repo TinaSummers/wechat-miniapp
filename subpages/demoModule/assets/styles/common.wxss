@@ -7,7 +7,6 @@ page {
   height: 100%;
   line-height: normal;
   background: #f1f2ec;
-  letter-spacing: 2rpx;
 }
 view,
 text,
@@ -23,26 +22,6 @@ form {
   box-sizing: border-box;
   word-break: break-all;
 }
-::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-  color: transparent;
-}
-.scroll-view-container {
-  width: 100%;
-  flex: 1;
-  position: relative;
-}
-scroll-view {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 40rpx;
-  bottom: 40rpx;
-}
-image {
-  display: block;
-}
 .container {
   width: 100%;
   min-height: 100%;
@@ -54,18 +33,26 @@ image {
   align-items: center;
   font-family: Arial, Helvetica, sans-serif;
 }
-radio,
-checkbox {
-  transform: scale(0.6);
+.container .scroll-view-container {
+  width: 100%;
+  flex: 1;
+  position: relative;
 }
-.userAvatarUrl {
+.container .scroll-view-container scroll-view {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.container .userAvatarUrl {
   width: 120rpx;
   height: 120rpx;
   border-radius: 50%;
   overflow: hidden;
   display: block;
 }
-.arrow-ahead {
+.container .arrow-ahead {
   /*向前箭头*/
   width: 16rpx;
   height: 16rpx;
@@ -74,7 +61,7 @@ checkbox {
   border-left: none;
   transform: rotate(45deg);
 }
-.arrow-push {
+.container .arrow-push {
   /*下推箭头*/
   width: 16rpx;
   height: 16rpx;
@@ -83,7 +70,7 @@ checkbox {
   border-left: none;
   transform: rotate(135deg);
 }
-.arrow-push-solid {
+.container .arrow-push-solid {
   /*下推实心箭头*/
   width: 0;
   height: 0;
@@ -91,12 +78,12 @@ checkbox {
   border-style: solid;
   border-color: #333 transparent transparent transparent;
 }
-.hidden-e {
+.container .hidden-e {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-.hidden-e-r2 {
+.container .hidden-e-r2 {
   /*设置多行文本超出隐藏*/
   overflow: hidden;
   text-overflow: ellipsis;
@@ -104,14 +91,10 @@ checkbox {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
-.placeholder {
-  color: #b8bfc4;
+.container .placeholder {
+  color: #999;
 }
-.blank {
-  /*占位行*/
-  flex: 1;
-}
-button {
+.container button {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -120,18 +103,19 @@ button {
   margin: 0;
   border-radius: 0;
 }
-button::after {
+.container button::after {
   border-radius: 0;
   border: none;
 }
-button.btn-main {
+.container button.btn-main {
   width: 500rpx;
   height: 80rpx;
-  background: linear-gradient(to right, #3185c2, #22b28d);
+  background: #c9192e;
   color: #fff;
+  border-radius: 6rpx;
   font-size: 32rpx;
 }
-.loading-wrapper {
+.container .loading-wrapper {
   position: fixed;
   left: 0;
   bottom: 0;
@@ -142,11 +126,11 @@ button.btn-main {
   z-index: 99;
   color: #999;
 }
-.loading-wrapper text {
+.container .loading-wrapper text {
   display: block;
   text-align: center;
 }
-.zero-wrapper {
+.container .zero-wrapper {
   width: 100%;
   padding: 40rpx 0;
   display: flex;
@@ -154,49 +138,41 @@ button.btn-main {
   justify-content: center;
   align-items: center;
 }
-.form-wrapper {
+.container .form-wrapper {
   width: 100%;
 }
-.form-wrapper .profile-area {
+.container .form-wrapper .profile-area {
   background: #fff;
   padding: 0 40rpx;
 }
-.form-wrapper .profile-area > view {
+.container .form-wrapper .profile-area > view {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  border-bottom: 1rpx solid #eaebed;
+  border-bottom: 1rpx solid #c8caca;
   position: relative;
 }
-.form-wrapper .profile-area > view.disabled .name-box,
-.form-wrapper .profile-area > view.disabled .element-box {
+.container .form-wrapper .profile-area > view.disabled .name-box,
+.container .form-wrapper .profile-area > view.disabled .element-box {
   color: #ccc;
 }
-.form-wrapper .profile-area > view.unvalue .element-box {
-  color: #b8bfc4;
+.container .form-wrapper .profile-area > view.unvalue .element-box {
+  color: #999;
 }
-.form-wrapper .profile-area > view .name-box {
+.container .form-wrapper .profile-area > view .name-box {
   min-width: 160rpx;
+  color: #666666;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
 }
-.form-wrapper .profile-area > view .name-box .name {
-  font-size: 30rpx;
-  color: #6f7e87;
-}
-.form-wrapper .profile-area > view .name-box .star {
+.container .form-wrapper .profile-area > view .name-box .star {
   font-size: 32rpx;
   color: #c61c32;
 }
-.form-wrapper .profile-area > view .name-box .mark {
-  font-size: 30rpx;
-  color: #b8bfc4;
-  margin-left: 6rpx;
-}
-.form-wrapper .profile-area > view .element-box {
+.container .form-wrapper .profile-area > view .element-box {
   position: relative;
   flex: 1;
   padding-left: 8rpx;
@@ -205,29 +181,29 @@ button.btn-main {
   justify-content: flex-end;
   align-items: center;
   min-height: 90rpx;
-  color: #6f7e87;
-  font-size: 30rpx;
+  color: #333333;
+  font-size: 24rpx;
 }
-.form-wrapper .profile-area > view .element-box input,
-.form-wrapper .profile-area > view .element-box picker,
-.form-wrapper .profile-area > view .element-box text {
+.container .form-wrapper .profile-area > view .element-box input,
+.container .form-wrapper .profile-area > view .element-box picker,
+.container .form-wrapper .profile-area > view .element-box text {
   flex: 1;
   min-height: 90rpx;
   line-height: 90rpx;
   text-align: right;
 }
-.form-wrapper .profile-area > view .element-box textarea {
+.container .form-wrapper .profile-area > view .element-box textarea {
   width: 100%;
   height: 120rpx;
   padding: 10rpx;
   margin: 12rpx 0;
-  border: 1rpx solid #eaebed;
+  border: 1rpx solid #c8caca;
 }
-.form-wrapper .profile-area > view .element-box label {
+.container .form-wrapper .profile-area > view .element-box label {
   margin-right: 12rpx;
 }
-.form-wrapper .profile-area > view .element-box .btn-getPhoneNumber,
-.form-wrapper .profile-area > view .element-box .btn-code {
+.container .form-wrapper .profile-area > view .element-box .btn-getPhoneNumber,
+.container .form-wrapper .profile-area > view .element-box .btn-code {
   position: relative;
   width: 150rpx;
   height: 100%;
@@ -237,27 +213,25 @@ button.btn-main {
   font-weight: 500;
   color: #5a9cc3;
 }
-.form-wrapper .profile-area > view .element-box .btn-getPhoneNumber::after,
-.form-wrapper .profile-area > view .element-box .btn-code::after {
+.container .form-wrapper .profile-area > view .element-box .btn-getPhoneNumber::after,
+.container .form-wrapper .profile-area > view .element-box .btn-code::after {
   border: none;
 }
-.form-wrapper .profile-area > view .element-box .btn-getPhoneNumber text,
-.form-wrapper .profile-area > view .element-box .btn-code text {
+.container .form-wrapper .profile-area > view .element-box .btn-getPhoneNumber text,
+.container .form-wrapper .profile-area > view .element-box .btn-code text {
   position: absolute;
   left: 6rpx;
   top: 50%;
   width: 2rpx;
   height: 50%;
   transform: translateY(-50%);
-  background: #eaebed;
+  background: #c8caca;
   min-height: auto;
 }
-.form-wrapper .profile-area > view .arrow-ahead {
+.container .form-wrapper .profile-area > view .arrow-ahead {
   margin-left: 10rpx;
-  border-color: #b8c0c4;
-  border-width: 4rpx;
 }
-.form-wrapper .rule-area {
+.container .form-wrapper .rule-area {
   padding: 20rpx;
   color: #999;
   font-size: 22rpx;
@@ -266,17 +240,17 @@ button.btn-main {
   justify-content: flex-start;
   align-items: flex-start;
 }
-.form-wrapper .rule-area checkbox {
+.container .form-wrapper .rule-area checkbox {
   transform: scale(0.5);
 }
-.form-wrapper .rule-area view {
+.container .form-wrapper .rule-area view {
   flex: 1;
 }
-.form-wrapper .rule-area view text {
+.container .form-wrapper .rule-area view text {
   text-decoration: underline;
   color: #5a9cc3;
 }
-.form-wrapper .hint-area {
+.container .form-wrapper .hint-area {
   color: #c61c32;
   text-align: center;
   margin: 30rpx 0;
@@ -284,10 +258,10 @@ button.btn-main {
   min-height: 44rpx;
   font-weight: 600;
 }
-.form-wrapper .btn-main {
+.container .form-wrapper .btn-main {
   margin: auto;
 }
-.mask-wrapper {
+.container .mask-wrapper {
   position: fixed;
   left: 0;
   top: 0;
@@ -295,18 +269,18 @@ button.btn-main {
   width: 100%;
   height: 100%;
 }
-.mask-wrapper .mask-area {
+.container .mask-wrapper .mask-area {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
 }
-.mask-wrapper .content-area {
+.container .mask-wrapper .content-area {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
 }
-.mask-wrapper .content-area .icon-close {
+.container .mask-wrapper .content-area .icon-close {
   position: absolute;
   right: 20rpx;
   top: 20rpx;
