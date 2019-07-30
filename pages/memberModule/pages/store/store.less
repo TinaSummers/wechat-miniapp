@@ -1,0 +1,142 @@
+@import '../../../../assets/styles/common.less';
+
+.container {
+  background: #fff;
+
+  .search-wrapper {
+    width: 670rpx;
+    padding: 50rpx 0;
+    background: #fff;
+    .flex(row, flex-start, center);
+
+    .search-box {
+      position: relative;
+      flex: 1;
+      border: 2rpx solid @color-border;
+      border-right: none;
+
+      input {
+        width: 100%;
+        height: 86rpx;
+        padding: 0 20rpx;
+      }
+
+      image {
+        width: 40rpx;
+        height: 40rpx;
+        position: absolute;
+        right: 20rpx;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    .btn-filter {
+      font-size: 32rpx;
+      width: 180rpx;
+      height: 90rpx;
+      background: @color-main;
+      color: #fff;
+    }
+  }
+
+  .city-wrapper {
+    width: 100%;
+    .flex(row, space-between, center);
+    border: 1rpx solid @color-border;
+    border-left: none;
+    border-right: none;
+
+    picker {
+      flex: 3;
+      position: relative;
+      font-size: 28rpx;
+      color: #333;
+
+      &:last-child {
+        flex: 4;
+      }
+
+      &.value-no {
+        color: @color-placeholder;
+      }
+
+      .value-box {
+        height: 90rpx;
+        padding: 0 20rpx;
+        text-align: center;
+        .flex(row, space-between, center);
+
+        text {
+          flex: 1;
+        }
+      }
+    }
+  }
+
+  .list-wrapper {
+    >view {
+      padding: 24rpx 40rpx;
+      border-bottom: 1rpx solid @color-border;
+      .flex(column, flex-start, flex-start);
+
+      .name-distance-area {
+        width: 100%;
+        .flex(row, flex-start, center);
+
+        .name {
+          font-size: 36rpx;
+          color: #171719;
+          flex: 1;
+          line-height: 44rpx;
+        }
+
+        .distance-box {
+          width: max-content;
+          padding-left: 4rpx;
+          .flex(row, flex-start, center);
+
+          .icon-gps {
+            width: 20rpx;
+            height: 22rpx;
+            margin-right: 8rpx;
+          }
+
+          .distance {
+            font-size: 30rpx;
+            color: #6c6c6c;
+          }
+        }
+      }
+
+      .address-area {
+        font-size: 28rpx;
+        color: #6c6c6c;
+        margin-top: 10rpx;
+        line-height: 40rpx;
+      }
+
+      .tel-btn-area {
+        width: 100%;
+        margin-top: 10rpx;
+        .flex(row, flex-end, center);
+
+        text {
+          flex: 1;
+          font-size: 28rpx;
+          color: #6c6c6c;
+        }
+
+        button {
+          width: 140rpx;
+          height: 48rpx;
+          color: @color-main;
+          border: 2rpx solid @color-main;
+          background: #fff;
+          border-radius: 4rpx;
+          font-size: 26rpx;
+        }
+      }
+    }
+  }
+}

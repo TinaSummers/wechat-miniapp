@@ -2,32 +2,32 @@
   "pages": [
     "pages/homeModule/pages/index/index",
 
-
+    
     "pages/memberModule/pages/index/index",
     "pages/memberModule/pages/screen/screen",
     "pages/memberModule/pages/info/info",
+    "pages/memberModule/pages/store/store",
+    "pages/memberModule/pages/store-detail/store-detail",
     "pages/memberModule/pages/share-record/share-record",
-	  "pages/memberModule/pages/signin/signin",
-	  "pages/memberModule/pages/member-right/member-right",
+    "pages/memberModule/pages/signin/signin",
+    "pages/memberModule/pages/member-right/member-right",
     "pages/memberModule/pages/rule/rule",
     "pages/memberModule/pages/coupon/coupon",
-    "pages/memberModule/pages/coupon-select/coupon-select",
     "pages/memberModule/pages/coupon-detail/coupon-detail",
-    "pages/memberModule/pages/wish/wish",
-    "pages/memberModule/pages/trace/trace",
     "pages/memberModule/pages/webview/webview",
-    "pages/memberModule/pages/register/register"
+    "pages/memberModule/pages/register/register",
+    "pages/memberModule/pages/card/card",
+    "pages/memberModule/pages/activity-rule/activity-rule",
+    "pages/memberModule/pages/prize_list/prize_list",
+    "pages/memberModule/pages/prize_detail/prize_detail",
+    "pages/memberModule/pages/question/question",
+    "pages/memberModule/pages/scratch/scratch"
   ],
   "subpackages": [
     {
       "root": "subpages",
       "pages": [
-        "pointModule/pages/index/index",
-        "pointModule/pages/product-detail/product-detail",
-        "pointModule/pages/point/point",
-        "pointModule/pages/point-prize/point-prize",
-        "pointModule/pages/turntable/turntable",
-        "pointModule/pages/point-rule/point-rule"
+        "questionModule/pages/index/index"
       ]
     }
   ],
@@ -43,8 +43,12 @@
     "comp-nav-dynamic": "/components/nav-dynamic/nav-dynamic",
     "comp-image-pre": "/components/image-pre/image-pre",
     "comp-banner-swiper": "/components/banner-swiper/banner-swiper",
+    "comp-seal": "/components/seal/seal",
     "comp-ad": "/pages/memberModule/components/ad/ad",
-    "comp-register": "/pages/memberModule/components/register/register"
+    "comp-register": "/pages/memberModule/components/register/register",
+    "navigation": "/components/navigation/navigation",
+    "image-link": "/components/image-link/image-link",
+    "video-beautify": "/components/video-beautify/video-beautify"
   },
   "permission": {
     "scope.userLocation": {
@@ -72,5 +76,6 @@
       }
     ]
   },
+  "navigateToMiniProgramAppIdList": [],
   "sitemapLocation": "sitemap.json"
 }

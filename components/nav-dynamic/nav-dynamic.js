@@ -31,7 +31,7 @@ Component({
       scrollMax: 200, // 最大滚动间距，单位px
       homeShow: false, // home图标是否显示
       homeJudgeStack: true, // home图标显示是否判断页面栈
-      homePath: '/pages/index/index', // home页面路径
+      homePath: '/pages/homeModule/pages/index/index', // home页面路径
       homeColorInit: 'white', // home图标颜色-初始值 white / black
       homeColorRoll: 'black', // home图标颜色-滚动值 white / black
     },

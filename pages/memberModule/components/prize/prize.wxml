@@ -1,0 +1,9 @@
+<view class="prize-area {{item.status == 1?'used':''}}">
+    <image class="bg" mode="widthFix" src="{{item.status == 1?imgModel.icon_prize_dis_bg:imgModel.icon_prize_bg}}" />
+    <view class="amount-box {{item.status == 1?'used':''}}">
+        <text>¥{{item.amount}}</text>
+        <text>话费券</text>
+    </view>
+    <view class="date {{item.status == 1?'used':''}}">有效期：即日起{{item.date}}</view>
+    <view wx:if='{{item.status == 1}}' class="flag-used">已使用</view>
+</view>

@@ -71,17 +71,6 @@ class AjaxService {
     });
   }
 
-  getShopid(params) {
-    // 获取shopid
-    return mainService.request({
-      url: apiModel.mc_shopid_position,
-      params,
-      method: 'POST',
-      header: 2,
-      loadingType: 1,
-    });
-  }
-
   sendsms(params) {
     // 发送验证码
     return mainService.request({
@@ -112,17 +101,6 @@ class AjaxService {
       method: 'POST',
       header: 1,
       loadingType: 0,
-    });
-  }
-
-  qrcodeBarcode(params) {
-    // 获取qrcode barcode
-    return mainService.request({
-      url: apiModel.mc_qrcode_barcode,
-      params,
-      method: 'GET',
-      header: 1,
-      loadingType: 1,
     });
   }
 
@@ -212,17 +190,6 @@ class AjaxService {
     });
   }
 
-  couponListSel(params) {
-    // 会员优惠券列表（可用）
-    return mainService.request({
-      url: apiModel.mc_coupon_list_sel,
-      params,
-      method: 'POST',
-      header: 2,
-      loadingType: 1,
-    });
-  }
-
   shareRecord(params) {
     // 邀请好友记录
     return mainService.request({
@@ -231,83 +198,6 @@ class AjaxService {
       method: 'GET',
       header: 1,
       loadingType: 1,
-    });
-  }
-
-  wishList(params) {
-    // 收藏列表
-    return mainService.request({
-      url: apiModel.mc_wish_list,
-      params,
-      method: 'POST',
-      header: 2,
-      loadingType: 1,
-    });
-  }
-
-  wishToggle(params) {
-    // 切换收藏
-    return mainService.request({
-      url: apiModel.mc_wish_toggle,
-      params,
-      method: 'POST',
-      header: 2,
-      loadingType: 1,
-    });
-  }
-
-  productDetail(params) {
-    // 商品详情
-    return mainService.request({
-      url: apiModel.mc_product_detail,
-      params,
-      method: 'POST',
-      header: 2,
-      loadingType: 1,
-    });
-  }
-
-  cartAdd(params) {
-    // 加入购物车
-    return mainService.request({
-      url: apiModel.mc_cart_add,
-      params,
-      method: 'POST',
-      header: 2,
-      loadingType: 1,
-    });
-  }
-
-  traceList(params) {
-    // 我的足迹
-    return mainService.request({
-      url: apiModel.mc_trace_list,
-      params,
-      method: 'POST',
-      header: 2,
-      loadingType: 1,
-    });
-  }
-
-  orderCount(params) {
-    // 订单不同状态下的数量
-    return mainService.request({
-      url: apiModel.mc_order_count,
-      params,
-      method: 'POST',
-      header: 2,
-      loadingType: 0,
-    });
-  }
-
-  recommendList(params) {
-    // 推荐商品列表
-    return mainService.request({
-      url: apiModel.mc_recommend_list,
-      params,
-      method: 'POST',
-      header: 2,
-      loadingType: 0,
     });
   }
 }

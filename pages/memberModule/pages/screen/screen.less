@@ -1,47 +1,41 @@
-@import '../../assets/styles/common.less';
-.container{
-    background: #fff;
-    .content-wrapper{
-        width: 100%;
-        flex: 1;
-        .flex(column, center, center);
-        .logo{
-            width: 300rpx;
-            height: 92rpx;
-            &.screen_big{
-                width: 390rpx;
-                height: 119rpx;
-            }
-        }
-        .line{
-            display: inline-block;
-            width: 259rpx;
-            height: 1rpx;
-            background: #8f9090;
-            margin-top: 30rpx;
-        }
-        .title{
-            font-size: 30rpx;
-            color: #656766;
-            font-weight: bold;
-            margin-top: 30rpx;
-        }
-        .sub-title{
-            font-size: 26rpx;
-            color: #656766;
-            margin-top: 18rpx;
-        }
-        .btn-auth{
-            display: inline-block;
-            width: 335rpx;
-            height: 75rpx;
-            background: #e88488;
-            font-size: 30rpx;
-            color: #fff;
-            margin-top: 50rpx;
-            &.tap{
-                background: #d25c61;
-            }
-        }
+@import '../../../../assets/styles/common.less';
+
+.container {
+  background: #fff;
+  height: 100%;
+  overflow: hidden;
+
+  .banner {
+    width: 750rpx;
+    height: 1324rpx;
+  }
+
+  .btn-wrapper {
+    position: absolute;
+    left: 0;
+    bottom: 60rpx;
+    right: 0;
+    height: 236rpx;
+    .flex(column, flex-start, center);
+
+    &.big {
+      bottom: 190rpx;
     }
+
+    .logo {
+      width: 539rpx;
+      height: 116rpx;
+      margin-bottom: 60rpx;
+    }
+
+    .btn-auth {
+      width: 318rpx;
+      height: 60rpx;
+
+      image {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
 }

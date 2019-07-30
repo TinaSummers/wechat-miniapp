@@ -1,0 +1,72 @@
+@import '../../../../assets/styles/common.less';
+@color-title: #333333;
+@color-gray-title: #666666;
+@color-white: #fff;
+@color-blue: #2c5596;
+@color-gray-light: #cccccc;
+
+.container{
+    background: #f6f7fa;
+    .bg{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 750rpx;
+        height: 1020rpx;
+    }
+    .content-wrapper{
+        width: 100%;
+        position: relative;
+        z-index: 10;
+        padding: 0 60rpx;
+        .flex(column, flex-start, center);
+        .logo{
+            width: 361rpx;
+            height: 78rpx;
+            margin-top: 80rpx;
+        }
+        .title{
+            width: 100%;
+            font-size: 36rpx;
+            font-weight: bold;
+            color: @color-title;
+            margin-top: 90rpx;
+            padding-bottom: 40rpx;
+        }
+        .area{
+            width: 100%;
+            .flex(row, flex-start, flex-start);
+            font-size: 28rpx;
+            color: @color-gray-title;
+            margin-top: 25rpx;
+            .name{
+                width: 146rpx;
+                font-weight: bold;
+                text-align: right;
+            }
+            .content{
+                flex: 1;
+            }
+        }
+        .btn{
+            width: 300rpx;
+            height: 88rpx;
+            .flex(row, center, center);
+            font-size: 36rpx;
+            color: @color-white;
+            background: @color-blue;
+            border-radius: 10rpx;
+            margin-top: 96rpx;
+            &.disabled{
+                background: @color-gray-light;
+            }
+        }
+        .prizes{
+            font-size: 30rpx;
+            color: @color-blue;
+            padding: 22rpx 0;
+            border-bottom: 2rpx solid @color-blue;
+            margin-top: 38rpx;
+        }
+    }
+}

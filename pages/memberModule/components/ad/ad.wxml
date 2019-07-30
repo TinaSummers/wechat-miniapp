@@ -1,3 +1,3 @@
-<view class='ant-comp-common ant-ad-wrapper' wx:if='{{renderDetail}}' style='width: {{width}}rpx;'>
-  <comp-image-pre width='{{width}}' mode='widthFix' bindtap='jumpHandle' src='{{renderDetail.imgUrl}}'></comp-image-pre>
+<view class='ant-ad-wrapper' wx:if='{{renderDetail}}' style='width: {{width}}rpx;height: {{height}}rpx;'>
+  <comp-image-pre width='{{width}}' height='{{height}}' mode='widthFix' bindtap='jumpHandle' src='{{renderDetail.imgUrl}}'></comp-image-pre>
 </view>

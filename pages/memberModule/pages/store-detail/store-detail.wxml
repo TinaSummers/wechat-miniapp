@@ -1,0 +1,16 @@
+<comp-nav-dynamic id='comp-nav-dynamic'></comp-nav-dynamic>
+
+<view class="container" style='padding-top: {{navHeight}}px;'>
+  <view class='name-wrapper'>{{renderDetail.branch_name}}</view>
+  <view class='common-wrapper hidden-e'>
+    <view class='hidden-e' wx:if="{{renderDetail.telephone}}">电话：{{renderDetail.telephone}}</view>
+    <view class='hidden-e' wx:if="{{!renderDetail.telephone}}">电话：暂无</view>
+    <image mode='widthFix' bindtap='phoneHandle' wx:if="{{renderDetail.telephone}}" src='{{imgModel.icon_store_tel}}' />
+    <image mode='widthFix' wx:if="{{!renderDetail.telephone}}" src='{{imgModel.icon_store_tel_gray}}' />
+  </view>
+  <view class='common-wrapper hidden-e'>
+    <view class='hidden-e' wx:if="{{renderDetail.address}}">地址：{{renderDetail.address}}</view>
+    <view class='hidden-e' wx:if="{{!renderDetail.address}}">地址：暂无</view>
+    <image mode='widthFix' bindtap='openLocation' src='{{imgModel.icon_store_gps}}' />
+  </view>
+</view>

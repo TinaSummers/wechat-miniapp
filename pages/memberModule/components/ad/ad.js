@@ -8,6 +8,7 @@ import pathModel from '../../../../models/path.model';
  * 广告位组件
  * @param {number} position 广告位id
  * @param {number} width 广告位宽度
+ * @param {number} height 广告位高度
  */
 Component({
   options: {
@@ -22,6 +23,10 @@ Component({
     width: {
       type: Number,
       value: 750,
+    },
+    height: {
+      type: Number,
+      value: 300,
     },
   },
   data: {

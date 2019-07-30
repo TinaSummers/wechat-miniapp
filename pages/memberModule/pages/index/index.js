@@ -21,30 +21,17 @@ Page({
     cardWidth: 355*2,
     isScroll: false,//用于页面滚动到某个位置， >= scrollTop 时改变头部效果
     scrollTop: 15,
-    orderList: [
-      {icon: imgModel.icon_order1, title: '待付款', unNum: 0, url: `${pathModel.shop_myOrder}?activity=1`},
-      {icon: imgModel.icon_order2, title: '待发货', unNum: 0, url: `${pathModel.shop_myOrder}?activity=2`},
-      {icon: imgModel.icon_order3, title: '待取货', unNum: 0, url: `${pathModel.shop_myOrder}?activity=3`},
-      {icon: imgModel.icon_order4, title: '退款/售后', unNum: 0, url: `${pathModel.shop_myOrder}?activity=${'after_sale'}`},
-    ],
-    memberList: [
+    optList: [
       [
-        {icon: imgModel.icon_member1, title: '每日签到', url: pathModel.mc_signin},
-        {icon: imgModel.icon_member2, title: '积分商城', url: pathModel.pt_index},
-        {icon: imgModel.icon_member3, title: '地址管理', url: pathModel.shop_addressMange},
+        {icon: imgModel.icon_index1, title: '会员专享', url: pathModel.mc_member_right},
+        {icon: imgModel.icon_index2, title: '我的预约', url: ``},
+        {icon: imgModel.icon_index3, title: '我的印章', url: ``},
       ],
       [
-        {icon: imgModel.icon_member4, title: '优惠券', url: pathModel.mc_coupon},
-        {icon: imgModel.icon_member5, title: '会员权益', url: pathModel.mc_member_right},
-        {icon: imgModel.icon_member6, title: '联系客服', url: ''},
-      ]
-    ],
-    centerList: [
-      {icon: imgModel.icon_center1, title: '我的拼团', subTitle: '快来拼团吧', url: ''},
-      {icon: imgModel.icon_center2, title: '我的砍价', subTitle: '邀请好友助你砍价', url: pathModel.shop_bargainList},
-      {icon: imgModel.icon_center3, title: '我的发布', subTitle: '您的发现，您的文章', url: pathModel.find_self},
-      {icon: imgModel.icon_center4, title: '我的收藏', subTitle: '快来宠幸我吧', url: pathModel.mc_wish},
-      {icon: imgModel.icon_center5, title: '我的足迹', subTitle: '浏览商品足迹', url: pathModel.mc_trace},
+        {icon: imgModel.icon_index4, title: '个人资料', url: pathModel.mc_info},
+        {icon: imgModel.icon_index5, title: '我的报告', url: pathModel.inter_myReport},
+        {icon: imgModel.icon_index6, title: '合作机构', url: pathModel.mc_store},
+      ],
     ],
     barcode: '',
   },
@@ -52,7 +39,7 @@ Page({
     let navData = {
       navBackgroundInit: 'transparent', // 导航栏背景颜色-初始值
       navBackgroundRoll: '#ffffff', // 导航栏背景颜色-滚动值
-      titleColorInit: '#ffffff', // 标题颜色-初始值
+      titleColorInit: '#000000', // 标题颜色-初始值
       titleColorRoll: '#000000', // 标题颜色-滚动值
       titleTextInit: '', // 标题文字-初始值
       titleTextRoll: '我的', // 标题文字-滚动值
@@ -94,9 +81,6 @@ Page({
         this.setData({isMember: true});
         // this.changeHeaderSize();
         this.getMemberDetail();
-        memberService.getShopidByPosition(()=>{
-          this.getOrderCount();
-        });
       },
       fail: () => {
         console.log('入会失败');
@@ -250,20 +234,23 @@ Page({
       cardWidth,
     });
   },
-  onPageScroll(e) {
-    let { scrollTop } = e;
-    this.selectComponent('#comp-nav-dynamic').scrollHandle(scrollTop);
-    // if(this.data.isMember){
-    //   this.changeHeaderHeight(scrollTop);
-    // }
+  // onPageScroll(e) {
+  //   let { scrollTop } = e;
+  //   this.selectComponent('#comp-nav-dynamic').scrollHandle(scrollTop);
+  //   // if(this.data.isMember){
+  //   //   this.changeHeaderHeight(scrollTop);
+  //   // }
 
-    if(this.data.isMember){
-      if(scrollTop >= this.data.scrollTop){
-        this.setData({isScroll: true});
-      }else{
-        this.setData({isScroll: false});
-      }
-    }
+  //   if(this.data.isMember){
+  //     if(scrollTop >= this.data.scrollTop){
+  //       this.setData({isScroll: true});
+  //     }else{
+  //       this.setData({isScroll: false});
+  //     }
+  //   }
+  // },
+  linkCard(){
+    mainService.link(pathModel.mc_card);
   },
   onShareAppMessage() {
     return mainService.shareInfo();

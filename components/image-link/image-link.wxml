@@ -1,0 +1,14 @@
+<navigation
+  type="{{linkData.type}}"
+  url="{{linkData.url}}"
+  appId="{{linkData.appId}}"
+  navType="{{linkData.navType}}"
+>
+  <image-pre
+    src="{{imgData.url}}"
+    width="{{imgData.width}}"
+    height="{{imgData.height}}"
+    mode="{{imgData.mode}}"
+  >
+  </image-pre>
+</navigation>

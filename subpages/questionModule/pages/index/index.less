@@ -1,0 +1,213 @@
+@import '../../../../assets/styles//common.less';
+
+.container {
+  padding-top: 200rpx;
+  padding-bottom: 100rpx;
+
+  .logo-num-wrapper {
+    .flex(column, flex-start, center);
+
+    .logo {
+      width: 591rpx;
+      height: 280rpx;
+    }
+
+    .num-area {
+      font-size: 32rpx;
+      color: #fff;
+      padding: 60rpx 0;
+    }
+  }
+
+  form {
+    width: 100%;
+
+    .list-wrapper {
+      padding: 0 40rpx;
+      color: #fff;
+
+      >view {
+        margin-bottom: 60rpx;
+
+        .subject-area {
+          padding: 0 90rpx;
+
+          .star {
+            color: red;
+            font-size: 32rpx;
+          }
+
+          .subject {
+            line-height: 40rpx;
+            font-size: 30rpx;
+            text-align: center;
+          }
+        }
+
+        .options-area {
+          .text-box {
+            .flex(column, flex-start, center);
+
+            >view {
+              width: 370rpx;
+              border-bottom: 1rpx solid #fff;
+              padding: 36rpx 0 10rpx 0;
+              .flex(row, center, center);
+
+              .text-chunk {
+                position: relative;
+                text-align: center;
+                width: max-content;
+
+                .icon {
+                  position: absolute;
+                  top: 50%;
+                  left: -65rpx;
+                  transform: translateY(-50%);
+                  width: 49rpx;
+                  height: 42rpx;
+                  opacity: 0;
+
+                  &.selected {
+                    opacity: 1;
+                  }
+                }
+
+                .text {
+                  font-size: 30rpx;
+                }
+              }
+            }
+
+            input.other{
+              width: 545rpx;
+              height: 76rpx;
+              border-bottom: 1rpx dashed #fff;
+              font-size: 30rpx;
+            }
+          }
+
+          .img-box {
+            .flex(row, space-between, flex-start);
+
+            >view {
+              .flex(column, flex-start, center);
+              margin-bottom: 16rpx;
+              margin-right: 20rpx;
+              flex: 1;
+
+              &:last-child {
+                margin-right: 0;
+                margin-bottom: 0;
+              }
+
+              .img-icon-chunk {
+                width: 100%;
+                position: relative;
+
+                .img {
+                  width: 100%;
+                  height: 100rpx;
+                }
+
+                .icon {
+                  position: absolute;
+                  bottom: 0;
+                  right: 0;
+                  width: 40rpx;
+                  height: 40rpx;
+                }
+              }
+
+              .text {
+                width: 100%;
+                padding: 10rpx 20rpx;
+                font-size: 28rpx;
+              }
+            }
+          }
+
+          .input-box {
+            .flex(row, center, center);
+            padding-top: 40rpx;
+
+            input {
+              width: 545rpx;
+              height: 80rpx;
+              font-size: 30rpx;
+              padding: 0 20rpx;
+              border-bottom: 1rpx solid #fff;
+            }
+          }
+
+          .picker-box {
+            padding: 0 40rpx;
+
+            picker {
+              width: 100%;
+              height: 80rpx;
+              border: 2rpx solid @color-main;
+              border-radius: 6rpx;
+              position: relative;
+              overflow: hidden;
+              .flex(row, flex-start, center);
+
+              .seat {
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                opacity: 0;
+              }
+
+              text {
+                padding-left: 10rpx;
+              }
+
+              .push-chunk {
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 80rpx;
+                height: 80rpx;
+                background: @color-main;
+                .flex(row, center, center);
+
+                .arrow-push-solid {
+                  border-width: 20rpx 16rpx 0 16rpx;
+                  border-color: #fff transparent transparent transparent;
+                }
+              }
+            }
+          }
+
+          .textarea-box{
+            .flex(row, center, center);
+            padding-top: 40rpx;
+            textarea{
+              width: 545rpx;
+              height: 120rpx;
+              font-size: 30rpx;
+              padding: 0 20rpx;
+              border-bottom: 1rpx solid #fff;
+            }
+          }
+        }
+      }
+    }
+
+    .btn {
+      width: 334rpx;
+      height: 68rpx;
+      border-radius: 34rpx;
+      box-shadow: 0 0 0 1rpx rgba(0, 0, 0, .5) inset;
+      background: #fff;
+      color: #002b57;
+      font-size: 42rpx;
+      margin: 180rpx auto 0 auto;
+    }
+  }
+
+
+}

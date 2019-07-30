@@ -1,4 +1,23 @@
-@import '../../assets/styles/comp.less';
+view,
+cover-view,
+cover-image,
+text,
+swiper,
+swiper-item,
+input,
+picker,
+textarea,
+form {
+  box-sizing: border-box;
+  word-break: break-all;
+}
+
+.flex(@direction: row, @justify: center, @align: center) {
+  display: flex;
+  flex-direction: @direction;
+  justify-content: @justify;
+  align-items: @align;
+}
 
 .ant-register-wrapper {
   position: fixed;
@@ -7,7 +26,21 @@
   right: 0;
   bottom: 0;
   z-index: 999;
-  letter-spacing: 2rpx;
+
+  button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+
+    &::after {
+      border-radius: 0;
+      border: none;
+    }
+  }
 
   .mask-area {
     width: 100%;
@@ -20,104 +53,68 @@
     left: 50%;
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
-    width: 560rpx;
+    width: 630rpx;
     background: #fff;
-    // border-radius: 8rpx;
-    padding: 56rpx 30rpx 70rpx 30rpx;
-    border: 1rpx solid #c8caca;
     .flex(column, flex-start, center);
 
-    .logo {
-      width: 280rpx;
-      height: 58rpx;
-      margin-bottom: 66rpx;
-    }
-
-    .hint-box {
-      .flex(column, flex-start, center);
-      color: #656766;
-
-      .hint {
-        font-size: 30rpx;
-        margin-bottom: 15rpx;
-        // font-weight: 600;
-        line-height: 30rpx;
+    .btns-box {
+      .btn-success {
+        width: 380rpx;
+        height: 80rpx;
+        font-size: 32rpx;
+        color: #2c5596;
+        border: 2rpx solid #4a6ba1;
+        background: transparent;
+        margin: 56rpx auto 0 auto;
       }
 
-      .point-chunk {
-        margin-top: 16rpx;
-        font-size: 36rpx;
-        .flex(row, center, center);
-
-        .point {
-          font-size: 60rpx;
-          margin-right: 10rpx;
-        }
+      .btn-cancel {
+        width: max-content;
+        background: transparent;
+        font-size: 32rpx;
+        color: #4a6ba1;
+        padding-bottom: 6rpx;
+        border-bottom: 1rpx solid #4a6ba1;
+        margin: 30rpx auto 0 auto;
       }
     }
 
     .rule-box {
+      width: 100%;
       .flex(row, flex-start, flex-start);
       font-size: 24rpx;
-      padding: 50rpx 0;
-      color: #6d7e88;
-      
+      padding: 50rpx 30rpx;
+      color: #92bc39;
+
 
       .icon-select {
-        width: 32rpx;
-        height: 32rpx;
-        margin-right: 4rpx;
-        margin-top: 3rpx;
+        width: 30rpx;
+        height: 30rpx;
+        margin-right: 10rpx;
+        margin-top: 1rpx;
       }
 
       .rule-chunk {
         flex: 1;
         line-height: 32rpx;
-        .rule {
-          text-decoration: underline;
-        }
+
+        .rule {}
       }
     }
 
-    .btns-box {
-      .flex(column, flex-start, center);
-
-      .btn-success {
-        width: 300rpx;
-        height: 65rpx;
-        // border-radius: 44rpx;
-        color: #fff;
-        font-size: 30rpx;
-
-        &.btn-disabled {
-          background: #99a4ab;
-          color: #bfc2c4;
-        }
-      }
-
-      .btn-cancel {
-        background: transparent;
-        font-size: 26rpx;
-        color: #9a9a9a;
-        line-height: 36rpx;
-        margin-top: 12rpx;
-        border-bottom: 1rpx solid #747474;
-      }
-    }
-
-    .close-box{
+    .close-box {
+      position: absolute;
+      left: 50%;
+      bottom: -80rpx;
+      transform: translateX(-50%);
       width: 56rpx;
       height: 56rpx;
-      background: #f08c91;
-      position: absolute;
-      top: -57rpx;
-      right: 20rpx;
-      .flex(row, center, center);
-      .icon-close {
-        width: 30rpx;
-        height: 30rpx;
+
+      image {
+        width: 100%;
+        height: 100%;
       }
     }
-    
+
   }
 }

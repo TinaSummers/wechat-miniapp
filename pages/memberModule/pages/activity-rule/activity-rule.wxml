@@ -1,0 +1,20 @@
+<!--pages/memberModule/pages/activity-rule/activity-rule.wxml-->
+<comp-nav-dynamic id='comp-nav-dynamic'></comp-nav-dynamic>
+<view class="container" style="padding-top: {{navHeight}}px;">
+    <view class="header-wrapper">
+        <text>邀请好友加入小艾俱乐部一起变美丽</text>
+        <text>每成功邀请一名好友小艾赠您5元话费券哦~</text>
+    </view>
+    <view class="title-wrapper">
+        <text>邀好友一起变美，为美丽点赞，还能领取好礼。</text>
+        <text>活动时间：即日起至6月底</text>
+    </view>
+    <view class="content-wrapper">
+        <view class="title">参与流程：</view>
+        <view class="content">活动期间，前往“我的邀请”页面生成您的专属二维码邀请好友，被邀请的好友成功加入小艾并完成问卷后可获得新人好礼，同时每成功邀请一位好友，您即可获取5元话费充值券（适用于联通、电信、移动），每人最多可获得10张价值5元话费充值券，每位会员最多可以邀请10位好友；</view>
+        <view class="content">奖品有效期：话费充值券兑换有效期为30天，自收到兑换券之日起算。</view>
+        <view class="title">温馨小提示：</view>
+        <view class="content">为避免您的专属二维码过期，邀请前请前往“我的邀请”页面，生成新的二维码。</view>
+        <view class="content">若发现有恶意刷奖行为，一经查实，我们有权取消您的领券资格。</view>
+    </view>
+</view>

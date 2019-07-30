@@ -1,0 +1,10 @@
+<view class="sign_modal" hidden="{{hidden}}">
+  <view class="sign_modal_bg"></view>
+  <view class="sign_circle">
+    <image class="sign_logo" src="logo.png"></image>
+    <view class="circle1"></view>
+    <view class="circle2 cScale"></view>
+    <view class="circle3 cScale"></view>
+    <view class="icon_suc cOpacity"></view>
+  </view>
+</view>

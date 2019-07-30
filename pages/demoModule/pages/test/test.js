@@ -7,7 +7,7 @@ Page({
     navHeight: 0,
     imgModel
   },
-  onLoad() { 
+  onLoad() {
     this.setNav();
   },
   onShow() {
@@ -45,6 +45,11 @@ Page({
       fail: () => {
         console.log('入会失败');
       }
+    })
+  },
+  sealHandle(e) {
+    this.selectComponent("#comp-seal").checkSeal(e, res => {
+      console.log(res, 'comp-seal');
     })
   },
   onPageScroll(e) {

@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "image-pre": "../image-pre/image-pre"
+  }
+}

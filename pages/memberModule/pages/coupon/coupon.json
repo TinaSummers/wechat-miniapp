@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "comp-coupon": "/pages/memberModule/components/coupon-other/coupon"
+    "comp-coupon": "/pages/memberModule/components/coupon/coupon"
   }
 }

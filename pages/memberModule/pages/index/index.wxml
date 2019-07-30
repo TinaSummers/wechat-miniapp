@@ -2,130 +2,41 @@
 <comp-nav-dynamic id='comp-nav-dynamic'></comp-nav-dynamic>
 <comp-register id='comp-register'></comp-register>
 <view class="container">
-    <!-- <view class="header-wrapper" style="height: {{headerHeight}}rpx;"> -->
-    <view class="header-wrapper {{isMember?'':'no-member'}} {{isScroll?'scroll':''}}">
-        <image class="bg" mode="widthFix" src="{{imgModel.index_header_bg}}" /> 
-        <view class="area">
-            <view wx:if="{{isMember}}" class="avatar-area {{isScroll?'scroll':''}}">
-                <view class='avatar-box'>
-                    <open-data class='userAvatarUrl' type="userAvatarUrl"></open-data>
-                </view>
-                <view class="nick-box" bindtap='linkEditInfo'>
-                    <open-data class='userNickName hidden-e' type="userNickName"></open-data>
-                    <image class="edit" mode="widthFix" src="{{imgModel.icon_edit}}" />
-                </view>
-                <view class="point-box">积分：{{userModel.point}}</view>
+    <view class="header-wrapper">
+        <image class="bg" mode='widthFix' src="{{imgModel.index_banner}}" />
+        <image class="logo" mode='widthFix' src="{{imgModel.index_logo}}" />
+        <!-- <view class="header-area {{userModel.isGetCard ? 'have-card':''}}" wx:if="{{pageShow}}"> -->
+        <view class="header-area have-card" wx:if="{{pageShow}}">
+            <view class="avatar-box">
+                <open-data class='userAvatarUrl' type="userAvatarUrl"></open-data>
+                <!-- <image class="edit" mode="widthFix" src="{{imgModel.icon_edit}}" /> -->
             </view>
-            <!-- <view class="card-box" style="margin-top: {{headerTop}}rpx;width: {{cardWidth}}rpx"> -->
-            <view class="card-box {{isMember?'':'no-member'}} {{isScroll?'scroll':''}}">
-                <block wx:if='{{userModel.isGetCard || !isMember}}'>
-                    <view class="top-chunk">
-                        <view class="lf">
-                            <image mode="widthFix" src="{{imgModel.icon_card_logo}}" />
-                            <text>{{isMember?'普通会员':'会员卡'}}</text>
-                        </view>
-                        <view class="rg" bindtap='showBarcode'>
-                            <image mode="widthFix" src="{{imgModel.icon_barcode}}" />
-                        </view>
-                    </view>
-                    <view wx:if="{{isMember}}" class="bottom-chunk">
-                        <text class="code hidden-e">{{userModel.cardNum}}</text>
-                        <view class="btn-detail" hover-class="tap" hover-stay-time="100" bindtap='getCardHandle'>会员卡详情</view>
-                    </view>
-                </block>
-                <block wx:else>
-                    <view class="content-chunk">
-                        <image class="logo" mode="widthFix" src="{{imgModel.icon_card_logo}}" />
-                        <view class="line"></view>
-                        <view class="btn-receive" hover-class="tap" hover-stay-time="100" bindtap='getCardHandle'>立即领取会员卡</view>
-                    </view>
-                </block>
+            <view class="name-box">
+                <text>您好，</text>
+                <open-data class='userNickName hidden-e' type="userNickName"></open-data>
+            </view>
+            <!-- <view wx:if='{{!userModel.isGetCard}}' class="btn-box">领取会员卡</view> -->
+        </view>
+        <!-- <image bindtap='linkCard'  wx:if='{{userModel.isGetCard}}' class="btn-qr" mode="widthFix" src="{{imgModel.icon_qr}}" /> -->
+    </view>
+    <view class="list-wrapper">
+        <view class="list-area" wx:for='{{optList}}' wx:key='{{index}}'>
+            <view class="list-box" wx:for='{{item}}' wx:for-item="subItem" wx:key='{{index}}' data-title='{{subItem.title}}' data-url='{{subItem.url}}' bindtap='jumpPage'>
+                <image mode='widthFix' src="{{subItem.icon}}" />
+                <text>{{subItem.title}}</text>
             </view>
         </view>
     </view>
-    <view class="model-wrapper" style="border-top: 0;">
-        <view class="title-area" bindtap='linkOrderList'>
-            <view class="lf">
-                <view class="icon"></view>
-                <text>我的订单</text>
-            </view>
-            <view class="rg">
-                <text>查看全部订单</text>
-                <view class="arrow-right"></view>
-            </view>
-        </view>
-        <view class="content-area">
-            <view class="order-box">
-                <view class="chunk" wx:for='{{orderList}}' wx:key='{{index}}' hover-class="tap" hover-stay-time="100" data-title='{{item.title}}' data-url='{{item.url}}' bindtap='jumpPage'>
-                    <image mode="widthFix" src="{{item.icon}}"/>
-                    <text >{{item.title}}</text>
-                    <view class="icon" wx:if='{{item.unNum > 0}}'>{{item.unNum}}</view>
-                </view>
-            </view>
+    <view class="share-wrapper">
+        <view class="title">邀请好友，入会体验</view>
+        <view bindtap='linkShareRecord'>
+            <comp-image-pre mode="widthFix" src="{{imgModel.index_banner_share}}" />
         </view>
     </view>
-    <view class="model-wrapper">
-        <view class="title-area">
-            <view class="lf">
-                <view class="icon"></view>
-                <text>会员服务</text>
-            </view>
-        </view>
-        <view class="content-area">
-            <view class="member-wrapper">
-                <view class="area" wx:for="{{memberList}}" wx:key="{{index}}">
-                    <view class="chunk" wx:for="{{item}}" wx:for-item="subItem" wx:for-index="idx" wx:key="{{idx}}" hover-class="tap" hover-stay-time="100" data-title='{{subItem.title}}' data-url='{{subItem.url}}' bindtap='jumpPage'>
-                        <image mode="widthFix" src="{{subItem.icon}}" />
-                        <text>{{subItem.title}}</text>
-                    </view>
-                </view>
-            </view>
-        </view>
-    </view>
-    <view class="model-wrapper">
-        <view class="title-area">
-            <view class="lf">
-                <view class="icon"></view>
-                <text>个人中心</text>
-            </view>
-        </view>
-        <view class="content-area">
-            <view class="center-wrapper">
-                <view class="area" wx:for="{{centerList}}" wx:key="{{index}}" hover-class="tap" data-title='{{item.title}}' hover-stay-time="100" data-url='{{item.url}}' bindtap='jumpPage'>
-                    <view class="chunk">
-                        <image mode="widthFix" src="{{item.icon}}" />
-                        <text>{{item.title}}</text>
-                    </view>
-                    <text class="sub-title">{{item.subTitle}}</text>
-                </view>
-            </view>
-        </view>
-    </view>
-    <view class="bottom-banner-wrapper" bindtap='linkShareRecord'>
-        <image mode="widthFix" src="{{imgModel.index_bottom_banner}}" />
-    </view>
+    <button open-type='contact' style="background: transparent;">
+        <image class="contact-box" mode="widthFix" src="{{imgModel.icon_contact}}" />
+    </button>
+    
 </view>
 
-<view class='mask-wrapper' wx:if='{{isShowToast}}'>
-    <view class='mask-area'></view>
-    <view class='content-area' animation='{{slide_up}}'>
-        <button open-type='contact' style="background: transparent;"><view class="box" hover-class="tap" hover-stay-time="100">在线客服</view></button>
-        <view class="box">400-6036-661</view>
-        <view class="box" data-mobile='4006036661' hover-class="tap" hover-stay-time="100" bindtap='linkMobile'>呼叫</view>
-        <view class="box cancel" hover-class="tap" hover-stay-time="100" bindtap='onCancel'>取消</view>
-    </view>
-</view>
-<view class='mask-wrapper' wx:if='{{isShowToastBarcode}}'>
-    <view class='mask-area'></view>
-    <view class='content-area barcode' animation='{{slide_up_barcode}}'>
-        <view class="close-box" bindtap='onCancelBarcode'><image mode="widthFix" src="{{imgModel.icon_close}}" /></view>
-        <view class="card-box">
-            <comp-image-pre mode="widthFix" src="{{imgModel.index_barcode_card_bg}}" width='574' height='345'></comp-image-pre>
-            <text class="card-type">普通会员卡</text>
-            <text class="card-num">NO.{{userModel.cardNum}}</text>
-        </view>
-        <image class="barcode" src='{{barcode}}' />
-        <view class="code">{{userModel.cardNum}}</view>
-        <view class="notice">使用时请出示给店员</view>
-    </view>
-</view>
+

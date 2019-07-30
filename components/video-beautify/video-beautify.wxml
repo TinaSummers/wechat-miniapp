@@ -1,0 +1,13 @@
+<view class="video-beautify">
+  <view class="cover-box" hidden="{{isPlaying}}" bindtap="_videoPlay">
+    <image-pre wx:if="{{!!coverImg}}" src="{{coverImg}}" height="450"></image-pre>
+    <image class="icon-play" src="./video_play.png" width="154" height="154"></image>
+  </view>
+
+  <view class="video-box">
+    <video id="beautifyVideo" src="{{src}}" style="width: {{videoWidth}}rpx"
+      bindpause="_videoPause"
+      bindended="_videoEnded"
+    ></video>
+  </view>
+</view>

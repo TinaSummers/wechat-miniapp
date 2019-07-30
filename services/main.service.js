@@ -45,7 +45,7 @@ class MainService {
       title: title,
       content: content,
       showCancel: false,
-      confirmColor: '#f09196',
+      // confirmColor: '#f09196',
       success: function (res) {
         if (res.confirm) {
           confirmCb && confirmCb();
@@ -64,7 +64,7 @@ class MainService {
     wx.showModal({
       title: '提示',
       content: content,
-      confirmColor: '#f09196',
+      // confirmColor: '#f09196',
       success: function (res) {
         if (res.confirm) {
           confirmCb && confirmCb();
@@ -175,8 +175,8 @@ class MainService {
   /**分享内容 */
   shareInfo() {
     return {
-      title: '卓诗尼！打造世界标杆！',
-      path: 'pages/eshopModule/pages/index/index',
+      title: '狂奔的小马扎',
+      path: 'pages/homeModule/pages/index/index',
       imageUrl: '/assets/images/share.jpg',
     }
   }

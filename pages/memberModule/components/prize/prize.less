@@ -1,0 +1,90 @@
+view,
+text,
+swiper,
+swiper-item,
+input,
+picker,
+textarea,
+scroll-view,
+rich-text,
+image,
+form {
+  box-sizing: border-box;
+  word-break: break-all;
+}
+.flex(@direction: row, @justify: center, @align: center) {
+    display: flex;
+    flex-direction: @direction;
+    justify-content: @justify;
+    align-items: @align;
+}
+@color-bg: #efefef;
+@color-border: #dddddd;
+@color-white: #ffffff;
+@color-blue: #2c5596;
+@color-date: #666666;
+@color-gray: #bebebe;
+@color-light-gray: #cacaca;
+.prize-area{
+  width: 630rpx;
+  height: 250rpx;
+  position: relative;
+  background: @color-bg;
+  border: 2rpx solid @color-bg;
+  &.used{
+      background: @color-white;
+      border-color: @color-border;
+  }
+  .bg{
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 200rpx;
+      height: 116rpx;
+  }
+  .amount-box{
+      position: absolute;
+      left: 32rpx;
+      top: 73rpx;
+      color: @color-blue;
+      font-weight: bold;
+      .flex(row, flex-start, flex-end);
+      &.used{
+          color: @color-light-gray;
+      }
+      text{
+          &:nth-child(1){
+              font-size: 60rpx;
+              line-height: 54rpx;
+          }
+          &:nth-child(2){
+              font-size: 30rpx;
+              margin-left: 10rpx;
+          }
+      }
+  }
+  .date{
+      position: absolute;
+      left: 32rpx;
+      bottom: 32rpx;
+      font-size: 26rpx;
+      color: @color-date;
+      &.used{
+          color: @color-light-gray;
+      }
+  }
+  .flag-used{
+      width: 112rpx;
+      height: 112rpx;
+      border-radius: 50%;
+      background: @color-gray;
+      position: absolute;
+      top: 19rpx;
+      right: 29rpx;
+      font-size: 26rpx;
+      color: @color-white;
+      font-weight: bold;
+      text-align: center;
+      line-height: 112rpx;
+  }
+}

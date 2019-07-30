@@ -1,10 +1,22 @@
 <view class='ant-swiper-wrapper' wx:if='{{renderDetail}}' style='width: {{width}}rpx;'>
   <swiper wx:if='{{renderDetail.length>1}}' bindchange="swiperChange" indicator-dots="{{indicator-dots}}" autoplay="{{autoplay}}" circular='{{circular}}' interval="{{interval}}" duration="{{duration}}" style="height:{{currHeight}}rpx;">
     <block wx:for="{{renderDetail}}" wx:key='{{index}}'>
-      <swiper-item>
-        <comp-image-pre mode='widthFix' width='{{width}}' height='600' src="{{item.imgUrl}}" data-item='{{item}}' catch:tap='jumpHandle' data-index='{{index}}' bindload="imageLoad"></comp-image-pre>
-      </swiper-item>
+      <navigation type="{{item.jumpType}}"
+        url="{{item.jumpUrl}}"
+        appId="{{item.appId}}"
+        webviewPath="{{item.webviewPath}}"
+      >
+        <swiper-item>
+          <comp-image-pre mode='widthFix' width='{{width}}' height='600' src="{{item.imgUrl}}" data-item='{{item}}' data-index='{{index}}' bindload="imageLoad"></comp-image-pre>
+        </swiper-item>
+      </navigation>
     </block>
   </swiper>
-  <comp-image-pre wx:if='{{renderDetail.length==1}}' width='{{width}}' height='600' data-item='{{renderDetail[0]}}' catch:tap='jumpHandle' mode='widthFix' src="{{renderDetail[0].imgUrl}}"></comp-image-pre>
+  <navigation wx:if='{{renderDetail.length==1}}' type="{{renderDetail[0].jumpType}}"
+    url="{{renderDetail[0].jumpUrl}}"
+    appId="{{renderDetail[0].appId}}"
+    webviewPath="{{renderDetail[0].webviewPath}}"
+  >
+    <comp-image-pre width='{{width}}' height='600' data-item='{{renderDetail[0]}}' mode='widthFix' src="{{renderDetail[0].imgUrl}}"></comp-image-pre>
+  </navigation>
 </view>

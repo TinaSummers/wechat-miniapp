@@ -1,4 +1,3 @@
-// pages/memberModule/pages/screen/screen.js
 import memberService from '../../services/member.service';
 import imgModel from '../../models/img.model';
 import userModel from '../../models/user.model';
@@ -15,7 +14,6 @@ Page({
   },
   onLoad() {
     this.setNav();
-    this.setData({isBigScreen: mainService.judgeBigScreen()});
   },
   onShow(){
     this.login();
@@ -24,7 +22,7 @@ Page({
     this.selectComponent('#comp-nav-dynamic').setOptions({
       navBackgroundInit: 'transparent', // 导航栏背景颜色-初始值
       navBackgroundRoll: '#ffffff', // 导航栏背景颜色-滚动值
-      titleColorInit: '#ffffff', // 标题颜色-初始值
+      titleColorInit: '#000000', // 标题颜色-初始值
       titleColorRoll: '#000000', // 标题颜色-滚动值
       titleTextInit: '', // 标题文字-初始值
       titleTextRoll: '', // 标题文字-滚动值

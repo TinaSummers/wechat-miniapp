@@ -1,0 +1,1 @@
+.video-beautify{position:relative}.video-beautify .cover-box{position:absolute;top:0;left:0;z-index:50;width:100%}.video-beautify .cover-box .icon-play{position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);width:154rpx;height:154rpx;z-index:60}

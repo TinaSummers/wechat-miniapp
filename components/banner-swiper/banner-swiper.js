@@ -3,8 +3,7 @@
  * @param {number} width 组件宽度rpx
  * @param {array} renderDetail 渲染详情
  */
-import mainService from '../../services/main.service';
-import pathModel from '../../models/path.model';
+
 Component({
   options: {
     multipleSlots: true // 在组件定义时的选项中启用多slot支持
@@ -73,35 +72,6 @@ Component({
         currHeight: this.data.imgHeights[current] ? this.data.imgHeights[current] : 600,
       })
       this.triggerEvent('change', e.detail);
-    },
-    jumpHandle(e) {
-      let { currentTarget: { dataset: { item } } } = e;
-      let jumpType = item.jumpType; // 跳转类型 1-无 2-跳转小程序内部页面 3-跳转H5
-      switch (jumpType) {
-        case 1:
-          break;
-        case 2:
-          let miniUrl = item.miniUrl;
-          if (!miniUrl) {
-            return
-          }
-          miniUrl = miniUrl[0] == '/' ? miniUrl : '/' + miniUrl;
-          let path = miniUrl.split('?')[0];
-          if (mainService.isTabPage(path)) {
-            mainService.link(miniUrl, 3);
-          } else {
-            mainService.link(miniUrl);
-          }
-          break;
-        case 3:
-          let h5Url = item.h5Url;
-          if (!h5Url) {
-            return
-          }
-          wx.setStorageSync('webviewUrl', h5Url);
-          mainService.link(pathModel.mc_webview);
-          break;
-      }
-    },
+    }
   }
 })

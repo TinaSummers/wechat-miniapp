@@ -7,10 +7,9 @@ import configModel from '../../../models/config.model';
 /**
  * 授权入会流程：
  * 1、进入小程序，未授权unionid，跳转到开屏页，强制授权；
- * 2、入会节点：
- *    商城首页：非会员弹出注册组件，如果用户拒绝入会，不再弹出组件；待小程序进程关闭后，可再弹出组件；
- *    会员首页：非会员弹出注册组件，如果用户拒绝入会，跳转到商城首页；
- * 3、会员首页：有3种状态值，非会员 + 会员未领卡 + 会员已领卡
+ * 2、基本入会节点：
+ *    主页：非会员弹出注册组件，用户拒绝入会，不再弹出组件；待小程序进程关闭后，可再弹出组件；
+ *    会员中心：非会员弹出注册组件，用户拒绝入会，关闭组件；当点击区块入口，需要会员权限时，弹出组件；
  * 
  * 属性：
  * @param {Array} limitRoute 守卫路由集合（路由别名）；栗子：会员权限
@@ -114,6 +113,7 @@ class MemberService {
       model.expirePoint = data.expire_integral;
       model.memberid = data.id;
       model.vipType = data.vip_level_id;
+      model.vipTypeName = data.vip_level;
     } else {
       // 非会员
       model.isMember = 0;
@@ -322,57 +322,6 @@ class MemberService {
     }
     // 清空会跳数据
     this.setBackJump('', {});
-  }
-
-  /**
-   * 根据经纬度获取shopid
-   * @param {function} cb 更新shopid后的回调
-   */
-  getShopidByPosition(cb) {
-    if (userModel.isGetShopid == 1) {
-      cb && cb({
-        latitude: userModel.latitude,
-        longitude: userModel.longitude,
-      });
-      return
-    }
-    function _getShopid(latitude, longitude) {
-      ajaxService.getShopid({
-        latitude,
-        longitude,
-      }).then((res) => {
-        let { data: { errcode, data, errmsg } } = res;
-        if (errcode == 200) {
-          configModel.shopId = data.id;
-          userModel.isGetShopid = 1;
-          userModel.latitude = latitude;
-          userModel.longitude = longitude;
-          cb && cb({
-            latitude,
-            longitude,
-          });
-          console.log(configModel);
-        } else {
-          mainService.modal(errmsg);
-        }
-      })
-    }
-    wx.getLocation({
-      type: 'gcj02',
-      success: (res) => {
-        let { latitude, longitude } = res;
-        _getShopid.call(this, latitude, longitude);
-      },
-      fail: (res) => {
-        wx.request({
-          url: `https://apis.map.qq.com/ws/location/v1/ip?key=${configModel.mapKey}`,
-          success: (e) => {
-            let { data: { result: { location: { lat, lng } } } } = e;
-            _getShopid.call(this, lat, lng);
-          }
-        });
-      }
-    })
   }
 
   /**

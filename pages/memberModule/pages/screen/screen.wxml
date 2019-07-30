@@ -1,13 +1,14 @@
-<!--pages/memberModule/pages/screen/screen.wxml-->
 <comp-nav-dynamic id='comp-nav-dynamic'></comp-nav-dynamic>
+
 <view class="container">
-    <comp-image-pre mode="widthFix" src="{{isBigScreen?imgModel.screen_banner_bg:imgModel.screen_banner}}" height='{{isBigScreen?1000:800}}'></comp-image-pre>
-    <view class="content-wrapper">
-        <image class='logo {{isBigScreen?"screen_big":""}}' mode='widthFix' src='{{isBigScreen?imgModel.screen_logo_bg:imgModel.screen_logo}}' />
-        <view class="line"></view>
-        <view class="title">欢迎来到卓诗尼</view>
-        <view class="sub-title">为了您的用户权益和体验卓诗尼需要获取您的授权</view>
-        <button class="btn-auth" hover-class="tap" hover-stay-time="100" wx:if='{{btnShow && !userModel.isAuthUnionid}}' bindgetuserinfo="getUserInfo" open-type="getUserInfo">微信授权</button>
-        <!-- <button class="btn-auth" hover-class="tap" hover-stay-time="100" wx:if='{{btnShow && userModel.isAuthUnionid}}' bindtap="jumpPage">前往发现惊喜</button> -->
-    </view>
+  <image class='banner' mode="widthFix" src="{{isBigScreen?imgModel.screen_banner:imgModel.screen_banner}}" />
+  <view class='btn-wrapper {{isBigScreen?"big":""}}'>
+    <image class='logo' mode='widthFix' src='{{imgModel.screen_logo}}' />
+    <button class="btn-auth" hover-class="tap" hover-stay-time="100" wx:if='{{btnShow && !userModel.isAuthUnionid}}' bindgetuserinfo="getUserInfo" open-type="getUserInfo">
+      <image mode='widthFix' src='{{imgModel.screen_btn}}' />
+    </button>
+    <button class="btn-auth" hover-class="tap" hover-stay-time="100" wx:if='{{btnShow && userModel.isAuthUnionid}}' bindtap="jumpPage">
+      <image mode='widthFix' src='{{imgModel.screen_btn}}' />
+    </button>
+  </view>
 </view>

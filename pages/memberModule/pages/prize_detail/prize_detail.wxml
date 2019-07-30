@@ -1,0 +1,63 @@
+<!--pages/memberModule/pages/prize_detail/prize_detail.wxml-->
+<comp-nav-dynamic id='comp-nav-dynamic'></comp-nav-dynamic>
+<view class="container" style="padding: {{navHeight}}px 60rpx 0;">
+    <open-data class='userAvatarUrl' style="margin-top: 40rpx;" type="userAvatarUrl"></open-data>
+    <!-- <view class="prize-area">
+        <image class="bg" mode="widthFix" src="{{imgModel.icon_prize_bg}}" />
+        <view class="amount-box">
+            <text>¥5</text>
+            <text>话费券</text>
+        </view>
+        <view class="date">有效期：即日起2019年5月1日</view>
+    </view> -->
+    <comp-prize style="margin-top: 46rpx;" item='{{prizeInfo}}'></comp-prize>
+    <view class="item-wrapper">
+        <text class="title">可用金额：</text>
+        <view class="content">5</view>
+    </view>
+    <view class="item-wrapper">
+        <text class="title">手机号码：</text>
+        <view class="content">13800000000</view>
+    </view>
+    <view class="item-wrapper">
+        <text class="title">充值金额：</text>
+        <view class="content">5</view>
+        <!-- <view class="content">
+            <picker mode="selector" bindchange="bindPickerChange" value="{{amount_index}}" range="{{amount_list}}">
+                <view class="picker" >
+                    {{amount_list[amount_index]}}
+                    <view class="arrow"></view>
+                </view>
+            </picker>
+        </view> -->
+    </view>
+    <view class="confirm" bindtap='onConfirm'>确认充值</view>
+    <view class="instr" bindtap='onShowInstr'>兑换说明</view>
+
+    <view class="mask-wrapper" wx:if='{{isShowInstr}}'>
+        <view class="mask-area"></view>
+        <view class="content-area" style="margin-top: -396rpx;" animation='{{show_hide_instr}}'>
+            <view class="title">兑换说明</view>
+            <view class="content">
+                <view><text>1.</text>充值有延迟或无短信提醒均属正常，获奖者可通过移动、联通、电信运营商查询充值记录。</view>
+                <view><text>2.</text>获奖者需要确保手机处于正常的开机状态下，如手机号码为智能网号码、企业连号、虚拟运营商号码、空号、停机、关机、欠费、无服务、锁定期、携号转网、家庭网副号等则无法成功充值，造成的损失由消费者自行承担。</view>
+                <view><text>3.</text>充值到账时间：如号码无以上问题或其他影响充值问题正常到账时间为1-5分钟，如    充值号码自身问题或运营商系统维护、卡单会延迟充值时间（具体视运营商系统情况确定）。</view>
+                <view><text>4.</text>在月初月末期间或运营商不定期的系统维护期间可能导致充值延迟或无法成功到账等情况，延迟时间一般为3-5个工作日，活动主办方有权要求中奖者更换手机号码充值。</view>
+                <view><text>5.</text>本奖品充值区域仅限全国内陆地区，港澳台除外。</view>
+                <view><text>6.</text>本奖品不得转让，不能兑换现金。</view>
+            </view>
+            <view class="btn" bindtap='onHideInstr'>确定</view>
+        </view>
+    </view>
+    <view class="mask-wrapper" wx:if='{{isShowToast}}'>
+        <view class="mask-area"></view>
+        <view class="content-area" style="margin-top: -154rpx;" animation='{{slide_up}}'>
+            <view class="title">充值成功</view>
+            <view class="content">
+                <text>您的话费在路上</text>
+                <text>72小时内审核到账</text>
+            </view>
+            <view class="btn" bindtap='onHideToast'>确定</view>
+        </view>
+    </view>
+</view>

@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -14,7 +14,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.7.5",
 	"appid": "wxdfe9038246106c3b",
-	"projectname": "%E5%B0%8F%E9%A9%AC%E6%89%8E%E7%9A%84%E6%A8%A1%E6%9D%BF",
+	"projectname": "小马扎",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
@@ -30,13 +30,116 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 13,
+			"list": [
+				{
+					"id": -1,
+					"name": "inter_index",
+					"pathName": "pages/interModule/pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "inter_product",
+					"pathName": "pages/interModule/pages/product/product",
+					"query": "id=1",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "inter_decoration",
+					"pathName": "pages/interModule/pages/decoration/decoration",
+					"query": "id=4",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "mc_index",
+					"pathName": "pages/memberModule/pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "home_index",
+					"pathName": "pages/homeModule/pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "mc_store",
+					"pathName": "pages/memberModule/pages/store/store",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "mc_store_detail",
+					"pathName": "pages/memberModule/pages/store-detail/store-detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "salon_index",
+					"pathName": "pages/signModule/pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "qs_index",
+					"pathName": "subpages/questionModule/pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "demo_test",
+					"pathName": "pages/demoModule/pages/test/test",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "salon_list",
+					"pathName": "pages/signModule/pages/salon-list/salon-list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "salon_detail",
+					"pathName": "pages/signModule/pages/salon-detail/salon-detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "inter_myReport",
+					"pathName": "pages/interModule/pages/myReport/myReport",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 13,
+					"name": "inter_myCollection",
+					"pathName": "pages/interModule/pages/myCollection/myCollection",
+					"query": "",
+					"scene": null
+				}
+			]
 		}
 	}
 }

@@ -1,0 +1,22 @@
+<!--pages/memberModule/pages/card/card.wxml-->
+<comp-nav-dynamic id='comp-nav-dynamic'></comp-nav-dynamic>
+<view class="container" style="padding-top: {{navHeight}}px;">
+    <view class="card-wrapper">
+        <view class="card-area">
+            <image class="bg" mode="widthFix" src="{{imgModel.card_bg}}" />
+            <view class="info-box">
+                <view class="logo"><image mode="widthFix" src="{{imgModel.index_logo}}" /></view>
+                <view class="info">
+                    <text>艾尔建</text>
+                    <text>会员卡</text>
+                </view>
+            </view>
+            <view class="card-num">{{cardNum}}</view>
+        </view>
+    </view>
+    <view class="code-wrapper">
+        <image class="barcode" src="{{barcode}}" />
+        <view class="code">{{cardNum}}</view>
+        <image class="qrcode" src="{{qrcode}}" />
+    </view>
+</view>

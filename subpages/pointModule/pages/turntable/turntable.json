@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "comp-modal": "../../components/modal/modal",
-    "round-turntable": "../../components/round-turntable/round-turntable"
-  }
-}

@@ -18,8 +18,7 @@
  * @param {string} ecrmUrl ecrm域名
  * @param {string} hubUrl hub域名（门店的省市区列表+门店列表）
  * @param {string} mcUrl 会员中心域名
- * @param {string} etoshopUrl 商城域名
- * @param {string} mapKey 腾讯地图的key
+ * @param {string} surveyId 调查问卷id
  */
 
 const ENV = 'TEST';
@@ -34,16 +33,15 @@ switch (ENV) {
       organizationId: '126',
       brandId: '40',
       shopId: 0,
-      publicAppid: '',
+      publicAppid: '835d77c49bd2ea54dc99f0891cdb6ee5',
       ecrmSource: 'beijing',
       needUnionid: 0,
       trackUrl: 'https://apitrack.woaap.com',
       apiUrl: 'https://api-test.woaap.com',
       ecrmUrl: 'https://ecrm-test.woaap.com',
-      hubUrl: 'https://woaapsh.woaap.com',
+      hubUrl: 'https://www.woaap.com',
       mcUrl: '',
-      etoshopUrl: 'https://jos1ny-bj.woaap.com',
-      mapKey: 'DB7BZ-RZGCF-FXSJN-JYW2W-JLFT5-MKBGB',
+      surveyId: '20',
     }
     break;
   case 'PROD':

@@ -19,7 +19,7 @@ Component({
   properties: {
     closeBtnShow: { // 关闭按钮是否显示
       type: Number,
-      value: 1,
+      value: 0,
     },
   },
   data: {
@@ -27,7 +27,7 @@ Component({
     compShow: false, // 组件是否显示
     successCb: null, // 成功加入会员的回调
     failCb: null, // 取消加入会员的回调
-    checked: false, // 是否阅读用户协议
+    checked: true, // 是否阅读隐私条款
   },
   pageLifetimes: {
     // 监听页面生命周期
@@ -108,10 +108,10 @@ Component({
       })
     },
     hintHandle() {
-      // 未阅读用户协议的触发事件
+      // 未阅读隐私条款的触发事件
       mainService.throttle(() => {
-        mainService.toast('阅读<用户协议>并勾选');
-      }, 2000)
+        mainService.toast('阅读<隐私条款>并勾选');
+      }, 1000)
     },
     getphonenumberHandle(e) {
       if (e.detail.errMsg == 'getPhoneNumber:ok') {
@@ -139,12 +139,13 @@ Component({
                   compShow: false,
                 })
                 // @请求后台 领取会员卡
-                memberService.getMemberCard(() => {
-                  if (memberService.isTriggerCard) {
-                    memberService.isTriggerCard = false;
-                    this.data.successCb && this.data.successCb();
-                  }
-                })
+                // memberService.getMemberCard(() => {
+                //   if (memberService.isTriggerCard) {
+                //     memberService.isTriggerCard = false;
+                //     this.data.successCb && this.data.successCb();
+                //   }
+                // })
+                this.data.successCb && this.data.successCb();
               } else {
                 mainService.modal(errmsg);
               }

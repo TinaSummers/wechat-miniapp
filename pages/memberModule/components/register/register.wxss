@@ -1,83 +1,15 @@
 view,
+cover-view,
+cover-image,
 text,
 swiper,
 swiper-item,
 input,
 picker,
 textarea,
-scroll-view,
-rich-text,
-image,
 form {
   box-sizing: border-box;
   word-break: break-all;
-}
-.ant-comp-common {
-  width: 750rpx;
-  font-size: 28rpx;
-  color: #1c1d22;
-}
-.ant-comp-common image {
-  display: block;
-}
-.ant-comp-common radio,
-.ant-comp-common checkbox {
-  transform: scale(0.6);
-}
-.ant-comp-common .userAvatarUrl {
-  width: 120rpx;
-  height: 120rpx;
-  border-radius: 50%;
-  overflow: hidden;
-  display: block;
-}
-.ant-comp-common .arrow-ahead {
-  width: 16rpx;
-  height: 16rpx;
-  border: 2rpx solid #454545;
-  border-bottom: none;
-  border-left: none;
-  transform: rotate(45deg);
-}
-.ant-comp-common .hidden-e {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-.ant-comp-common .hidden-e-r2 {
-  /*设置多行文本超出隐藏*/
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-}
-.ant-comp-common .placeholder {
-  color: #999;
-}
-.ant-comp-common .blank {
-  /*占位行*/
-  flex: 1;
-}
-.ant-comp-common button {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  margin: 0;
-  border-radius: 0;
-}
-.ant-comp-common button::after {
-  border-radius: 0;
-  border: none;
-}
-.ant-comp-common button.btn-main {
-  width: 500rpx;
-  height: 80rpx;
-  background: #f08c91;
-  color: #fff;
-  font-size: 32rpx;
 }
 .ant-register-wrapper {
   position: fixed;
@@ -86,7 +18,19 @@ form {
   right: 0;
   bottom: 0;
   z-index: 999;
-  letter-spacing: 2rpx;
+}
+.ant-register-wrapper button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+}
+.ant-register-wrapper button::after {
+  border-radius: 0;
+  border: none;
 }
 .ant-register-wrapper .mask-area {
   width: 100%;
@@ -98,103 +42,60 @@ form {
   left: 50%;
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
-  width: 560rpx;
+  width: 630rpx;
   background: #fff;
-  padding: 56rpx 30rpx 70rpx 30rpx;
-  border: 1rpx solid #c8caca;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-}
-.ant-register-wrapper .content-area .logo {
-  width: 280rpx;
-  height: 58rpx;
-  margin-bottom: 66rpx;
-}
-.ant-register-wrapper .content-area .hint-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  color: #656766;
-}
-.ant-register-wrapper .content-area .hint-box .hint {
-  font-size: 30rpx;
-  margin-bottom: 15rpx;
-  line-height: 30rpx;
-}
-.ant-register-wrapper .content-area .hint-box .point-chunk {
-  margin-top: 16rpx;
-  font-size: 36rpx;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-.ant-register-wrapper .content-area .hint-box .point-chunk .point {
-  font-size: 60rpx;
-  margin-right: 10rpx;
-}
-.ant-register-wrapper .content-area .rule-box {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  font-size: 24rpx;
-  padding: 50rpx 0;
-  color: #6d7e88;
-}
-.ant-register-wrapper .content-area .rule-box .icon-select {
-  width: 32rpx;
-  height: 32rpx;
-  margin-right: 4rpx;
-  margin-top: 3rpx;
-}
-.ant-register-wrapper .content-area .rule-box .rule-chunk {
-  flex: 1;
-  line-height: 32rpx;
-}
-.ant-register-wrapper .content-area .rule-box .rule-chunk .rule {
-  text-decoration: underline;
-}
-.ant-register-wrapper .content-area .btns-box {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
 }
 .ant-register-wrapper .content-area .btns-box .btn-success {
-  width: 300rpx;
-  height: 65rpx;
-  color: #fff;
-  font-size: 30rpx;
-}
-.ant-register-wrapper .content-area .btns-box .btn-success.btn-disabled {
-  background: #99a4ab;
-  color: #bfc2c4;
+  width: 380rpx;
+  height: 80rpx;
+  font-size: 32rpx;
+  color: #2c5596;
+  border: 2rpx solid #4a6ba1;
+  background: transparent;
+  margin: 56rpx auto 0 auto;
 }
 .ant-register-wrapper .content-area .btns-box .btn-cancel {
+  width: max-content;
   background: transparent;
-  font-size: 26rpx;
-  color: #9a9a9a;
-  line-height: 36rpx;
-  margin-top: 12rpx;
-  border-bottom: 1rpx solid #747474;
+  font-size: 32rpx;
+  color: #4a6ba1;
+  padding-bottom: 6rpx;
+  border-bottom: 1rpx solid #4a6ba1;
+  margin: 30rpx auto 0 auto;
 }
-.ant-register-wrapper .content-area .close-box {
-  width: 56rpx;
-  height: 56rpx;
-  background: #f08c91;
-  position: absolute;
-  top: -57rpx;
-  right: 20rpx;
+.ant-register-wrapper .content-area .rule-box {
+  width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: 24rpx;
+  padding: 50rpx 30rpx;
+  color: #92bc39;
 }
-.ant-register-wrapper .content-area .close-box .icon-close {
+.ant-register-wrapper .content-area .rule-box .icon-select {
   width: 30rpx;
   height: 30rpx;
+  margin-right: 10rpx;
+  margin-top: 1rpx;
+}
+.ant-register-wrapper .content-area .rule-box .rule-chunk {
+  flex: 1;
+  line-height: 32rpx;
+}
+.ant-register-wrapper .content-area .close-box {
+  position: absolute;
+  left: 50%;
+  bottom: -80rpx;
+  transform: translateX(-50%);
+  width: 56rpx;
+  height: 56rpx;
+}
+.ant-register-wrapper .content-area .close-box image {
+  width: 100%;
+  height: 100%;
 }

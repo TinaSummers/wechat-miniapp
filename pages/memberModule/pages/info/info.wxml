@@ -2,21 +2,17 @@
 <comp-register id='comp-register'></comp-register>
 <view class='container' wx:if='{{pageShow}}'>
   <view class='banner-wrapper'>
-    <image class='banner' mode='widthFix' src='{{imgModel.info_header_bg}}' />
     <view class="avatar-area">
-      <view class="userAvatarUrl">
-        <open-data wx:if='{{!avatar.length}}' style="width: 140rpx;height: 140rpx;display: block;overflow: hidden;border-radius:50%;" type="userAvatarUrl"></open-data>
-        <image wx:else style="width: 160rpx;height: 160rpx;" src="{{avatar}}" />
-      </view>
-      <!-- <text>点击修改头像</text> -->
+      <open-data class='userAvatarUrl' type="userAvatarUrl"></open-data>
+      <view class="name-box"><open-data class='userNickName hidden-e' type="userNickName"></open-data></view>
     </view>
     
   </view>
-  <view class='label-wrapper'>
+  <!-- <view class='label-wrapper'>
     <image mode='widthFix' src='{{imgModel.icon_info}}' />
     <text class='label'>基本信息</text>
     <text class='desc'>(请准确填写您的个人信息)</text>
-  </view>
+  </view> -->
   <form class='form-wrapper' report-submit='true' bindsubmit="submitHandle">
     <view class="profile-area">
       <view class='{{item.value?"":"unvalue"}}' wx:for="{{formItems}}" wx:key="{{index}}" wx:if="{{item.choiced==1}}">
@@ -26,7 +22,7 @@
           <text class='mark {{item.disabled==1?"disabled":""}} '>{{item.mark}}</text>
         </view>
         <view class='element-box'>
-          <input wx:if="{{item.ele=='input' && item.type!='radio'}}" disabled='{{item.disabled==1}}' placeholder-class="placeholder" bindinput="inputHandle" value='{{item.value}}' data-index="{{index}}" placeholder="{{item.placeholder}}" type="{{item.type}}" />
+          <input wx:if="{{item.ele=='input' && item.type!='radio'}}" disabled='{{item.disabled==1}}' style="color: {{item.disabled==1?'#ccc':'#333'}};" placeholder-class="placeholder" bindinput="inputHandle" value='{{item.value}}' data-index="{{index}}" placeholder="{{item.placeholder}}" type="{{item.type}}" />
           <picker wx:if="{{item.ele=='picker' && item.type=='selector'}}" disabled='{{item.disabled==1}}' bindchange="formChange" data-index="{{index}}" mode="{{item.type}}" range='{{item.items}}' range-key='k'>
             {{item.value_k ? item.value_k : item.placeholder}}
           </picker>

@@ -1,0 +1,78 @@
+view,
+text,
+swiper,
+swiper-item,
+input,
+picker,
+textarea,
+scroll-view,
+rich-text,
+image,
+form {
+  box-sizing: border-box;
+  word-break: break-all;
+}
+.prize-area {
+  width: 630rpx;
+  height: 250rpx;
+  position: relative;
+  background: #efefef;
+  border: 2rpx solid #efefef;
+}
+.prize-area.used {
+  background: #ffffff;
+  border-color: #dddddd;
+}
+.prize-area .bg {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 200rpx;
+  height: 116rpx;
+}
+.prize-area .amount-box {
+  position: absolute;
+  left: 32rpx;
+  top: 73rpx;
+  color: #2c5596;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+.prize-area .amount-box.used {
+  color: #cacaca;
+}
+.prize-area .amount-box text:nth-child(1) {
+  font-size: 60rpx;
+  line-height: 54rpx;
+}
+.prize-area .amount-box text:nth-child(2) {
+  font-size: 30rpx;
+  margin-left: 10rpx;
+}
+.prize-area .date {
+  position: absolute;
+  left: 32rpx;
+  bottom: 32rpx;
+  font-size: 26rpx;
+  color: #666666;
+}
+.prize-area .date.used {
+  color: #cacaca;
+}
+.prize-area .flag-used {
+  width: 112rpx;
+  height: 112rpx;
+  border-radius: 50%;
+  background: #bebebe;
+  position: absolute;
+  top: 19rpx;
+  right: 29rpx;
+  font-size: 26rpx;
+  color: #ffffff;
+  font-weight: bold;
+  text-align: center;
+  line-height: 112rpx;
+}
