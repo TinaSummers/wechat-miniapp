@@ -5,7 +5,7 @@ import mockModel from '../../models/mock.model';
 import memberService from '../../../../pages/memberModule/services/member.service';
 import pathModel from '../../../../models/path.model';
 import configModel from '../../../../models/config.model';
-
+import questionService from '../../services/question.service';
 /**
  * 备注：
  * 关联题可以有多个被关联题，被关联题只能有一个关联题；
@@ -28,7 +28,7 @@ Page({
   },
   onLoad() {
     this.setNav();
-    memberService.initMiniProgram(() => {
+    memberService.initJudgeJump(() => {
       this.judgeRegisterStatus();
     })
   },
@@ -70,11 +70,14 @@ Page({
       if (errcode == 0) {
         if (data.submited) {
           mainService.modal('您已参与过该活动', '提示', () => {
-            if (getCurrentPages().length < 2) {
+            const pages = getCurrentPages(); // 获取加载的页面
+            console.log(pages.length);
+            if (pages.length < 2) {
               mainService.link(pathModel.mc_index, 3);
             } else {
               wx.navigateBack();
             }
+            
           });
           return
         }
@@ -388,7 +391,7 @@ Page({
       currIndex: next,
     })
   },
-  judgeCanSubmit() {
+  judgeCanSubmit(){
     // 判断是否可提交答案
     let canSubmit = true;
     let curr = this.data.currIndex;
