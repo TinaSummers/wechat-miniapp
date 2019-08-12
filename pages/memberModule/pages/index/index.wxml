@@ -3,34 +3,29 @@
 <comp-register id='comp-register'></comp-register>
 <view class="container">
     <view class="header-wrapper">
-        <image class="bg" mode='widthFix' src="{{imgModel.index_banner}}" />
-        <image class="logo" mode='widthFix' src="{{imgModel.index_logo}}" />
-        <!-- <view class="header-area {{userModel.isGetCard ? 'have-card':''}}" wx:if="{{pageShow}}"> -->
-        <view class="header-area have-card" wx:if="{{pageShow}}">
+        <image class="bg {{isBigScreen?'bigScreen':''}}" mode='widthFix' src="{{isBigScreen?imgModel.index_banner_big:imgModel.index_banner}}" />
+        <view class="header-area {{isBigScreen?'bigScreen':''}}" wx:if="{{pageShow}}">
             <view class="avatar-box">
                 <open-data class='userAvatarUrl' type="userAvatarUrl"></open-data>
-                <!-- <image class="edit" mode="widthFix" src="{{imgModel.icon_edit}}" /> -->
             </view>
-            <view class="name-box">
-                <text>您好，</text>
-                <open-data class='userNickName hidden-e' type="userNickName"></open-data>
-            </view>
-            <!-- <view wx:if='{{!userModel.isGetCard}}' class="btn-box">领取会员卡</view> -->
         </view>
-        <!-- <image bindtap='linkCard'  wx:if='{{userModel.isGetCard}}' class="btn-qr" mode="widthFix" src="{{imgModel.icon_qr}}" /> -->
+        <view class="name-area {{isBigScreen?'bigScreen':''}}" wx:if="{{pageShow}}">
+            <text>您好，</text>
+            <open-data class='userNickName hidden-e' type="userNickName"></open-data>
+        </view>
     </view>
-    <view class="list-wrapper">
+    <view class="list-wrapper {{isBigScreen?'bigScreen':''}}">
         <view class="list-area" wx:for='{{optList}}' wx:key='{{index}}'>
-            <view class="list-box" wx:for='{{item}}' wx:for-item="subItem" wx:key='{{index}}' data-title='{{subItem.title}}' data-url='{{subItem.url}}' bindtap='jumpPage'>
+            <view class="list-box {{isBigScreen?'bigScreen':''}}" wx:for='{{item}}' wx:for-item="subItem" wx:key='{{subItem.title}}' data-item='{{subItem}}' bindtap='jumpPage'>
                 <image mode='widthFix' src="{{subItem.icon}}" />
                 <text>{{subItem.title}}</text>
             </view>
         </view>
     </view>
     <view class="share-wrapper">
-        <view class="title">邀请好友，入会体验</view>
+        <view class="title"><image src="{{imgModel.icon_index_share_title}}"/>邀请好友，入会体验</view>
         <view bindtap='linkShareRecord'>
-            <comp-image-pre mode="widthFix" src="{{imgModel.index_banner_share}}" />
+            <comp-image-pre mode="widthFix" width='670' height='340' src="{{imgModel.index_banner_share}}" />
         </view>
     </view>
     <button open-type='contact' style="background: transparent;">

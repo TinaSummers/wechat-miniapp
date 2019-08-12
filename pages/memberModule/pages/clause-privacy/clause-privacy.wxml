@@ -1,0 +1,5 @@
+<comp-nav-dynamic id='comp-nav-dynamic'></comp-nav-dynamic>
+
+<view class="container" style='padding-top: {{navHeight}}px;'>
+  <comp-image-pre wx:for='{{renderList}}' wx:key='{{index}}' mode='widthFix' src='{{item}}' width='750' height='1600'></comp-image-pre>
+</view>

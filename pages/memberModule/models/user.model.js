@@ -1,7 +1,7 @@
 export default {
   isMember: 0, // 是否会员
   isBind: 0, // 是否绑定
-  openid: '', // 用户的openid （获取formid）
+  openid: '', // 用户的openid
   unionid: '', // 用户的unionid
   isAuthUnionid: false, // 是否授权unionid
   cardNum: '', // 会员卡号
@@ -11,4 +11,5 @@ export default {
   memberid: 0, // 会员id
   vipType: 0, // 会员等级id
   vipTypeName: '', // 会员等级名称
+  mobile: '', // 手机号
 }

@@ -1,27 +1,26 @@
 {
   "pages": [
     "pages/homeModule/pages/index/index",
+    "pages/homeModule/pages/test/test",
 
-    
     "pages/memberModule/pages/index/index",
     "pages/memberModule/pages/screen/screen",
     "pages/memberModule/pages/info/info",
+    "pages/memberModule/pages/member-right/member-right",
+    "pages/memberModule/pages/clause-privacy/clause-privacy",
+    "pages/memberModule/pages/clause-use/clause-use",
     "pages/memberModule/pages/store/store",
     "pages/memberModule/pages/store-detail/store-detail",
     "pages/memberModule/pages/share-record/share-record",
-    "pages/memberModule/pages/signin/signin",
-    "pages/memberModule/pages/member-right/member-right",
-    "pages/memberModule/pages/rule/rule",
-    "pages/memberModule/pages/coupon/coupon",
-    "pages/memberModule/pages/coupon-detail/coupon-detail",
-    "pages/memberModule/pages/webview/webview",
-    "pages/memberModule/pages/register/register",
-    "pages/memberModule/pages/card/card",
     "pages/memberModule/pages/activity-rule/activity-rule",
+    "pages/memberModule/pages/signin/signin",
+    "pages/memberModule/pages/webview/webview",
+    "pages/memberModule/pages/card/card",
     "pages/memberModule/pages/prize_list/prize_list",
     "pages/memberModule/pages/prize_detail/prize_detail",
-    "pages/memberModule/pages/question/question",
-    "pages/memberModule/pages/scratch/scratch"
+
+    "pages/demoModule/pages/index/index",
+    "pages/demoModule/pages/test/test"
   ],
   "subpackages": [
     {
@@ -32,8 +31,8 @@
     }
   ],
   "window": {
-    "navigationBarBackgroundColor": "#db291e",
-    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
     "navigationBarTitleText": "小马扎",
     "backgroundColor": "#D3D3D3",
     "backgroundTextStyle": "light",
@@ -42,10 +41,10 @@
   "usingComponents": {
     "comp-nav-dynamic": "/components/nav-dynamic/nav-dynamic",
     "comp-image-pre": "/components/image-pre/image-pre",
+    "comp-register": "/pages/memberModule/components/register/register",
+    "comp-auth": "/pages/memberModule/components/auth/auth",
     "comp-banner-swiper": "/components/banner-swiper/banner-swiper",
     "comp-seal": "/components/seal/seal",
-    "comp-ad": "/pages/memberModule/components/ad/ad",
-    "comp-register": "/pages/memberModule/components/register/register",
     "navigation": "/components/navigation/navigation",
     "image-link": "/components/image-link/image-link",
     "video-beautify": "/components/video-beautify/video-beautify"
@@ -56,9 +55,9 @@
     }
   },
   "tabBar": {
-    "color": "#545759",
-    "selectedColor": "#ef8c91",
-    "backgroundColor": "#fff",
+    "color": "#999999",
+    "selectedColor": "#2c5697",
+    "backgroundColor": "#ffffff",
     "borderStyle": "black",
     "position": "bottom",
     "list": [

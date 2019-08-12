@@ -1,12 +1,16 @@
 <!--pages/memberModule/pages/prize_list/prize_list.wxml-->
 <comp-nav-dynamic id='comp-nav-dynamic'></comp-nav-dynamic>
-<view class="container" style="padding-top: {{navHeight}}px;">
+<view class="container" style="padding-top: {{navHeight}}px;" wx:if='{{isPageShow}}'>
     <view class="scroll-view-container">
         <scroll-view scroll-y="{{true}}" scroll-with-animation="{{true}}" bindscrolltolower="onLoadPageMore">
-            <view class="list-wrapper">
-                <view class="list-area" wx:for='{{list}}' wx:key='{{index}}' bindtap='{{item.status == 0?"linkPrizeDetail":""}}'>
+            <view class="list-wrapper" wx:if='{{list.length}}'>
+                <view class="list-area" wx:for='{{list}}' wx:key='{{index}}' data-item='{{item}}' bindtap='{{item.state == 0?"linkPrizeDetail":""}}'>
                     <comp-prize item='{{item}}'></comp-prize>
                 </view>
+            </view>
+            <view class="zero-wrapper" wx:else>
+                <image mode="widthFix" src="{{imgModel.icon_prize_zero}}" />
+                <text>您暂无奖品信息</text>
             </view>
         </scroll-view>
     </view>

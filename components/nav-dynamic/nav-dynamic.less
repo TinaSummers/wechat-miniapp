@@ -1,30 +1,33 @@
-view,
-cover-view,
-cover-image,
-text,
-swiper,
-swiper-item,
-input,
-picker,
-textarea,
-form {
-  box-sizing: border-box;
-  word-break: break-all;
-}
-
-.flex(@direction: row, @justify: center, @align: center) {
-  display: flex;
-  flex-direction: @direction;
-  justify-content: @justify;
-  align-items: @align;
-}
-
 .ant-nav-dynamic-wrapper {
+
+  view,
+  cover-view,
+  cover-image,
+  text,
+  swiper,
+  swiper-item,
+  input,
+  picker,
+  textarea,
+  form {
+    box-sizing: border-box;
+    word-break: break-all;
+  }
+
+  .flex(@direction: row, @justify: center, @align: center) {
+    display: flex;
+    flex-direction: @direction;
+    justify-content: @justify;
+    align-items: @align;
+  }
+
   position: fixed;
   z-index: 99999;
   left: 0;
   top: 0;
   width: 750rpx;
+  box-sizing: border-box;
+  word-break: break-all;
   .flex(column, flex-start, flex-start);
 
   .ant-nav-status-area {
@@ -38,6 +41,7 @@ form {
 
     .ant-nav-history-home-box {
       .flex(row, flex-start, center);
+
       .ant-nav-history-chunk {
         width: 80rpx;
         height: 100%;
@@ -56,11 +60,13 @@ form {
       .ant-nav-home {
         width: 40rpx;
         height: 40rpx;
-        &.hasgap{
+
+        &.hasgap {
           margin-left: 20rpx;
         }
       }
     }
+
     .ant-nav-title-box {
       position: absolute;
       left: 50%;

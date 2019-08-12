@@ -1,0 +1,105 @@
+.ant-auth-wrapper {
+
+  view,
+  cover-view,
+  cover-image,
+  text,
+  swiper,
+  swiper-item,
+  input,
+  picker,
+  textarea,
+  form {
+    box-sizing: border-box;
+    word-break: break-all;
+  }
+
+  .flex(@direction: row, @justify: center, @align: center) {
+    display: flex;
+    flex-direction: @direction;
+    justify-content: @justify;
+    align-items: @align;
+  }
+
+  button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    line-height: initial;
+
+    &::after {
+      border-radius: 0;
+      border: none;
+    }
+  }
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  box-sizing: border-box;
+  word-break: break-all;
+
+  .mask-area {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .6);
+  }
+
+  .content-area {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 630rpx;
+    background: #fff;
+    .flex(column, flex-start, center);
+
+    .logo {
+      width: 100%;
+      height: 326rpx;
+    }
+
+    .btns-box {
+      .btn-success {
+        width: 232rpx;
+        height: 61rpx;
+        font-size: 32rpx;
+        border-radius: 6rpx;
+        color: #ffffff;
+        background: #a63286;
+        margin: 40rpx auto 0 auto;
+      }
+
+      .btn-cancel {
+        width: max-content;
+        background: transparent;
+        font-size: 32rpx;
+        color: #96326c;
+        border-bottom: 1rpx solid #96326c;
+        margin: 40rpx auto;
+      }
+    }
+
+    .close-box {
+      position: absolute;
+      left: 50%;
+      bottom: -120rpx;
+      transform: translateX(-50%);
+      width: 56rpx;
+      height: 56rpx;
+
+      image {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+  }
+}

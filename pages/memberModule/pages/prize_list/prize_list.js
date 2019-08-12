@@ -11,12 +11,15 @@ Page({
     imgModel,
     
     navHeight: 0,
+    type: '',
+    isPageShow: false,
     list: [
-      {amount: 5, date: '2019年5月1号', status: 0},
-      {amount: 5, date: '2019年5月1号', status: 1},
+      // {amount: 5, createTime: '2019年5月1号', state: 0, isShowDate: true},
+      // {amount: 5, createTime: '2019年5月1号', state: 1, isShowDate: true},
     ],
   },
-  onLoad() {
+  onLoad(optios) {
+    this.setData({type: optios.type || ''});
     let navData = {
       navBackgroundInit: '#ffffff', // 导航栏背景颜色-初始值
       navBackgroundRoll: '#ffffff', // 导航栏背景颜色-滚动值
@@ -33,12 +36,32 @@ Page({
     
   },
   onShow() {
-    memberService.initJudgeJump(() => {
-      
+    memberService.initMiniProgram(() => {
+      this.getPrizeList();
     });
   },
-  linkPrizeDetail(){
-    mainService.link(pathModel.mc_prize_detail);
+  getPrizeList(){
+    let params = {
+      cardType: this.data.type == 'share' ? 2 : 1
+    };
+    ajaxService.prizeListShare(params).then(res => {
+      let {data: {errcode, data, errmsg}} = res;
+      this.setData({isPageShow: true});
+      if(errcode == 200){
+        let list = data;
+        list.forEach((item, idx) => {
+          item.amount = item.price;
+          item.isShowDate = true;
+        });
+        this.setData({list});
+      }else{
+        mainService.modal(errmsg);
+      }
+    });
+  },
+  linkPrizeDetail(e){
+    let {currentTarget: {dataset: {item}}} = e;
+    mainService.link(`${pathModel.mc_prize_detail}?prizeInfo=${JSON.stringify(item)}`);
   },
   // onPageScroll(e) {
   //   let { scrollTop } = e;

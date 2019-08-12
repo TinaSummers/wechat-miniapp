@@ -7,13 +7,14 @@ export default {
       subject: '您的年薪是多少？？', // 题目名称
       choiced: 1, // 题目是否显示 0-不显示 1-显示
       required: '1', // 是否必填 0-非必填 1-必填
-      type: '1', // 答题类型 1-单选（文本） 2-多选（文本） 3-单选（图片） 4-多选（图片） 5-input输入 6-picker选择器 7-textarea输入 8-单选（文本）+其他
-      picker_mode: '', // picker的模式（date/time/selector） type==6
+      type: '1', // 答题类型 1-单选（文本） 2-多选（文本） 3-单选（图片） 4-多选（图片） 5-input输入 6-picker选择器 7-textarea输入 8-单选 多选（文本）+其他
+      picker_mode: '', // picker的模式（date/time/selector/region） type==6
       picker_start: '', // picker开始时间 picker_mode==date || picker_mode==time
       picker_end: '', // picker结束时间 picker_mode==date || picker_mode==time
       value: '', // 值
       value_k: '', // picker的key值 picker_mode==selector
       value_other: '', // 其他的值 type==8
+      placeholder: '', // placeholder提示框
       options: [ // 选项集合
         {
           text: '潇洒江梅', // 选项key
@@ -228,11 +229,12 @@ export default {
       choiced: 1, // 题目是否显示 0-不显示 1-显示
       required: '0', // 是否必填 0-非必填 1-必填
       type: '6', // 答题类型 1-单选（文本） 2-多选（文本） 3-单选（图片） 4-多选（图片） 5-input输入 6-picker选择器 7-textarea输入
-      picker_mode: 'time', // picker的模式 date/time/selector
+      picker_mode: 'region', // picker的模式 date/time/selector
       picker_start: '', // picker_mode==date || picker_mode==time
       picker_end: '', // picker_mode==date || picker_mode==time
       value: '', // 值
       value_k: '', // key值 type==6 && picker_mode==selector
+      placeholder: '请选择您所在的省市区',
     },
     {
       id: '7', // 题目id

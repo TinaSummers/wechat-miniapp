@@ -1,31 +1,25 @@
-view,
-cover-view,
-cover-image,
-text,
-swiper,
-swiper-item,
-input,
-picker,
-textarea,
-form {
-  box-sizing: border-box;
-  word-break: break-all;
-}
-
-.flex(@direction: row, @justify: center, @align: center) {
-  display: flex;
-  flex-direction: @direction;
-  justify-content: @justify;
-  align-items: @align;
-}
-
 .ant-register-wrapper {
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 999;
+
+  view,
+  cover-view,
+  cover-image,
+  text,
+  swiper,
+  swiper-item,
+  input,
+  picker,
+  textarea,
+  form {
+    box-sizing: border-box;
+    word-break: break-all;
+  }
+
+  .flex(@direction: row, @justify: center, @align: center) {
+    display: flex;
+    flex-direction: @direction;
+    justify-content: @justify;
+    align-items: @align;
+  }
 
   button {
     display: flex;
@@ -42,6 +36,15 @@ form {
     }
   }
 
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  box-sizing: border-box;
+  word-break: break-all;
+
   .mask-area {
     width: 100%;
     height: 100%;
@@ -57,48 +60,55 @@ form {
     background: #fff;
     .flex(column, flex-start, center);
 
-    .btns-box {
-      .btn-success {
-        width: 380rpx;
-        height: 80rpx;
-        font-size: 32rpx;
-        color: #2c5596;
-        border: 2rpx solid #4a6ba1;
-        background: transparent;
-        margin: 56rpx auto 0 auto;
-      }
-
-      .btn-cancel {
-        width: max-content;
-        background: transparent;
-        font-size: 32rpx;
-        color: #4a6ba1;
-        padding-bottom: 6rpx;
-        border-bottom: 1rpx solid #4a6ba1;
-        margin: 30rpx auto 0 auto;
-      }
+    .logo {
+      width: 100%;
+      height: 326rpx;
     }
 
     .rule-box {
       width: 100%;
       .flex(row, flex-start, flex-start);
       font-size: 24rpx;
-      padding: 50rpx 30rpx;
-      color: #92bc39;
-
+      padding: 30rpx;
+      color: #a63286;
 
       .icon-select {
-        width: 30rpx;
-        height: 30rpx;
-        margin-right: 10rpx;
-        margin-top: 1rpx;
+        width: 28rpx;
+        height: 28rpx;
+        margin-right: 16rpx;
+        margin-top: 6rpx;
       }
 
       .rule-chunk {
         flex: 1;
-        line-height: 32rpx;
+        line-height: 40rpx;
 
-        .rule {}
+        .rule {
+          // text-decoration: underline;
+          padding-bottom: 8rpx;
+          border-bottom: 1rpx solid #a63286;
+        }
+      }
+    }
+
+    .btns-box {
+      .btn-success {
+        width: 232rpx;
+        height: 61rpx;
+        font-size: 32rpx;
+        border-radius: 6rpx;
+        color: #ffffff;
+        background: #a63286;
+        margin: 12rpx auto 0 auto;
+      }
+
+      .btn-cancel {
+        width: max-content;
+        background: transparent;
+        font-size: 32rpx;
+        color: #96326c;
+        border-bottom: 1rpx solid #96326c;
+        margin: 28rpx auto 70rpx auto;
       }
     }
 

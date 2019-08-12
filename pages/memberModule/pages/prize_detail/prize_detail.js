@@ -10,15 +10,20 @@ import animationService from '../../services/animation.service';
 Page({
   data: {
     imgModel,
+    userModel,
     
     navHeight: 0,
-    prizeInfo: {amount: 5, date: '2019年5月1号', status: 0},
+    prizeInfo: {},
     amount_list: [1, 2, 3, 4, 5],
     amount_index: 0,
     isShowInstr: false,
     isShowToast: false,
   },
-  onLoad() {
+  onLoad(options) {
+    let prizeInfo = JSON.parse(options.prizeInfo);
+    prizeInfo.isShowDate = false;
+    this.setData({prizeInfo});
+    
     let navData = {
       navBackgroundInit: '#ffffff', // 导航栏背景颜色-初始值
       navBackgroundRoll: '#ffffff', // 导航栏背景颜色-滚动值
@@ -35,21 +40,37 @@ Page({
     
   },
   onShow() {
-    memberService.initJudgeJump(() => {
-      
+    memberService.initMiniProgram(() => {
+      // memberService.getMemberDetail(res => {
+      //   this.setData({userModel});
+      // });
     });
   },
   bindPickerChange(e){
     this.setData({amount_index: e.detail.value});
   },
   onConfirm(){
-    this.setData({isShowToast: true});
-    animationService.animationSlideupShow(this, 'slide_up', -15, 1);
+    let params = {
+      phone: this.data.prizeInfo.phone,
+      cardType: this.data.prizeInfo.cardType,
+      awardId: this.data.prizeInfo.awardId
+    };
+    ajaxService.prizeUse(params).then(res => {
+      let {data: {errcode, data, errmsg}} = res;
+      if(errcode == 200){
+        this.setData({isShowToast: true});
+        animationService.animationSlideupShow(this, 'slide_up', -15, 1);
+      }else{
+        mainService.modal(errmsg);
+      }
+    });
+    
   },
   onHideToast(){
     animationService.animationSlideupShow(this, 'slide_up', 15, 0);
     setTimeout(() => {
       this.setData({isShowToast: false});
+      wx.navigateBack();
     }, 350);
   },
   onShowInstr(){

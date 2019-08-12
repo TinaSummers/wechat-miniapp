@@ -43,7 +43,7 @@ Page({
       scrollMax: 50, // 最大滚动间距（保持初始值，设置为0），单位px
     }
     this.selectComponent('#comp-nav-dynamic').setOptions(navData);
-    memberService.initJudgeJump(() => {
+    memberService.initMiniProgram(() => {
       this.getSigninData();
       this.getRecommendList();
     });

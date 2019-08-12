@@ -1,4 +1,4 @@
-const localUrl = '/pages/demoModule/assets/images/'; // 本地地址
+const localUrl = '/pages/homeModule/assets/images/'; // 本地地址
 const cdnUrl = ''; // cdn地址
 
 export default {

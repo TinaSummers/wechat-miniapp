@@ -1,22 +1,23 @@
 <!--pages/memberModule/pages/member-right/member-right.wxml-->
 <comp-nav-dynamic id='comp-nav-dynamic'></comp-nav-dynamic>
+<comp-register id='comp-register'></comp-register>
 <view class="container">
     <view class="header-wrapper">
-        <image class="bg" mode="widthFix" src="{{imgModel.index_banner}}" />
-        <view class="header-area">
+        <image class="bg {{isBigScreen?'bigScreen':''}}" mode="widthFix" src="{{isBigScreen?imgModel.index_banner_big:imgModel.index_banner}}" />
+        <view class="header-area {{isBigScreen?'bigScreen':''}}" wx:if="{{pageShow}}">
             <view class="avatar-box">
                 <open-data class='userAvatarUrl' type="userAvatarUrl"></open-data>
             </view>
-            <view class="name-box">
-                <open-data class='userNickName hidden-e' type="userNickName"></open-data>
-            </view>
+        </view>
+        <view class="name-area {{isBigScreen?'bigScreen':''}}" wx:if="{{pageShow}}">
+            <open-data class='userNickName hidden-e' type="userNickName"></open-data>
         </view>
     </view>
     <view class="title-wrapper">
         <view class="title">会员权益</view>
     </view>
     <view class="content-wrapper">
-        <view class="content-area" wx:for='{{optList}}' wx:key="{{index}}" data-title='{{item.title}}' data-url='{{item.url}}' bindtap='jumpPage'>
+        <view class="content-area" wx:for='{{optList}}' wx:key="{{index}}" data-item='{{item}}' bindtap='jumpPage'>
             <image mode='widthFix' src="{{item.icon}}" />
             <text>{{item.title}}</text>
         </view>

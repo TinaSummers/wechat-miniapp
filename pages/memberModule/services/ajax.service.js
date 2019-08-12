@@ -135,6 +135,17 @@ class AjaxService {
     });
   }
 
+  storeOfLabel(params) {
+    // 门店-标签列表
+    return mainService.request({
+      url: apiModel.mc_store_labels,
+      params,
+      method: 'GET',
+      header: 1,
+      loadingType: 0,
+    });
+  }
+
   adList(params) {
     // 广告位列表
     return mainService.request({
@@ -145,51 +156,7 @@ class AjaxService {
       loadingType: 0,
     });
   }
-
-  signinDetail(params) {
-    // 签到记录
-    return mainService.request({
-      url: apiModel.mc_signin_detail,
-      params,
-      method: 'GET',
-      header: 1,
-      loadingType: 1,
-    });
-  }
-
-  signin(params) {
-    // 签到
-    return mainService.request({
-      url: apiModel.mc_signin,
-      params,
-      method: 'POST',
-      header: 1,
-      loadingType: 1,
-    });
-  }
-
-  couponList(params) {
-    // 会员优惠券列表
-    return mainService.request({
-      url: apiModel.mc_coupon_list,
-      params,
-      method: 'GET',
-      header: 1,
-      loadingType: 1,
-    });
-  }
-
-  couponDetail(params, id) {
-    // 会员优惠券详情
-    return mainService.request({
-      url: `${apiModel.mc_coupon_detail}${id}`,
-      params,
-      method: 'GET',
-      header: 1,
-      loadingType: 1,
-    });
-  }
-
+  
   shareRecord(params) {
     // 邀请好友记录
     return mainService.request({
@@ -200,6 +167,7 @@ class AjaxService {
       loadingType: 1,
     });
   }
+
 }
 
 export default new AjaxService();

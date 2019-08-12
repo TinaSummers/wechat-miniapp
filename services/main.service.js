@@ -11,8 +11,8 @@ import memberService from '../pages/memberModule/services/member.service';
 
 class MainService {
   constructor() {
-    this.header_json = { 'content-type': 'application/json' };
-    this.header_form = { 'content-type': 'application/x-www-form-urlencoded' };
+    this.headerJSON = { 'content-type': 'application/json' };
+    this.headerFORM = { 'content-type': 'application/x-www-form-urlencoded' };
     this.throttle = this.throttleFn(); // 节流
     this.debounce = this.debounceFn(); // 防抖
     this.lastJumpUrl = ''; // 记录上一次页面跳转url
@@ -25,13 +25,11 @@ class MainService {
    * @param {number} time 弹窗展示时间
    */
   toast(title, time = 2000) {
-    setTimeout(() => {
-      wx.showToast({
-        title: title,
-        icon: 'none',
-        duration: time
-      })
-    }, 300)
+    wx.showToast({
+      title: title,
+      icon: 'none',
+      duration: time
+    })
   }
 
   /**
@@ -45,7 +43,6 @@ class MainService {
       title: title,
       content: content,
       showCancel: false,
-      // confirmColor: '#f09196',
       success: function (res) {
         if (res.confirm) {
           confirmCb && confirmCb();
@@ -64,7 +61,6 @@ class MainService {
     wx.showModal({
       title: '提示',
       content: content,
-      // confirmColor: '#f09196',
       success: function (res) {
         if (res.confirm) {
           confirmCb && confirmCb();
@@ -107,7 +103,7 @@ class MainService {
   }
 
   /**
-   * 生成条形码
+   * 生成条形码（兼容性不佳）
    * @param {string} id canvas的id名称
    * @param {string} code 条形码文本 
    * @param {number} width 条形码宽度rpx
@@ -121,7 +117,7 @@ class MainService {
   }
 
   /**
-   * 生成二维码
+   * 生成二维码（兼容性不佳）
    * @param {string} id canvas的id名称
    * @param {string} code 条形码文本 
    * @param {number} width 条形码宽度px
@@ -175,7 +171,7 @@ class MainService {
   /**分享内容 */
   shareInfo() {
     return {
-      title: '狂奔的小马扎',
+      title: '小马扎',
       path: 'pages/homeModule/pages/index/index',
       imageUrl: '/assets/images/share.jpg',
     }
@@ -186,19 +182,21 @@ class MainService {
     let result = false;
     const res = wx.getSystemInfoSync();
     const rate = res.windowHeight / res.windowWidth;
-    let limit = res.windowHeight == res.screenHeight ? 1.8 : 1.65; // 临界判断值
+    let limit = res.windowHeight == res.screenHeight ? 1.8 : 1.651; // 临界判断值
     if (rate > limit) {
       result = true;
     }
+    console.log(result ? "大屏手机" : "小屏手机");
     return result;
   }
 
   /**获取当前页面参数 */
   getCurrPage() {
-    const page = getCurrentPages()[getCurrentPages().length - 1];
-    const path = '/' + (page.route || page.__route__);
-    const options = page.options;
+    const page = getCurrentPages()[getCurrentPages().length - 1]; // 当前页面对象
+    const path = '/' + (page.route || page.__route__); // 当前页面路由
+    const options = page.options; // 当前页面参数
     return {
+      page,
       path,
       options,
     }
@@ -249,14 +247,16 @@ class MainService {
         target.params.shop_id = configModel.shopId;
         target.params.shopId = configModel.shopId;
         target.params.ecrmSource = configModel.ecrmSource;
+        
         wx.request({
           url: target.url,
           method: target.method,
           data: target.params,
-          header: target.header == 1 ? this.header_json : target.header == 2 ? this.header_form : {},
+          header: target.header == 1 ? this.headerJSON : target.header == 2 ? this.headerFORM : {},
           responseType: target.responseType,
           success: (res) => {
-            console.log(res, `@${target.url}`);
+            console.log(target.params, `参数@${target.url}`);
+            console.log(res, `返回值@${target.url}`);
             let { data, data: { errcode } } = res;
             if (res.statusCode != 200) {
               this.modal('网络开小差~~');
@@ -264,7 +264,6 @@ class MainService {
             }
             if (errcode == 30002) {
               // 接口需要unionid && unionid不存在
-              userModel.isAuthUnionid = false;
               configModel.needUnionid = 1;
               memberService.setBackJump();
               this.link(pathModel.mc_screen);
@@ -320,13 +319,12 @@ class MainService {
   login(cb) {
     wx.login({
       success: (data) => {
-        let { code } = data;
         wx.request({
           url: apiModel.mc_login,
           method: 'GET',
-          header: this.header_form,
+          header: this.headerFORM,
           data: {
-            code,
+            code: data.code,
             templateid: configModel.templateId,
             organization_id: configModel.organizationId,
             old_session_id: wx.getStorageSync('sessionid'),
@@ -382,7 +380,7 @@ class MainService {
     wx.request({
       url: apiModel.mc_userinfo,
       method: 'POST',
-      header: this.header_form,
+      header: this.headerFORM,
       data: {
         encryptedData,
         iv,
@@ -409,7 +407,7 @@ class MainService {
             'unionId': userModel.unionid,
           })
         } else {
-          // 处理长时间停留在授权页导致session过期的问题
+          // 处理长时间停留导致session过期的特殊需求
           this.login(() => {
             this.getUserInfo(detail, cb);
           })

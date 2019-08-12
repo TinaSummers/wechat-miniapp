@@ -3,7 +3,7 @@
   <view class='week-area'>
     <view wx:for='{{weekGroup}}' wx:key='{{index}}'>{{item}}</view>
   </view>
-  <view class='swiper-wrapper'>
+  <view class='swiper-area'>
     <view class='arrow arrow-ahead' bindtap='aheadHandle'><text class='{{canAhead?"":"disabled"}}'></text></view>
     <view class='arrow arrow-previous' bindtap='previousHandle'><text class='{{canPrevious?"":"disabled"}}'></text></view>
     <swiper indicator-dots="{{false}}" autoplay="{{false}}" interval="{{5000}}" duration="{{1000}}" current='{{swiperIndex}}' bindchange='swiperChange'>

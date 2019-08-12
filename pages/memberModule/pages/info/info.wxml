@@ -62,4 +62,27 @@
     <view class='hint-area'>{{errorText}}</view>
     <button class='btn-main' formType="submit" hover-class="tap" hover-stay-time="100">提交</button>
   </form>
+  <!-- 提示交互确认弹窗 -->
+  <view class="mask-wrapper" wx:if="{{isShowToast}}">
+      <view class="mask-area"></view>
+      <view class="content-area" animation='{{slide_up}}'>
+          <image class="btn-close" mode="widthFix" src="{{imgModel.icon_close}}" bindtap='hideToast'/>
+          <view class="title">提示</view>
+          <view class="content">
+              <text>是否确定修改？</text>
+          </view>
+          <form report-submit='true' bindsubmit="submitHandle2">
+            <button style='background: transparent;' formType="submit"><view class="btn">确定</view></button>
+          </form>
+      </view>
+  </view>
+  <!-- 结果提示弹窗 -->
+  <view class="mask-wrapper" wx:if="{{isShowToast2}}">
+      <view class="mask-area"></view>
+      <view class="content-area" animation='{{slide_up2}}'>
+          <image class="btn-close" mode="widthFix" src="{{imgModel.icon_close}}" bindtap='hideToast2'/>
+          <view class="title">修改成功</view>
+          <view class="btn" bindtap='onBack'>确定</view>
+      </view>
+  </view>
 </view>

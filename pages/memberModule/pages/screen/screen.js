@@ -14,10 +14,9 @@ Page({
   },
   onLoad() {
     this.setNav();
-  },
-  onShow(){
     this.login();
   },
+  onShow(){},
   setNav() {
     this.selectComponent('#comp-nav-dynamic').setOptions({
       navBackgroundInit: 'transparent', // 导航栏背景颜色-初始值
@@ -43,9 +42,11 @@ Page({
   },
   getUserInfo(e) {
     if (e.detail.errMsg == 'getUserInfo:ok') {
-      mainService.getUserInfo(e.detail, () => {
-        memberService.judgeTerminalPath();
-      })
+      mainService.throttle(()=>{
+        mainService.getUserInfo(e.detail, () => {
+          memberService.judgeTerminalPath();
+        })
+      }, 5000)
     } else {
       // wx.navigateBack();
     }

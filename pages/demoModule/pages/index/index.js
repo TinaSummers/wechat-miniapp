@@ -5,14 +5,14 @@ import imgModel from '../../models/img.model';
 Page({
   data: {
     navHeight: 0,
-    imgModel
+    imgModel,
   },
   onLoad() { 
     this.setNav();
   },
   onShow() {
-    memberService.initJudgeJump(() => {
-      this.judgeRegisterStatus();
+    memberService.initMiniProgram(() => {
+      console.log('hello world');
     });
   },
   setNav() {
@@ -26,7 +26,7 @@ Page({
       historyShow: true, // 历史图标是否显示
       scrollMin: 50, // 最小滚动间距，单位px
       scrollMax: 200, // 最大滚动间距，单位px
-      homeShow: true, // home图标是否显示
+      homeShow: false, // home图标是否显示
       homeJudgeStack: false, // home图标显示是否判断页面栈
       homePath: '/pages/memberModule/pages/index/index', // home页面路径
       homeColorInit: 'white', // home图标颜色-初始值 white / black
@@ -34,17 +34,6 @@ Page({
     })
     this.setData({
       navHeight: this.selectComponent('#comp-nav-dynamic').getNavHeight(),
-    })
-  },
-  judgeRegisterStatus() {
-    // 调用注册组件
-    this.selectComponent('#comp-register').openHandle({
-      success: () => {
-        console.log('入会成功');
-      },
-      fail: () => {
-        console.log('入会失败');
-      }
     })
   },
   onPageScroll(e) {

@@ -1,14 +1,12 @@
 
-class AnimationService{
-  constructor(){
-
-  }
+class AnimationService {
+  constructor() {}
 
   //渐入，渐出实现 
   /**
    * @param {Object} that page页实例
    * @param String param 动画名称
-   * @parma Integer opacity 透明度值
+   * @param Integer opacity 透明度值
    */
   animationShow(that, param, opacity) {
     let animation = wx.createAnimation({
@@ -30,7 +28,7 @@ class AnimationService{
    * @param {Object} that page页实例
    * @param String param 动画名称
    * @param Integer px 滑动距离
-   * @parma Integer opacity 透明度值
+   * @param Integer opacity 透明度值
    */
   animationSlideupShow(that, param, px, opacity) {
     let animation = wx.createAnimation({

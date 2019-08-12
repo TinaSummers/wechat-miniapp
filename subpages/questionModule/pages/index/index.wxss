@@ -32,7 +32,6 @@ form {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  font-family: Arial, Helvetica, sans-serif;
 }
 .container .scroll-view-container {
   /*分页刷新数据*/
@@ -318,36 +317,40 @@ form {
   margin-right: 20rpx;
 }
 .container {
-  padding-top: 200rpx;
-  padding-bottom: 100rpx;
+  background: #fff;
 }
-.container .logo-num-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+.container .num-wrapper {
+  margin: 68rpx 0 30rpx 0;
 }
-.container .logo-num-wrapper .logo {
-  width: 591rpx;
-  height: 280rpx;
+.container .num-wrapper .num-area {
+  position: relative;
+  margin: 0 auto;
 }
-.container .logo-num-wrapper .num-area {
-  font-size: 32rpx;
-  color: #fff;
-  padding: 60rpx 0;
+.container .num-wrapper .num-area image {
+  width: 74rpx;
+  height: 85rpx;
+}
+.container .num-wrapper .num-area text {
+  width: max-content;
+  font-size: 30rpx;
+  color: #2c5596;
+  position: absolute;
+  left: 50%;
+  top: 43%;
+  transform: translateX(-50%) translateY(-50%);
 }
 .container form {
   width: 100%;
+}
+.container form .placeholder {
+  color: #999 !important;
 }
 .container form .list-wrapper {
   padding: 0 40rpx;
   color: #fff;
 }
-.container form .list-wrapper > view {
-  margin-bottom: 60rpx;
-}
 .container form .list-wrapper > view .subject-area {
-  padding: 0 90rpx;
+  padding: 0 60rpx 70rpx 60rpx;
 }
 .container form .list-wrapper > view .subject-area .star {
   color: red;
@@ -355,8 +358,10 @@ form {
 }
 .container form .list-wrapper > view .subject-area .subject {
   line-height: 40rpx;
-  font-size: 30rpx;
+  font-size: 36rpx;
   text-align: center;
+  color: #333;
+  font-weight: 600;
 }
 .container form .list-wrapper > view .options-area .text-box {
   display: flex;
@@ -365,30 +370,37 @@ form {
   align-items: center;
 }
 .container form .list-wrapper > view .options-area .text-box > view {
-  width: 370rpx;
-  border-bottom: 1rpx solid #fff;
-  padding: 36rpx 0 10rpx 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 630rpx;
+  height: 88rpx;
+  background: #f5f5f5;
+  margin-bottom: 40rpx;
+  color: #333;
+}
+.container form .list-wrapper > view .options-area .text-box > view.selected {
+  background: #ffffff;
+  color: #2c5596;
+  border: 2rpx solid #2c5596;
+}
+.container form .list-wrapper > view .options-area .text-box > view .text-chunk {
+  position: relative;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
-.container form .list-wrapper > view .options-area .text-box > view .text-chunk {
-  position: relative;
-  text-align: center;
-  width: max-content;
-}
 .container form .list-wrapper > view .options-area .text-box > view .text-chunk .icon {
   position: absolute;
   top: 50%;
-  left: -65rpx;
+  right: 24rpx;
   transform: translateY(-50%);
-  width: 49rpx;
-  height: 42rpx;
-  opacity: 0;
-}
-.container form .list-wrapper > view .options-area .text-box > view .text-chunk .icon.selected {
-  opacity: 1;
+  width: 38rpx;
+  height: 37rpx;
 }
 .container form .list-wrapper > view .options-area .text-box > view .text-chunk .text {
   font-size: 30rpx;
@@ -453,13 +465,14 @@ form {
   border-bottom: 1rpx solid #fff;
 }
 .container form .list-wrapper > view .options-area .picker-box {
-  padding: 0 40rpx;
+  padding: 0 60rpx;
+  margin-top: 100rpx;
 }
 .container form .list-wrapper > view .options-area .picker-box picker {
   width: 100%;
-  height: 80rpx;
-  border: 2rpx solid #2d5495;
-  border-radius: 6rpx;
+  height: 88rpx;
+  border: 2rpx solid #c9c9c9;
+  border-radius: 2rpx;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -477,6 +490,8 @@ form {
 }
 .container form .list-wrapper > view .options-area .picker-box picker text {
   padding-left: 10rpx;
+  color: #333;
+  font-size: 28rpx;
 }
 .container form .list-wrapper > view .options-area .picker-box picker .push-chunk {
   position: absolute;
@@ -484,7 +499,6 @@ form {
   top: 0;
   width: 80rpx;
   height: 80rpx;
-  background: #2d5495;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -492,7 +506,7 @@ form {
 }
 .container form .list-wrapper > view .options-area .picker-box picker .push-chunk .arrow-push-solid {
   border-width: 20rpx 16rpx 0 16rpx;
-  border-color: #fff transparent transparent transparent;
+  border-color: #2d5495 transparent transparent transparent;
 }
 .container form .list-wrapper > view .options-area .textarea-box {
   display: flex;
@@ -509,12 +523,11 @@ form {
   border-bottom: 1rpx solid #fff;
 }
 .container form .btn {
-  width: 334rpx;
-  height: 68rpx;
-  border-radius: 34rpx;
-  box-shadow: 0 0 0 1rpx rgba(0, 0, 0, 0.5) inset;
-  background: #fff;
-  color: #002b57;
-  font-size: 42rpx;
-  margin: 180rpx auto 0 auto;
+  width: 300rpx;
+  height: 88rpx;
+  border-radius: 6rpx;
+  background: #2c5596;
+  color: #ffffff;
+  font-size: 36rpx;
+  margin: 200rpx auto 80rpx auto;
 }

@@ -29,7 +29,7 @@ Page({
     }
     this.selectComponent('#comp-nav-dynamic').setOptions(navData);
     this.setData({navHeight: this.selectComponent('#comp-nav-dynamic').getNavHeight()});
-    memberService.initJudgeJump(() => {
+    memberService.initMiniProgram(() => {
       this.setData({cardNum: userModel.cardNum || 'AEJ888888888888'})
       this.getQrcodeBarcode();
     });

@@ -14,65 +14,72 @@ form {
 }
 .prize-area {
   width: 630rpx;
-  height: 250rpx;
+  height: 197rpx;
   position: relative;
-  background: #efefef;
-  border: 2rpx solid #efefef;
+}
+.prize-area .bg {
+  width: 630rpx;
+  height: 197rpx;
 }
 .prize-area.used {
   background: #ffffff;
   border-color: #dddddd;
 }
-.prize-area .bg {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 200rpx;
-  height: 116rpx;
-}
 .prize-area .amount-box {
+  width: 179rpx;
+  height: 197rpx;
   position: absolute;
-  left: 32rpx;
-  top: 73rpx;
-  color: #2c5596;
-  font-weight: bold;
+  left: 0;
+  top: 0;
+  color: #ffffff;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-end;
+  justify-content: center;
+  align-items: center;
+  font-size: 88rpx;
+  font-weight: bold;
 }
-.prize-area .amount-box.used {
-  color: #cacaca;
+.prize-area .amount-box text {
+  font-size: 36rpx;
+  font-weight: normal;
+  margin-right: 10rpx;
 }
-.prize-area .amount-box text:nth-child(1) {
-  font-size: 60rpx;
-  line-height: 54rpx;
+.prize-area .title {
+  position: absolute;
+  left: 213rpx;
+  top: 36rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #ffffff;
 }
-.prize-area .amount-box text:nth-child(2) {
-  font-size: 30rpx;
-  margin-left: 10rpx;
+.prize-area .title.center {
+  top: 72rpx;
 }
 .prize-area .date {
   position: absolute;
-  left: 32rpx;
-  bottom: 32rpx;
-  font-size: 26rpx;
-  color: #666666;
-}
-.prize-area .date.used {
-  color: #cacaca;
+  right: 28rpx;
+  bottom: 26rpx;
+  font-size: 22rpx;
+  color: #ffffff;
 }
 .prize-area .flag-used {
-  width: 112rpx;
-  height: 112rpx;
-  border-radius: 50%;
-  background: #bebebe;
+  width: 117rpx;
+  height: 117rpx;
   position: absolute;
-  top: 19rpx;
-  right: 29rpx;
+  top: 10rpx;
+  right: 20rpx;
+}
+.prize-area .flag-used image {
+  width: 117rpx;
+  height: 117rpx;
+}
+.prize-area .flag-used text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: 26rpx;
-  color: #ffffff;
   font-weight: bold;
-  text-align: center;
-  line-height: 112rpx;
+  color: #ffffff;
+  white-space: nowrap;
 }

@@ -1,0 +1,15 @@
+<view class='ant-auth-wrapper' wx:if='{{compShow}}'>
+  <view class='mask-area'></view>
+  <view class='content-area'>
+    <image class='logo' mode='widthFix' src='logo.jpg' />
+    <view class='btns-box'>
+      <form report-submit='true' bindsubmit="submitHandle">
+        <button class="btn-success" formType="submit" bindgetuserinfo="getUserInfo" open-type="getUserInfo">立即授权</button>
+        <button class='btn-cancel' catchtap='cancelHandle'>稍后授权</button>
+      </form>
+    </view>
+    <view class="close-box" wx:if='{{closeBtnShow==1}}' catchtap='closeHandle'>
+      <image src='icon_close.png' mode='widthFix' />
+    </view>
+  </view>
+</view>

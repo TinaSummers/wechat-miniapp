@@ -26,15 +26,15 @@ Component({
   data: {
     imageLoaded: false, // 图片是否加载完成
   },
-  attached() {},
+  attached() { },
   methods: {
     imageLoadHandle(e) {
       // 监听image加载完成
-      setTimeout(()=>{
+      setTimeout(() => {
         this.setData({
           imageLoaded: true,
         })
-      }, 200);
+      }, 50)
       this.triggerEvent('load', e.detail);
     },
   }

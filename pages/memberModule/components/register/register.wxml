@@ -1,7 +1,13 @@
 <view class='ant-register-wrapper' wx:if='{{compShow}}'>
   <view class='mask-area'></view>
   <view class='content-area'>
-    <comp-image-pre mode='widthFix' width='630' height='436' src='{{imgModel.register_logo}}'></comp-image-pre>
+    <image class='logo' mode='widthFix' src='logo.jpg' />
+    <view class='rule-box' catchtap='ruleHandle'>
+      <image class='icon-select' src='{{checked?"selected.png":"unselect.png"}}' mode='widthFix' />
+      <view class='rule-chunk'>
+        我接受《<text class='rule' catchtap='jumpClausePrivacy'>隐私条款</text>》及《<text class='rule' catchtap='jumpClauseUse'>使用条款</text>》，并承诺点击“立即加入”按钮表示我已阅读并接受。
+      </view>
+    </view>
     <view class='btns-box'>
       <form report-submit='true' bindsubmit="submitHandle">
         <button class='btn-success' wx:if='{{checked}}' formType="submit" open-type='getPhoneNumber' catchgetphonenumber='getphonenumberHandle'>
@@ -12,14 +18,6 @@
         </button>
         <view class='btn-cancel' catchtap='cancelHandle'>稍后加入</view>
       </form>
-    </view>
-    <view class='rule-box' catchtap='ruleHandle'>
-      <image class='icon-select' src='{{checked?"selected.png":"unselect.png"}}' mode='widthFix' />
-      <view class='rule-chunk'>
-        我接受
-        <text class='rule' catchtap='jumpRule'>《隐私条款》</text>
-        及其相关的条款，并承诺点击“立即加入”按钮表示我已阅读并接受。
-      </view>
     </view>
     <view class="close-box" wx:if='{{closeBtnShow==1}}' catchtap='closeHandle'>
       <image src='icon_close.png' mode='widthFix' />

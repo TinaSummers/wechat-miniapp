@@ -1,12 +1,13 @@
-view,
-cover-view,
-cover-image,
-text,
-swiper,
-swiper-item,
-input,
-picker,
-textarea,
-form {
+.ant-swiper-wrapper view,
+.ant-swiper-wrapper cover-view,
+.ant-swiper-wrapper cover-image,
+.ant-swiper-wrapper text,
+.ant-swiper-wrapper swiper,
+.ant-swiper-wrapper swiper-item,
+.ant-swiper-wrapper input,
+.ant-swiper-wrapper picker,
+.ant-swiper-wrapper textarea,
+.ant-swiper-wrapper form {
   box-sizing: border-box;
+  word-break: break-all;
 }

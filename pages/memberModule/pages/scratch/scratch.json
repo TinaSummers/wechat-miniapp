@@ -1,6 +1,0 @@
-{
-  "disableScroll": true,
-  "usingComponents": {
-    "comp-prize": "/pages/memberModule/components/prize/prize"
-  }
-}

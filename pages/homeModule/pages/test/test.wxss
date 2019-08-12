@@ -336,8 +336,3 @@ form {
   margin-top: 20rpx;
   font-size: 32rpx;
 }
-.container .seal-wrapper {
-  width: 750rpx;
-  height: 750rpx;
-  background: red;
-}

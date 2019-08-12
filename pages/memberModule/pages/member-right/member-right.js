@@ -9,13 +9,16 @@ import ajaxService from '../../services/ajax.service';
 Page({
   data: {
     imgModel,
+    userModel,
     optList: [
-      {icon: imgModel.icon_right1, title: '美丽问卷', url: pathModel.mc_question},
-      {icon: imgModel.icon_right2, title: '线下沙龙', url: pathModel.salon_index},
-      {icon: imgModel.icon_right3, title: '娃娃机', url: ``},
-      {icon: imgModel.icon_right4, title: '医师说', url: ``},
-      {icon: imgModel.icon_right5, title: '促销活动', url: ``},
+      {icon: imgModel.icon_right1, title: '美丽问卷', url: pathModel.mc_question, power: false},
+      {icon: imgModel.icon_right2, title: '线下沙龙', url: pathModel.salon_index, power: false},
+      {icon: imgModel.icon_right3, title: '娃娃机', url: ``, power: false},
+      {icon: imgModel.icon_right4, title: '医师说', url: pathModel.mc_article, power: false},
+      {icon: imgModel.icon_right5, title: '促销活动', url: ``, power: false},
     ],
+    isBigScreen: mainService.judgeBigScreen(), // 是否大屏
+    pageShow: false,
   },
   onLoad() {
     let navData = {
@@ -30,22 +33,45 @@ Page({
       scrollMax: 200, // 最大滚动间距（保持初始值，设置为0），单位px
     }
     this.selectComponent('#comp-nav-dynamic').setOptions(navData);
+    this.setData({isBigScreen: mainService.judgeBigScreen()});
+
+    memberService.initMiniProgram(() => {
+      this.setData({pageShow: true});
+      memberService.getMemberDetail(res => {
+        this.setData({userModel});
+      });
+    });
 
   },
   onShow() {
 
   },
+  judgeRegisterStatus() {
+    // 调用注册组件
+    this.selectComponent('#comp-register').openHandle({
+      success: () => {
+        console.log('入会成功');
+      },
+      fail: () => {
+        console.log('入会失败');
+      }
+    })
+  },
   jumpPage(e){
-    let {currentTarget: {dataset: {title, url}}} = e;
-    if(title == '医师说'){
-      mainService.modal('小程序正在搭建中，敬请期待！');
-    }else if(title == '促销活动'){
+    let {currentTarget: {dataset: {item}}} = e;
+    if(item.power && !userModel.isBind){
+      this.judgeRegisterStatus();
+      return;
+    }
+    if(item.title == '促销活动'){
       mainService.modal('暂无促销活动，敬请期待！');
-    }else if(title == '娃娃机'){
-      mainService.modal('娃娃机正在搭建中，敬请期待！');
+    }else if(item.title == '娃娃机'){
+      // mainService.modal('娃娃机正在搭建中，敬请期待！');
+      wx.setStorageSync('webviewUrl', 'https://allergan.eoiyun.com/wawaji/index.html');
+      mainService.link(pathModel.mc_webview);
     }else{
-      if(url.length){
-        mainService.link(url, title == '线下沙龙'?3:0);
+      if(item.url.length){
+        mainService.link(item.url, item.title == '线下沙龙'?3:0);
       }
     }
   },

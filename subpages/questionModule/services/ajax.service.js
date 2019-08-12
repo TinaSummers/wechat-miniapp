@@ -37,16 +37,6 @@ class AjaxService {
     });
   }
 
-  sendPoint(params){
-    return mainService.request({
-      url: apiModel.qs_send_point,
-      params,
-      method: 'GET',
-      header: 1,
-      loadingType: 1,
-    });
-  }
-
 }
 
 export default new AjaxService();

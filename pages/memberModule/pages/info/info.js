@@ -4,6 +4,7 @@ import ajaxService from '../../services/ajax.service';
 import imgModel from '../../models/img.model';
 import userModel from '../../models/user.model';
 import pathModel from '../../../../models/path.model';
+import animationService from '../../services/animation.service';
 
 Page({
   data: {
@@ -12,13 +13,13 @@ Page({
     userModel,
     avatar: '',
     formItems: [
-      { name: '姓名', key: 'name', disabled: 0, value: '', placeholder: '请输入姓名', ele: 'input', type: 'text', choiced: '1', reg: '^[a-zA-Z\u4e00-\u9fa5][a-zA-Z\u4e00-\u9fa5· ]{0,}[a-zA-Z\u4e00-\u9fa5]$', must: 0, tip: '姓名只能包含中文或英文，至少两个字符', },
+      { name: '姓名', key: 'name', disabled: 0, value: '', placeholder: '请输入姓名', ele: 'input', type: 'text', choiced: '1', reg: '^[a-zA-Z\u4e00-\u9fa5][a-zA-Z\u4e00-\u9fa5· ]{0,}$', must: 1, tip: '请填写姓名', },
       { name: '手机号', mark: '(不可修改)', key: 'mobile', disabled: 1, value: '', placeholder: '请输入手机号码', ele: 'input', type: 'number', choiced: '1', reg: '^[1][3-9]\\d{9}$|^([5|6|7|8|9])\\d{7}$|^[0][9]\\d{8}$|^[6]([8|6])\\d{5}$', must: 1, tip: '请填写正确的手机号码', },
       { name: '生日', mark: '(提交后不可修改)', key: 'birthday', disabled: 0, value: '', placeholder: '请选择', ele: 'picker', type: 'date', choiced: '1', reg: '\\S', must: 1, tip: '请选择生日', },
       { name: '性别', key: 'gender', disabled: 0, value: '', value_k: '', placeholder: '请选择', ele: 'picker', type: 'selector', items: [{ k: '男', v: '1' }, { k: '女', v: '2' }], choiced: '1', reg: '\\S', must: 0, tip: '请选择性别', },
       // { name: '出生日期', mark: '(提交后不可修改)', key: 'birthday', disabled: 0, value: '', placeholder: '请选择', ele: 'picker', type: 'date', choiced: '1', reg: '\\S', must: 1, tip: '请选择生日', },
-      { name: '身高(cm)', key: 'height', disabled: 0, value: '', placeholder: '请输入身高', ele: 'input', type: 'text', choiced: '1', reg: '^\d*$', must: 0, tip: '身高只能是数字', },
-      { name: '体重(kg)', key: 'weight', disabled: 0, value: '', placeholder: '请输入体重', ele: 'input', type: 'text', choiced: '1', reg: '^\d*$', must: 0, tip: '体重只能是数字', },
+      { name: '身高(cm)', key: 'parameter1', disabled: 0, value: '', placeholder: '请输入身高', ele: 'input', type: 'text', choiced: '1', reg: '^\\d*$', must: 0, tip: '身高只能是数字', },
+      { name: '体重(kg)', key: 'parameter2', disabled: 0, value: '', placeholder: '请输入体重', ele: 'input', type: 'text', choiced: '1', reg: '^\\d*$', must: 0, tip: '体重只能是数字', },
     ],
     date_start: '1900-01-01', // 设置生日最小时间
     date_end: '', // 设置生日最大时间
@@ -26,11 +27,14 @@ Page({
     time_gap: 30, // 倒计时间间隔
     time_show: 0, // 当前倒计时间
     errorText: '', // 提示文本
+
+    isShowToast: false,
+    isShowToast2: false,
   },
   onLoad() {
     this.setNav();
     this.initDateEnd();
-    memberService.initJudgeJump(() => {
+    memberService.initMiniProgram(() => {
       this.setData({
         pageShow: true,
       })
@@ -138,9 +142,29 @@ Page({
     }
   },
   submitHandle(e) {
+    this.setData({isShowToast: true});
+    animationService.animationSlideupShow(this, 'slide_up', -15, 1);
+    // mainService.throttle(() => {
+    //   this.submitHandleCb(e);
+    // }, 1000);
+  },
+  submitHandle2(e) {
     mainService.throttle(() => {
       this.submitHandleCb(e);
+      this.hideToast();
     }, 1000);
+  },
+  hideToast(){
+    animationService.animationSlideupShow(this, 'slide_up', 15, 0);
+    setTimeout(() => {
+      this.setData({isShowToast: false});
+    }, 350);
+  },
+  hideToast2(){
+    animationService.animationSlideupShow(this, 'slide_up2', 15, 0);
+    setTimeout(() => {
+      this.setData({isShowToast2: false});
+    }, 350);
   },
   submitHandleCb(e) {
     memberService.saveFormId(e);
@@ -190,14 +214,20 @@ Page({
     ajaxService.memberUpdate({ ...params }).then((res) => {
       let { data: { errcode, data, errmsg } } = res;
       if (errcode == 0) {
-        mainService.toast('更新成功');
-        setTimeout(() => {
-          wx.navigateBack();
-        }, 1000);
+        // mainService.toast('更新成功');
+        // setTimeout(() => {
+        //   wx.navigateBack();
+        // }, 1000);
+        this.setData({isShowToast2: true});
+        animationService.animationSlideupShow(this, 'slide_up2', -15, 1);
       } else {
         mainService.modal(errmsg);
       }
     })
+  },
+  onBack(){
+    this.hideToast2();
+    wx.navigateBack();
   },
   // 切换头像
 changeAvatar() {

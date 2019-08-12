@@ -16,7 +16,7 @@
         <view class='arrow-push'></view>
       </view>
     </picker>
-    <picker class='{{params.label_name?"":"value-no"}} hidden-e' mode='selector' bindchange="labelChange" range="{{labelGroup}}" range-key='name'>
+    <picker class='{{params.label_name?"":"value-no"}} hidden-e' mode='selector' bindchange="labelChange" range="{{labelGroup}}" range-key='title'>
       <view class='value-box'>
         <text class='hidden-e'>{{params.label_name ? params.label_name : '产品类型'}}</text>
         <view class='arrow-push'></view>
@@ -29,7 +29,7 @@
       <view class="list-wrapper">
         <view bindtap='openLocation' data-item='{{item}}' wx:for='{{renderList}}' wx:key='{{index}}'>
           <view class='name-distance-area'>
-            <view class='name hidden-e'>{{item.branch_name}}</view>
+            <view class='name hidden-e'>{{item.business_name}}</view>
             <view class='distance-box'>
               <!-- <image class='icon-gps' mode='widthFix' src='{{imgModel.icon_gps}}' /> -->
               <text class='distance' wx:if='{{item.distance && item.distance >= 1000}}'>{{item.distance_km}}km</text>

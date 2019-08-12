@@ -1,0 +1,87 @@
+.ant-auth-wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  box-sizing: border-box;
+  word-break: break-all;
+}
+.ant-auth-wrapper view,
+.ant-auth-wrapper cover-view,
+.ant-auth-wrapper cover-image,
+.ant-auth-wrapper text,
+.ant-auth-wrapper swiper,
+.ant-auth-wrapper swiper-item,
+.ant-auth-wrapper input,
+.ant-auth-wrapper picker,
+.ant-auth-wrapper textarea,
+.ant-auth-wrapper form {
+  box-sizing: border-box;
+  word-break: break-all;
+}
+.ant-auth-wrapper button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  line-height: initial;
+}
+.ant-auth-wrapper button::after {
+  border-radius: 0;
+  border: none;
+}
+.ant-auth-wrapper .mask-area {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+.ant-auth-wrapper .content-area {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 630rpx;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.ant-auth-wrapper .content-area .logo {
+  width: 100%;
+  height: 326rpx;
+}
+.ant-auth-wrapper .content-area .btns-box .btn-success {
+  width: 232rpx;
+  height: 61rpx;
+  font-size: 32rpx;
+  border-radius: 6rpx;
+  color: #ffffff;
+  background: #a63286;
+  margin: 40rpx auto 0 auto;
+}
+.ant-auth-wrapper .content-area .btns-box .btn-cancel {
+  width: max-content;
+  background: transparent;
+  font-size: 32rpx;
+  color: #96326c;
+  border-bottom: 1rpx solid #96326c;
+  margin: 40rpx auto;
+}
+.ant-auth-wrapper .content-area .close-box {
+  position: absolute;
+  left: 50%;
+  bottom: -120rpx;
+  transform: translateX(-50%);
+  width: 56rpx;
+  height: 56rpx;
+}
+.ant-auth-wrapper .content-area .close-box image {
+  width: 100%;
+  height: 100%;
+}

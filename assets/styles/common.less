@@ -1,4 +1,6 @@
 /**
+* 通用样式（页面）
+* 
 * 样式命名规范：
 * 容器层级 container > wrapper > area > box > chunk
 */
@@ -49,7 +51,6 @@ form {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  font-family: Arial, Helvetica, sans-serif;
 
   .scroll-view-container {
     /*分页刷新数据*/
@@ -81,7 +82,7 @@ form {
     .zero-wrapper {
       /*无数据提示区块*/
       width: 100%;
-      padding: 40rpx 0;
+      padding: 60rpx 0;
       .flex(column, center, center);
     }
   }
@@ -158,6 +159,7 @@ form {
     padding: 0;
     margin: 0;
     border-radius: 0;
+    line-height: initial;
 
     &::after {
       border-radius: 0;

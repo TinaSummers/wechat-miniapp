@@ -5,13 +5,13 @@ import imgModel from '../../models/img.model';
 Page({
   data: {
     navHeight: 0,
-    imgModel
+    imgModel,
   },
   onLoad() {
     this.setNav();
   },
   onShow() {
-    memberService.initJudgeJump(() => {
+    memberService.initMiniProgram(() => {
       this.judgeRegisterStatus();
     });
   },
@@ -47,9 +47,15 @@ Page({
       }
     })
   },
-  sealHandle(e) {
-    this.selectComponent("#comp-seal").checkSeal(e, res => {
-      console.log(res, 'comp-seal');
+  judgeAuthStatus(){
+    // 调用授权组件
+    this.selectComponent('#comp-auth').openHandle({
+      success: () => {
+        console.log('授权成功');
+      },
+      fail: () => {
+        console.log('授权失败');
+      }
     })
   },
   onPageScroll(e) {

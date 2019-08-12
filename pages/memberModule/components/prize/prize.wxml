@@ -1,9 +1,7 @@
-<view class="prize-area {{item.status == 1?'used':''}}">
-    <image class="bg" mode="widthFix" src="{{item.status == 1?imgModel.icon_prize_dis_bg:imgModel.icon_prize_bg}}" />
-    <view class="amount-box {{item.status == 1?'used':''}}">
-        <text>¥{{item.amount}}</text>
-        <text>话费券</text>
-    </view>
-    <view class="date {{item.status == 1?'used':''}}">有效期：即日起{{item.date}}</view>
-    <view wx:if='{{item.status == 1}}' class="flag-used">已使用</view>
-</view>
+<view class="prize-area {{item.state == 1?'used':''}}">
+    <image class="bg" mode="widthFix" src="{{item.state == 1?imgModel.prize_bg_used:imgModel.prize_bg_unused}}" />
+    <view class="amount-box"><text>¥</text>{{item.amount}}</view>
+    <view class="title {{item.isShowDate?'':'center'}}">{{item.awardName}}</view>
+    <view class="date" wx:if='{{item.isShowDate}}'><!--有效期：即日起-->{{item.createTime}}</view>
+    <view wx:if='{{item.state == 1}}' class="flag-used"><image mode="widthFix" src="{{imgModel.icon_prize_used_round_line}}" /><text>已使用</text></view>
+</view> 

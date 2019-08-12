@@ -18,9 +18,7 @@ Page({
       { placeholder: '市', range: [], key: 'city', value: '' },
       { placeholder: '区', range: [], key: 'district', value: '' },
     ],
-    labelGroup: [
-      { id: '', name: '全部机构' },
-    ],
+    labelGroup: [],
     params_city: {
       appid: configModel.publicAppid, // 公众号appid 
       select: 'province', //  province city district
@@ -43,9 +41,10 @@ Page({
   },
   onLoad() {
     this.setNav();
-    memberService.initJudgeJump(() => {
+    memberService.initMiniProgram(() => {
       this.getLocation();
       this.getProvinceCity(0);
+      this.getLabel();
     });
   },
   onShow() { },
@@ -115,7 +114,7 @@ Page({
     this.data.params.province = this.data.cityGroup[0].value;
     this.data.params.city = this.data.cityGroup[1].value;
     this.data.params.district = this.data.cityGroup[2].value;
-    if(!this.data.params['labels[]']){
+    if (!this.data.params['labels[]']) {
       delete this.data.params['labels[]'];
     }
     switch (status) {
@@ -150,10 +149,10 @@ Page({
         let arr = [];
         for (let key in data.stores) {
           let item = data.stores[key];
-          if(item.distance && item.distance - 0 >= 1000){
+          if (item.distance && item.distance - 0 >= 1000) {
             item.distance_km = (new Number(item.distance) / 1000).toFixed(2);
           }
-          if(item.distance && item.distance - 0 < 1000){
+          if (item.distance && item.distance - 0 < 1000) {
             item.distance = item.distance.toFixed(0);
           }
           arr.push(item);
@@ -171,10 +170,12 @@ Page({
     })
   },
   downPullHandle() {
-    this.setData({
-      loadingShow: true,
+    mainService.throttle(() => {
+      this.setData({
+        loadingShow: true,
+      })
+      this.getRenderList(2);
     })
-    this.getRenderList(2);
   },
   openLocation(e) {
     let { currentTarget: { dataset: { item } } } = e;
@@ -182,7 +183,7 @@ Page({
     //   latitude: item.latitude,
     //   longitude: item.longitude,
     //   scale: 17,
-    //   name: item.branch_name,
+    //   name: item.business_name,
     //   address: item.address,
     // })
     wx.setStorageSync('storeDetail', item);
@@ -209,6 +210,21 @@ Page({
       }
     });
   },
+  getLabel() {
+    ajaxService.storeOfLabel({
+      appid: configModel.publicAppid, // 公众号appid 
+    }).then((res) => {
+      let { data: { data, errcode, errmsg } } = res;
+      if (errcode == 0) {
+        data.unshift({ id: '', title: '全部机构' });
+        this.setData({
+          labelGroup: data,
+        })
+      } else {
+        // mainService.modal(errmsg);
+      }
+    })
+  },
   areaChange(e) {
     let value = e.detail.value;  // selector为下标值
     let index = e.currentTarget.dataset.index; // cityGroup的列
@@ -225,10 +241,10 @@ Page({
     })
     this.getRenderList(1);
   },
-  labelChange(e){
+  labelChange(e) {
     let value = e.detail.value;  // selector为下标值
     let id = this.data.labelGroup[value].id; // id
-    let name = this.data.labelGroup[value].name; // name
+    let name = this.data.labelGroup[value].title; // name
     this.data.params['labels[]'] = id;
     this.data.params['label_ids'] = id;
     this.setData({
@@ -236,7 +252,7 @@ Page({
     })
     this.getRenderList(1);
   },
-  inputHandle(e){
+  inputHandle(e) {
     this.data.params.keywords = e.detail.value;
   },
   searchHandle(e) {

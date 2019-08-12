@@ -15,6 +15,7 @@ Page({
     isShowToast: false,//是否显示客服弹窗
     isShowToastBarcode: false,//是否显示会员卡信息条码弹窗
     isMember: false,//是否入会
+    isTriggleRegister: false, // 是否唤起注册组件
     pointBalance: 0,
     headerHeight: 432.5,
     headerTop: 14,
@@ -23,17 +24,18 @@ Page({
     scrollTop: 15,
     optList: [
       [
-        {icon: imgModel.icon_index1, title: '会员专享', url: pathModel.mc_member_right},
-        {icon: imgModel.icon_index2, title: '我的预约', url: ``},
-        {icon: imgModel.icon_index3, title: '我的印章', url: ``},
+        {icon: imgModel.icon_index1, title: '会员专享', url: pathModel.mc_member_right, power: false},
+        {icon: imgModel.icon_index2, title: '我的预约', url: pathModel.salon_reservations, power: true},
+        {icon: imgModel.icon_index3, title: '我的印章', url: pathModel.inter_myCollection, power: true},
       ],
       [
-        {icon: imgModel.icon_index4, title: '个人资料', url: pathModel.mc_info},
-        {icon: imgModel.icon_index5, title: '我的报告', url: pathModel.inter_myReport},
-        {icon: imgModel.icon_index6, title: '合作机构', url: pathModel.mc_store},
+        {icon: imgModel.icon_index4, title: '个人资料', url: pathModel.mc_info, power: true},
+        {icon: imgModel.icon_index5, title: '我的报告', url: pathModel.inter_myReport, power: true},
+        {icon: imgModel.icon_index6, title: '合作机构', url: pathModel.mc_store, power: false},
       ],
     ],
     barcode: '',
+    isBigScreen: mainService.judgeBigScreen(), // 是否大屏
   },
   onLoad() {
     let navData = {
@@ -48,6 +50,7 @@ Page({
       scrollMax: 50, // 最大滚动间距（保持初始值，设置为0），单位px
     }
     this.selectComponent('#comp-nav-dynamic').setOptions(navData);
+    this.setData({isBigScreen: mainService.judgeBigScreen()});
   },
   onShow() {
     // wx.pageScrollTo({
@@ -55,7 +58,7 @@ Page({
     //   duration: 300,
     // })
     // this.changeHeaderSize();
-    memberService.initJudgeJump(() => {
+    memberService.initMiniProgram(() => {
       this.init();
     });
   },
@@ -71,10 +74,27 @@ Page({
       pageShow: true,
       userModel,
     })
-    this.judgeRegisterStatus();
+    if (!userModel.isAuthUnionid) {
+      // 未授权unionid
+      console.log('未授权unionid');
+      return
+    }
+    if (userModel.isAuthUnionid && !this.data.isTriggleRegister) {
+      // 已授权unionid && 未唤起注册组件
+      console.log('已授权unionid && 未唤起注册组件');
+      this.judgeRegisterStatus();
+      return
+    }
+    if (userModel.isAuthUnionid && this.data.isTriggleRegister) {
+      // 已授权unionid && 已唤起注册组件
+      console.log('已授权unionid && 已唤起注册组件');
+      this.getMemberDetail();
+      return
+    }
   },
   judgeRegisterStatus() {
     // 调用注册组件
+    this.data.isTriggleRegister = true;
     this.selectComponent('#comp-register').openHandle({
       success: () => {
         console.log('入会成功');
@@ -84,7 +104,6 @@ Page({
       },
       fail: () => {
         console.log('入会失败');
-        mainService.link(pathModel.shop_onShop, 3);
       }
     })
   },
@@ -97,7 +116,7 @@ Page({
         this.setData({
           userModel,
         })
-        this.getCardStatus();
+        // this.getCardStatus();
       } else {
         mainService.modal(errmsg);
       }
@@ -163,14 +182,13 @@ Page({
     });
   },
   jumpPage(e){
-    let {currentTarget: {dataset: {title, url}}} = e;
-    if(title == '联系客服'){
-      this.setData({isShowToast: true});
-      animationService.animationSlideupShow(this, 'slide_up', -15, 1);
-    }else{
-      if(url.length){
-        mainService.link(url);
-      }
+    let {currentTarget: {dataset: {item}}} = e;
+    if(item.power && !userModel.isBind){
+      this.judgeRegisterStatus();
+      return;
+    }
+    if(item.url.length){
+      mainService.link(item.url);
     }
   },
   onCancel(){
@@ -202,6 +220,10 @@ Page({
     mainService.link(pathModel.mc_info);
   },
   linkShareRecord(){
+    if(!userModel.isBind){
+      this.judgeRegisterStatus();
+      return;
+    }
     mainService.link(pathModel.mc_share_record);
   },
   linkOrderList(){

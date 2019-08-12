@@ -2,37 +2,21 @@
 <view class='container' wx:if='{{isShow}}'>
 	<view class='content-wrapper'>
 		<comp-image-pre class="img-area" src="{{imgModel.index_banner_share2}}" height='545'/>
-		<view class="remark-area">
-			<text>邀请好友成为会员</text>
-			<text>获5元话费</text>
-		</view>
 		<view class='content-area'>
 			<image class="share_white_bg" mode="widthFix" src="{{imgModel.share_white_bg}}" />
-			<view class="record-box2">
-				<text class="record-num">{{successNum}}</text>
-				<text class="record-txt">成功邀请人数</text>
-			</view>
-			
-			<!-- <view class='num-box'>
-				<open-data class='img-chunk' type="userAvatarUrl"></open-data>
-			</view>
-			<view class='record-box'>
-				<view class='record-chunk'>
-					<text>成功邀请人数</text>
-					<text class='record-block'>{{successNum}}</text>
+			<view class='content-box'>
+				<text class="remark">邀请好友成为会员获5元话费</text>
+				<view class="record-box2">
+					<text class="record-num">{{successNum}}</text>
+					<text class="record-txt">成功邀请人数</text>
 				</view>
-				<view class='line-chunk'></view>
-				<view class='record-chunk'>
-					<text>累计获得积分</text>
-					<text class='record-block'>{{totalPoints}}</text>
-				</view>
-			</view> -->
+			</view>
 		</view>
 	</view>
 	<view class='pictext-wrapper'>
 		<view class='pictext-area'>
 			<view class="lf">
-				<image src="{{imgModel.icon_ask}}" />邀请记录
+				<image src="{{imgModel.icon_index_share_title}}" />邀请记录
 			</view>
 			<view class="btn-rg" bindtap='linkPrizeList'>我的奖品</view>
 			
@@ -53,7 +37,10 @@
 	<view class="rule-box" bindtap='linkActivityRule'>
 		<text>活动规则</text>
 	</view>
-	<button class="btn-area" open-type='share'>
-		发送我的专属邀请
-	</button>
+	<view class="btn-wrapper">
+		<button class="btn-area" open-type='share'>
+			发送我的专属邀请
+		</button>
+	</view>
+	
 </view>

@@ -303,6 +303,20 @@ form {
   width: 50rpx;
   height: 50rpx;
 }
+/* 水平方向滚动列表 */
+.scroll-x-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-x: auto;
+}
+.scroll-x-list::-webkit-scrollbar {
+  display: none;
+}
+.scroll-x-list .list-item {
+  margin-right: 20rpx;
+}
 .container {
   background: #fff;
 }
@@ -312,81 +326,61 @@ form {
 }
 .container .header-wrapper .bg {
   width: 750rpx;
-  height: 564rpx;
+  height: 520rpx;
 }
-.container .header-wrapper .logo {
-  width: 162rpx;
-  height: 35rpx;
-  position: absolute;
-  top: 110rpx;
-  left: 52rpx;
-  z-index: 10;
+.container .header-wrapper .bg.bigScreen {
+  width: 750rpx;
+  height: 600rpx;
 }
 .container .header-wrapper .header-area {
   position: absolute;
   left: 50%;
-  bottom: 46rpx;
+  bottom: 176rpx;
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
 }
-.container .header-wrapper .header-area.have-card {
-  bottom: 90rpx;
+.container .header-wrapper .header-area.bigScreen {
+  bottom: 219rpx;
 }
 .container .header-wrapper .header-area .avatar-box {
   position: relative;
-  width: 150rpx;
-  height: 150rpx;
+  width: 161rpx;
+  height: 161rpx;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 .container .header-wrapper .header-area .avatar-box .userAvatarUrl {
   width: 150rpx;
   height: 150rpx;
 }
-.container .header-wrapper .header-area .avatar-box .edit {
-  width: 36rpx;
-  height: 36rpx;
+.container .header-wrapper .name-area {
   position: absolute;
-  bottom: 0;
-  right: 0;
-}
-.container .header-wrapper .header-area .name-box {
-  margin-top: 25rpx;
+  left: 40rpx;
+  bottom: 55rpx;
   font-size: 36rpx;
-  color: #2c5596;
-  position: relative;
-}
-.container .header-wrapper .header-area .name-box text {
-  font-size: 28rpx;
-  color: #f58229;
-}
-.container .header-wrapper .header-area .btn-box {
-  width: 200rpx;
-  height: 60rpx;
-  background: #274b8b;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  font-size: 28rpx;
   color: #fff;
-  margin-top: 30rpx;
 }
-.container .header-wrapper image.btn-qr {
-  width: 40rpx;
-  height: 40rpx;
-  position: absolute;
-  right: 40rpx;
-  bottom: 96rpx;
+.container .header-wrapper .name-area.bigScreen {
+  bottom: 58rpx;
+}
+.container .header-wrapper .name-area text {
+  font-size: 28rpx;
 }
 .container .list-wrapper {
   width: 100%;
-  height: 392rpx;
-  border: 15rpx solid #f9f9f9;
-  border-left: none;
-  border-right: none;
-  padding: 0 60rpx;
+  height: 361rpx;
+  border-bottom: 15rpx solid #f9f9f9;
+  padding: 0 65rpx;
+}
+.container .list-wrapper.bigScreen {
+  height: 381rpx;
 }
 .container .list-wrapper .list-area {
   width: 100%;
@@ -396,11 +390,14 @@ form {
   align-items: center;
 }
 .container .list-wrapper .list-area .list-box {
-  height: 181rpx;
+  height: 173rpx;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.container .list-wrapper .list-area .list-box.bigScreen {
+  height: 183rpx;
 }
 .container .list-wrapper .list-area .list-box image {
   width: 44rpx;
@@ -408,17 +405,28 @@ form {
 }
 .container .list-wrapper .list-area .list-box text {
   font-size: 30rpx;
-  color: #4c4c4c;
+  color: #4e4e50;
   margin-top: 25rpx;
   text-align: center;
 }
 .container .share-wrapper {
   width: 100%;
+  padding: 0 40rpx 20rpx;
 }
 .container .share-wrapper .title {
-  padding: 40rpx 60rpx 20rpx;
-  font-size: 30rpx;
-  color: #f58229;
+  padding: 40rpx 0 20rpx;
+  font-size: 34rpx;
+  color: #0052a1;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.container .share-wrapper .title image {
+  width: 35rpx;
+  height: 40rpx;
+  margin-right: 12rpx;
 }
 .container .contact-box {
   width: 102rpx;

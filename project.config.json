@@ -4,17 +4,18 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false
+		"autoAudits": false,
+		"coverView": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.7.5",
-	"appid": "wxdfe9038246106c3b",
-	"projectname": "%E5%B0%8F%E9%A9%AC%E6%89%8E",
+	"libVersion": "2.8.0",
+	"appid": "wx5aba59796c912478",
+	"projectname": "%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%A8%A1%E6%9D%BF",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
@@ -39,68 +40,12 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 13,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
-					"name": "inter_index",
-					"pathName": "pages/interModule/pages/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 1,
-					"name": "inter_product",
-					"pathName": "pages/interModule/pages/product/product",
-					"query": "id=1",
-					"scene": null
-				},
-				{
-					"id": 2,
-					"name": "inter_decoration",
-					"pathName": "pages/interModule/pages/decoration/decoration",
-					"query": "id=4",
-					"scene": null
-				},
-				{
-					"id": 3,
-					"name": "mc_index",
-					"pathName": "pages/memberModule/pages/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 5,
-					"name": "home_index",
-					"pathName": "pages/homeModule/pages/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 4,
-					"name": "mc_store",
-					"pathName": "pages/memberModule/pages/store/store",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "mc_store_detail",
-					"pathName": "pages/memberModule/pages/store-detail/store-detail",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "salon_index",
-					"pathName": "pages/signModule/pages/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "qs_index",
-					"pathName": "subpages/questionModule/pages/index/index",
+					"name": "demo_index",
+					"pathName": "pages/demoModule/pages/index/index",
 					"query": "",
 					"scene": null
 				},
@@ -113,30 +58,8 @@
 				},
 				{
 					"id": -1,
-					"name": "salon_list",
-					"pathName": "pages/signModule/pages/salon-list/salon-list",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "salon_detail",
-					"pathName": "pages/signModule/pages/salon-detail/salon-detail",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "inter_myReport",
-					"pathName": "pages/interModule/pages/myReport/myReport",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 13,
-					"name": "inter_myCollection",
-					"pathName": "pages/interModule/pages/myCollection/myCollection",
-					"query": "",
+					"name": "mc_screen",
+					"pathName": "pages/memberModule/pages/screen/screen",
 					"scene": null
 				}
 			]

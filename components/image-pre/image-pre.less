@@ -1,53 +1,61 @@
-view,
-cover-view,
-cover-image,
-text,
-swiper,
-swiper-item,
-input,
-picker,
-textarea,
-form {
-  box-sizing: border-box;
-  word-break: break-all;
-}
-
-.flex(@direction: row, @justify: center, @align: center) {
-  display: flex;
-  flex-direction: @direction;
-  justify-content: @justify; 
-  align-items: @align;
-}
-
-@keyframes loading_run {
-  0% {
-    transform: rotate(-180deg);
-  }
-
-  50% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(180deg);
-  }
-}
-
 .ant-image-pre-wrapper {
+
+  view,
+  cover-view,
+  cover-image,
+  text,
+  swiper,
+  swiper-item,
+  input,
+  picker,
+  textarea,
+  form {
+    box-sizing: border-box;
+    word-break: break-all;
+  }
+
+  .flex(@direction: row, @justify: center, @align: center) {
+    display: flex;
+    flex-direction: @direction;
+    justify-content: @justify;
+    align-items: @align;
+  }
+
+  image {
+    display: block;
+  }
+
   position: relative;
   overflow-x: hidden;
-  .image-hide{
+
+  @keyframes loading_run {
+    0% {
+      transform: rotate(-180deg);
+    }
+
+    50% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(180deg);
+    }
+  }
+
+  .image-hide {
     position: absolute;
     z-index: -99;
     opacity: 0;
   }
-  .loading-area { 
+
+  .loading-area {
     background: #f2f5f7;
     .flex(row, center, center);
-    .loading { 
-      width: 50rpx !important;
-      height: 50rpx !important;
-      animation: loading_run 1s linear infinite;
+
+    .loading {
+      width: 100rpx !important;
+      height: 100rpx !important;
+      // animation: loading_run 1s linear infinite;
     }
   }
 }

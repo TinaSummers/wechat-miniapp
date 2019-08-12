@@ -34,7 +34,7 @@ image {
 
 .img-area {
   width: 750rpx;
-  height: 545rpx;
+  height: 560rpx;
 }
 
 .content-area {
@@ -46,15 +46,30 @@ image {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 171rpx;
+  height: 131rpx;
   overflow: hidden;
 }
 
-.record-box2{
+.content-box{
+  width: 100%;
+  height: 131rpx;
+  padding: 0 60rpx 0 50rpx;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content-box .remark{
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #543590;
+}
+
+.record-box2{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -62,15 +77,15 @@ image {
 }
 
 .record-box2 .record-num{
-  font-size: 60rpx;
-  color: #2c5596;
+  font-size: 48rpx;
+  color: #543590;
   font-weight: bold;
 }
 
 .record-box2 .record-txt{
-  font-size: 30rpx;
-  color: rgba(44, 85, 150, 0.7);
-  margin-top: 15rpx;
+  font-size: 26rpx;
+  color: #543590;
+  margin-top: 8rpx;
 }
 
 .share_white_bg{
@@ -164,10 +179,10 @@ image {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0 40rpx 0 45rpx;
-  color: #666666;
-  font-size: 36rpx;
-  border-top: 10rpx solid #efefef;
+  padding: 0 35rpx 0 50rpx;
+  color: #0052a1;
+  font-size: 34rpx;
+  font-weight: bold;
   border-bottom: 2rpx solid #ddd;
 }
 
@@ -181,16 +196,18 @@ image {
 .pictext-area .btn-rg{
   width: 160rpx;
   height: 60rpx;
-  border: 2rpx solid #2c5596;
-  font-size: 30rpx;
-  color: #2c5596;
+  font-size: 26rpx;
+  color: #295b9e;
+  background: #fff;
   line-height: 60rpx;
   text-align: center;
+  border-radius: 10rpx;
+  border: 2rpx solid #295b9e;
 }
 
 .pictext-area image {
-  width: 36rpx;
-  height: 36rpx;
+  width: 35rpx;
+  height: 40rpx;
   margin-right: 10rpx;
 }
 
@@ -244,20 +261,32 @@ image {
   align-items: center;
 }
 
-.btn-area {
+.btn-wrapper{
   width: 100%;
+  height: 180rpx;
+  background: #fff;
   position: fixed;
   bottom: 0;
   left: 0;
-  line-height: 98rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 2rpx solid #ccc;
+}
+
+.btn-area {
+  width: 601rpx;
+  height: 81rpx;
+  line-height: 81rpx;
   color: #fff;
   font-size: 36rpx;
   text-align: center;
-  background: #2c5596;
+  background: #0b5d9b;
+  border-radius: 10rpx;
 }
 
 .no-area {
-  min-height: 380rpx;
+  min-height: 300rpx;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -281,7 +310,7 @@ image {
 .rule-box{
   width: 100%;
   position: fixed;
-  bottom: 98rpx;
+  bottom: 180rpx;
   background: #fff;
   display: flex;
   flex-direction: column;
@@ -294,6 +323,7 @@ image {
   line-height: 55rpx;
   border-bottom: 2rpx solid #2c5596;
   margin: 30rpx 0 62rpx;
+  font-weight: bold;
 }
 
 button {

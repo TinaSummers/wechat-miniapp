@@ -1,6 +1,7 @@
 <view class='ant-image-pre-wrapper'>
   <image class='{{imageLoaded?"":"image-hide"}}' style='width: {{width}}rpx;height: {{height}}rpx;' mode="{{mode}}" src='{{src}}' bindload='imageLoadHandle' />
   <view class='loading-area' wx:if='{{!imageLoaded}}' style='width: {{width}}rpx;height: {{height}}rpx;'>
-    <image class='loading' mode='widthFix' src="./loading.png" />
+    <!-- <image class='loading' mode='widthFix' src="loading.png" /> -->
+    <image class='loading' mode='widthFix' src="loading.gif" />
   </view>
 </view>

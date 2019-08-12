@@ -1,10 +1,12 @@
 <comp-nav-dynamic id='comp-nav-dynamic'></comp-nav-dynamic>
 <comp-register id='comp-register'></comp-register>
 
-<view class='container' style='background: url({{imgModel.bg}}) no-repeat; background-size: cover;'>
-  <view class='logo-num-wrapper'>
-    <image class='logo' src='{{imgModel.logo}}' mode='widthFix' />
-    <view class='num-area' wx:if="{{renderData.questions.length}}">{{currIndex+1}}/{{renderData.questions.length}}</view>
+<view class='container' style='padding-top: {{navHeight}}px;'>
+  <view class='num-wrapper'>
+    <view class='num-area' wx:if="{{renderData.questions.length}}">
+      <image src='{{imgModel.num_decorate}}' mode='widthFix' />
+      <text>Q{{currIndex+1}}</text>
+    </view>
   </view>
   <form report-submit='true' bindsubmit="submitHandle">
     <view class='list-wrapper'>
@@ -16,9 +18,9 @@
         <view class='options-area'>
           <view class='text-box' wx:if='{{item.type==1 || item.type==2 || item.type == 8}}'>
             <!-- 文本类型 -->
-            <view wx:for='{{item.options}}' wx:for-item='v' wx:for-index='i' wx:key='{{i}}' bindtap='chooseChange' data-index='{{index}}' data-i='{{i}}'>
+            <view class='{{v.selected==1?"selected":""}}' wx:for='{{item.options}}' wx:for-item='v' wx:for-index='i' wx:key='{{i}}' bindtap='chooseChange' data-index='{{index}}' data-i='{{i}}'>
               <view class='text-chunk'>
-                <image class='icon {{v.selected==1?"selected":""}}' mode='widthFix' src='{{imgModel.icon_select}}' />
+                <image class='icon' wx:if='{{v.selected==1}}' mode='widthFix' src='{{imgModel.icon_select}}' />
                 <text class='text'>{{v.text}}</text>
               </view>
             </view>
@@ -48,8 +50,8 @@
                 <view class='arrow-push-solid'></view>
               </view>
             </picker>
-            <picker wx:if='{{item.picker_mode=="date" || item.picker_mode=="time"}}' mode="{{item.picker_mode}}" value="{{item.value}}" start="{{item.picker_start}}" end="{{item.picker_end}}" data-index='{{index}}' bindchange="pickerChange">
-              <text class='{{item.value?"":"placeholder"}}'>{{item.value ? item.value : '请选择'}}</text>
+            <picker wx:if='{{item.picker_mode=="date" || item.picker_mode=="time" || item.picker_mode=="region"}}' mode="{{item.picker_mode}}" value="{{item.value}}" start="{{item.picker_start}}" end="{{item.picker_end}}" data-index='{{index}}' bindchange="pickerChange">
+              <text class='{{item.value?"":"placeholder"}}'>{{item.value ? item.value : item.placeholder}}</text>
               <view class='seat'>我是占位符，扩大点击区域</view>
               <view class='push-chunk'>
                 <view class='arrow-push-solid'></view>
@@ -71,7 +73,7 @@
         </view>
       </view>
     </view>
-    <button class='btn' wx:if='{{renderData && currIndex == renderData.questions.length-1}}' formType="submit">提交</button>
-    <button class='btn' bindtap='nextHandle' wx:if='{{renderData && currIndex < renderData.questions.length-1}}'>下一题</button>
+    <button class='btn' wx:if='{{renderData && canSubmit}}' formType="submit">完成</button>
+    <button class='btn' bindtap='nextHandle' wx:if='{{renderData && !canSubmit}}'>下一题</button>
   </form>
 </view>

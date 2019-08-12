@@ -10,18 +10,18 @@
         </view>
         <view class="date">有效期：即日起2019年5月1日</view>
     </view> -->
-    <comp-prize style="margin-top: 46rpx;" item='{{prizeInfo}}'></comp-prize>
-    <view class="item-wrapper">
+    <comp-prize style="margin-top: 60rpx;" item='{{prizeInfo}}'></comp-prize>
+    <!-- <view class="item-wrapper">
         <text class="title">可用金额：</text>
         <view class="content">5</view>
-    </view>
-    <view class="item-wrapper">
+    </view> -->
+    <view class="item-wrapper" style="margin-top: 25rpx;">
         <text class="title">手机号码：</text>
-        <view class="content">13800000000</view>
+        <view class="content">{{prizeInfo.phone}}</view>
     </view>
     <view class="item-wrapper">
         <text class="title">充值金额：</text>
-        <view class="content">5</view>
+        <view class="content">¥{{prizeInfo.amount}}</view>
         <!-- <view class="content">
             <picker mode="selector" bindchange="bindPickerChange" value="{{amount_index}}" range="{{amount_list}}">
                 <view class="picker" >

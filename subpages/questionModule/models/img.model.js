@@ -1,8 +1,7 @@
 export default {
   icon_build: '/subpages/questionModule/assets/images/icon_build.png',
-  bg: 'https://tc.woaap.com/skechers-new-weapp/questionModule/bg.jpg',
-  logo: '/subpages/questionModule/assets/images/logo.png',
   icon_select: '/subpages/questionModule/assets/images/icon_select.png',
+  num_decorate: '/subpages/questionModule/assets/images/num_decorate.png',
   icon_text_radio_unselect: '/subpages/questionModule/assets/images/icon_text_radio_unselect.png',
   icon_text_radio_select: '/subpages/questionModule/assets/images/icon_text_radio_select.png',
   icon_text_checkbox_unselect: '/subpages/questionModule/assets/images/icon_text_checkbox_unselect.png',

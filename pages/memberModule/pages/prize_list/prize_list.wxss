@@ -32,7 +32,6 @@ form {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  font-family: Arial, Helvetica, sans-serif;
 }
 .container .scroll-view-container {
   /*分页刷新数据*/
@@ -65,7 +64,7 @@ form {
 .container .scroll-view-container .zero-wrapper {
   /*无数据提示区块*/
   width: 100%;
-  padding: 40rpx 0;
+  padding: 60rpx 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -333,5 +332,24 @@ form {
   align-items: center;
 }
 .container .scroll-view-container scroll-view .list-wrapper .list-area {
-  margin-top: 30rpx;
+  margin-top: 40rpx;
+}
+.container .scroll-view-container scroll-view .zero-wrapper {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container .scroll-view-container scroll-view .zero-wrapper image {
+  width: 100rpx;
+  height: 76rpx;
+}
+.container .scroll-view-container scroll-view .zero-wrapper text {
+  font-size: 28rpx;
+  color: #ccc;
+  margin-top: 25rpx;
 }

@@ -1,4 +1,7 @@
 @import '../../../../assets/styles/common.less';
+@color-white: #fff;
+@color-blue: #395399;
+@color-gray2: #666666;
 
 .container {
   background: #fff;
@@ -105,6 +108,48 @@
       border: 4rpx solid #325fa0;
       border-bottom: none;
       border-left: none;
+      transform: rotate(135deg);
+      margin-top: -6rpx;
     }
+  }
+
+  .mask-wrapper .content-area{
+      transform: none;
+      width: 600rpx;
+      height: 348rpx;
+      margin-left: -300rpx;
+      margin-top: -174rpx;
+      // padding: 48rpx 0 60rpx;
+      background: @color-white;
+      .flex(column, center, center);
+      opacity: 0;
+      .btn-close{
+          width: 32rpx;
+          height: 32rpx;
+          position: absolute;
+          right: 24rpx;
+          top: 24rpx;
+      }
+      .title{
+          font-size: 36rpx;
+          color: @color-blue;
+      }
+      .content{
+          width: 100%;
+          margin-top: 40rpx;
+          font-size: 28rpx;
+          color: @color-gray2;
+          line-height: 38rpx;
+          .flex(column, flex-start, center);
+      }
+      .btn{
+          width: 230rpx;
+          height: 60rpx;
+          margin-top: 60rpx;
+          background: @color-blue;
+          .flex(row, center, center);
+          font-size: 30rpx;
+          color: @color-white;
+      }
   }
 }

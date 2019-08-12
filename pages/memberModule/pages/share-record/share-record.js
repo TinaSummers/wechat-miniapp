@@ -14,6 +14,7 @@ Page({
 		totalPoints:0,//累计积分
 		singlePoint: 5,//成功邀请1位，加5积分
 		list: [],
+		nickname: '',
 	},
 	setNav() {
 		// 设置nav
@@ -31,7 +32,7 @@ Page({
 	},
   onLoad(options) {
 	this.setNav();
-	memberService.initJudgeJump(() => {
+	memberService.initMiniProgram(() => {
 		this.setData({isShow: true});
 		this.getNetData();
 	})
@@ -45,6 +46,7 @@ Page({
 				this.setData({
 					successNum: data.unionids_count,
 					totalPoints: data.count_integral,
+					nickname: data.nickname,
 					list: data.unionids
 				})
 			}
@@ -55,7 +57,7 @@ Page({
 	});
   },
   linkPrizeList(){
-	  mainService.link(pathModel.mc_prize_list);
+	  mainService.link(`${pathModel.mc_prize_list}?type=share`);
   },
   linkActivityRule(){
 	  mainService.link(pathModel.mc_activity_rule);
@@ -66,7 +68,8 @@ Page({
   },
   onShareAppMessage() {
   let shareInfo = mainService.shareInfo();
-  shareInfo.path = `${pathModel.shop_onShop}?ant_share_unionid=${userModel.unionid}&ant_share_memberid=${userModel.memberid}`;
+  shareInfo.title = `您的好友${this.data.nickname}邀请您加入小艾一起变美丽`;
+  shareInfo.path = `${pathModel.mc_index}?ant_share_unionid=${userModel.unionid}&ant_share_memberid=${userModel.memberid}`;
 	return shareInfo;
   }
 })

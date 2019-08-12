@@ -5,14 +5,14 @@ import imgModel from '../../models/img.model';
 Page({
   data: {
     navHeight: 0,
-    imgModel
+    imgModel,
   },
   onLoad() { 
     this.setNav();
   },
   onShow() {
-    memberService.initJudgeJump(() => {
-      this.judgeRegisterStatus();
+    memberService.initMiniProgram(() => {
+      console.log('hello world');
     });
   },
   setNav() {
@@ -34,17 +34,6 @@ Page({
     })
     this.setData({
       navHeight: this.selectComponent('#comp-nav-dynamic').getNavHeight(),
-    })
-  },
-  judgeRegisterStatus() {
-    // 调用注册组件
-    this.selectComponent('#comp-register').openHandle({
-      success: () => {
-        console.log('入会成功');
-      },
-      fail: () => {
-        console.log('入会失败');
-      }
     })
   },
   onPageScroll(e) {

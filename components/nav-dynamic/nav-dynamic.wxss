@@ -1,26 +1,28 @@
-view,
-cover-view,
-cover-image,
-text,
-swiper,
-swiper-item,
-input,
-picker,
-textarea,
-form {
-  box-sizing: border-box;
-  word-break: break-all;
-}
 .ant-nav-dynamic-wrapper {
   position: fixed;
   z-index: 99999;
   left: 0;
   top: 0;
   width: 750rpx;
+  box-sizing: border-box;
+  word-break: break-all;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+}
+.ant-nav-dynamic-wrapper view,
+.ant-nav-dynamic-wrapper cover-view,
+.ant-nav-dynamic-wrapper cover-image,
+.ant-nav-dynamic-wrapper text,
+.ant-nav-dynamic-wrapper swiper,
+.ant-nav-dynamic-wrapper swiper-item,
+.ant-nav-dynamic-wrapper input,
+.ant-nav-dynamic-wrapper picker,
+.ant-nav-dynamic-wrapper textarea,
+.ant-nav-dynamic-wrapper form {
+  box-sizing: border-box;
+  word-break: break-all;
 }
 .ant-nav-dynamic-wrapper .ant-nav-status-area {
   width: 100%;

@@ -33,12 +33,12 @@ Page({
     })
   },
   openLocation() {
-    let {latitude, longitude, branch_name, address} = this.data.renderDetail;
+    let {latitude, longitude, business_name, address} = this.data.renderDetail;
     wx.openLocation({
       latitude,
       longitude,
       scale: 17,
-      name: branch_name,
+      name: business_name,
       address,
     })
   },

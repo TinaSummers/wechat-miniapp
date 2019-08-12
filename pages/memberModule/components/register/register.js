@@ -1,8 +1,8 @@
 /**
- * 注册组件
- * 在父组件中调用注册组件的openHandle方法，同时设置成功加入会员的回调、取消加入会员的回调；
- * 入会成功，执行成功加入会员的回调；
- * 入会失败，执行取消加入会员的回调；
+ * 入会组件
+ * 在父组件中调用入会组件的openHandle方法，同时设置成功入会的回调、失败入会的回调；
+ * 入会成功，执行成功入会的回调；
+ * 入会失败，执行失败入会的回调；
  */
 import imgModel from '../../models/img.model';
 import userModel from '../../models/user.model';
@@ -25,9 +25,9 @@ Component({
   data: {
     imgModel,
     compShow: false, // 组件是否显示
-    successCb: null, // 成功加入会员的回调
-    failCb: null, // 取消加入会员的回调
-    checked: true, // 是否阅读隐私条款
+    successCb: null, // 成功入会的回调
+    failCb: null, // 失败入会的回调
+    checked: false, // 是否阅读隐私条款
   },
   pageLifetimes: {
     // 监听页面生命周期
@@ -48,8 +48,8 @@ Component({
   methods: {
     /**
      * 打开组件事件
-     * @param {function} successCb 成功加入会员的回调
-     * @param {function} failCb 取消加入会员的回调
+     * @param {function} successCb 成功入会的回调
+     * @param {function} failCb 失败入会的回调
      */
     openHandle(obj) {
       const successCb = obj.success, failCb = obj.fail;
@@ -60,11 +60,15 @@ Component({
         throw new Error('注册组件的传参错误');
       }
       this.data.successCb = successCb ? successCb : function () {
-        console.log('默认回调：成功加入会员');
+        console.log('默认回调：成功入会');
       };
       this.data.failCb = failCb ? failCb : function () {
-        console.log('默认回调：取消加入会员');
+        console.log('默认回调：失败入会');
       };
+      if(!userModel.isAuthUnionid){
+        console.log('未授权');
+        return
+      }
       if (userModel.isAuthUnionid && userModel.isBind == 1) {
         // 授权 && 已绑定
         this.data.successCb && this.data.successCb();
@@ -172,10 +176,10 @@ Component({
         throw new Error('注册组件的传参错误');
       }
       this.data.successCb = successCb ? successCb : function () {
-        console.log('默认回调：成功加入会员');
+        console.log('默认回调：成功入会');
       };
       this.data.failCb = failCb ? failCb : function () {
-        console.log('默认回调：取消加入会员');
+        console.log('默认回调：失败入会');
       };
       this.setData({
         compShow: true,
@@ -200,6 +204,12 @@ Component({
     },
     jumpRule() {
       mainService.link(pathModel.mc_rule);
+    },
+    jumpClausePrivacy(){
+      mainService.link(pathModel.mc_clause_privacy);
+    },
+    jumpClauseUse(){
+      mainService.link(pathModel.mc_clause_use);
     },
     submitHandle(e) {
       // 保存formid
