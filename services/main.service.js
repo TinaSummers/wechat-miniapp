@@ -157,14 +157,10 @@ class MainService {
    * @param {string} url 当前页面的路径
    */
   isTabPage(url) {
-    let isTab = false;
     let path = url.split('?')[0];
     path = path[0] == '/' ? path : '/' + path;
-    this.tabRoute.forEach((item, key) => {
-      if (path == pathModel[item]) {
-        isTab = true;
-      }
-    })
+    let isTab = this.tabRoute.findIndex((item, key, arr) => { return path == pathModel[item] }) >=0 ? true : false;
+    console.log(isTab ? 'tabber页面' : '非tabber页面');
     return isTab;
   }
 
@@ -182,7 +178,7 @@ class MainService {
     let result = false;
     const res = wx.getSystemInfoSync();
     const rate = res.windowHeight / res.windowWidth;
-    let limit = res.windowHeight == res.screenHeight ? 1.8 : 1.651; // 临界判断值
+    let limit = res.windowHeight == res.screenHeight ? 1.8 : 1.652; // 临界判断值
     if (rate > limit) {
       result = true;
     }
@@ -247,7 +243,7 @@ class MainService {
         target.params.shop_id = configModel.shopId;
         target.params.shopId = configModel.shopId;
         target.params.ecrmSource = configModel.ecrmSource;
-        
+
         wx.request({
           url: target.url,
           method: target.method,
@@ -260,13 +256,20 @@ class MainService {
             let { data, data: { errcode } } = res;
             if (res.statusCode != 200) {
               this.modal('网络开小差~~');
+              console.log(`网络开小差@${target.url}`);
               return
             }
             if (errcode == 30002) {
               // 接口需要unionid && unionid不存在
-              configModel.needUnionid = 1;
-              memberService.setBackJump();
-              this.link(pathModel.mc_screen);
+              let page = this.getCurrPage().page;
+              page.selectComponent('#comp-auth').openHandle({
+                success: () => {
+                  console.log('接口级别，授权成功');
+                },
+                fail: () => {
+                  console.log('接口级别，授权失败');
+                }
+              })
               return
             }
             if (errcode == 30001) {
@@ -335,6 +338,7 @@ class MainService {
             console.log(res, `@${apiModel.mc_login}`);
             if (res.statusCode != 200) {
               this.modal('网络开小差~~');
+              console.log(`网络开小差@${target.url}`);
               return
             }
             let { data, data: { code } } = res;
@@ -346,10 +350,7 @@ class MainService {
               userModel.openid = data.openid;
               userModel.unionid = data.unionid ? data.unionid : '';
               cb && cb();
-              getApp().etrack.applyUser({
-                'openId': userModel.openid,
-                'unionId': userModel.unionid,
-              })
+              this.setTrackConfig();
               return
             }
             if (code == 201) {
@@ -392,6 +393,7 @@ class MainService {
       success: (res) => {
         if (res.statusCode != 200) {
           this.modal('网络开小差~~');
+          console.log(`网络开小差@${target.url}`);
           return;
         }
         let { data, data: { miniapp_session_id, code } } = res;
@@ -402,10 +404,7 @@ class MainService {
           userModel.openid = data.openid;
           userModel.unionid = data.unionid ? data.unionid : '';
           cb && cb();
-          getApp().etrack.applyUser({
-            'openId': userModel.openid,
-            'unionId': userModel.unionid,
-          })
+          this.setTrackConfig();
         } else {
           // 处理长时间停留导致session过期的特殊需求
           this.login(() => {
@@ -417,6 +416,16 @@ class MainService {
         wx.hideLoading();
         wx.hideNavigationBarLoading();
       },
+    })
+  }
+
+  /**
+   * track设置openid unionid
+   */
+  setTrackConfig() {
+    getApp().etrack.applyUser({
+      'openId': userModel.openid,
+      'unionId': userModel.unionid,
     })
   }
 

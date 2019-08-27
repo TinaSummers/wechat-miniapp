@@ -33,12 +33,6 @@ class MemberService {
       case false:
         mainService.login(() => {
           this.isTriggerLogin = true;
-          if (!userModel.isAuthUnionid) {
-            // 未非静默授权
-            this.setBackJump();
-            mainService.link(pathModel.mc_screen);
-            return
-          }
           cb && cb();
         });
         break;
@@ -146,7 +140,7 @@ class MemberService {
     ajaxService.memberCardReceive({
       card_id: res.cardList[0].cardId,
       card_code: res.cardList[0].code,
-    }).then((res) => {})
+    }).then((res) => { })
   }
 
   /**
@@ -178,7 +172,7 @@ class MemberService {
       }
     })
   }
-  
+
   /**
    * 获取会员绑定状态
    * @param {function} cb 值的回调
@@ -252,8 +246,15 @@ class MemberService {
         cb && cb(userModel.unionid);
         return
       }
-      this.setBackJump();
-      mainService.link(pathModel.mc_screen);
+      let page = mainService.getCurrPage().page;
+      page.selectComponent('#comp-auth').openHandle({
+        success: () => {
+          console.log('memberService，授权成功');
+        },
+        fail: () => {
+          console.log('memberService，授权失败');
+        }
+      })
     })
   }
 

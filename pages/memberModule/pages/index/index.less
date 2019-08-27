@@ -1,112 +1,40 @@
 @import '../../../../assets/styles/common.less';
-@color-name: #2c5596;
-@color-org: #f58229;
-@color-btn: #274b8b;
-@color-white: #fff;
-@color-gray: #f9f9f9;
-@color-title: #4e4e50;
-@color-blue: #0052a1;
 
 .container {
-  background: #fff;
-  .header-wrapper{
-    width: 100%;
+  background: #f9f9f9;
+
+  .header-wrapper {
     position: relative;
-    .bg{
+
+    .banner {
       width: 750rpx;
-      height: 520rpx;
-      &.bigScreen{
-        width: 750rpx;
-        height: 600rpx;
-      }
+      height: 300rpx;
     }
-    .header-area{
+
+    .header-area {
       position: absolute;
-      left: 50%;
-      bottom: 176rpx;
-      transform: translateX(-50%);
-      .flex(column, flex-start, center);
-      &.bigScreen{
-        bottom: 219rpx;
-      }
-      .avatar-box{
-        position: relative;
-        width: 161rpx;
-        height: 161rpx;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.2);
-        .flex(row, center, center);
-        .userAvatarUrl{
-          width: 150rpx;
-          height: 150rpx;
-        }
-      }
-  }
-  .name-area{
-    position: absolute;
-    left: 40rpx;
-    bottom: 55rpx;
-    font-size: 36rpx;
-    color: @color-white;
-    &.bigScreen{
-      bottom: 58rpx;
-    }
-    text{
-      font-size: 28rpx;
-    }
-  }
-}
-  .list-wrapper{
-    width: 100%;
-    height: 361rpx;
-    &.bigScreen{
-      height: 381rpx;
-    }
-    border-bottom: 15rpx solid @color-gray;
-    padding: 0 65rpx;
-    .list-area{
-      width: 100%;
-      .flex(row, space-between, center);
-      .list-box{
-        height: 173rpx;
-        &.bigScreen{
-          height: 183rpx;
-        }
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      .flex(column, center, center);
+
+      .avatar-nickname-box {
         .flex(column, center, center);
-        image{
-          width: 44rpx;
-          height: 42rpx;
+
+        .userAvatarUrl {
+          width: 160rpx;
+          height: 160rpx;
+          border: 4rpx solid #fff;
         }
-        text{
+
+        .userNickName {
+          color: #11143d;
+          margin-top: 8rpx;
           font-size: 30rpx;
-          color: @color-title;
-          margin-top: 25rpx;
-          text-align: center;
         }
       }
     }
   }
-  .share-wrapper{
-    width: 100%;
-    padding: 0 40rpx 20rpx;
-    .title{
-      padding: 40rpx 0 20rpx;
-      font-size: 34rpx;
-      color: @color-blue;
-      font-weight: bold;
-      .flex(row, flex-start, center);
-      image{
-        width: 35rpx;
-        height: 40rpx;
-        margin-right: 12rpx;
-      }
-    }
-  }
-  .contact-box{
-    width: 102rpx;
-    height: 102rpx;
-    position: fixed;
-    right: 40rpx;
-    bottom: 76rpx;
-  }
+
 }

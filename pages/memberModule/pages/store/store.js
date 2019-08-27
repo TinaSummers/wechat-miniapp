@@ -35,7 +35,7 @@ Page({
       city: '', // 市
       district: '', // 区
       label_ids: '', // 门店id（授权地址用）
-      labels: '', // 门店id（未授权地址用）
+      'labels[]': '', // 门店id（未授权地址用）
       label_name: '', // 门店名称（与请求无关）
     },
   },

@@ -1,0 +1,8 @@
+<comp-nav-dynamic id='comp-nav-dynamic'></comp-nav-dynamic>
+<comp-auth id='comp-auth'></comp-auth>
+<comp-register id='comp-register'></comp-register>
+<view class="container" style='padding-top: {{navHeight}}px;'>
+  <button class='btn-main' bind:tap='authHandle' mark:auth>Hello World（授权）</button>
+  <button class='btn-main' bind:tap='registerHandle' mark:register>Hello World（入会）</button>
+  <button class='btn-main' bind:tap='helloHandle'>Hello World</button>
+</view>

@@ -2,13 +2,11 @@
  * 后台请求地址集合
  */
 import configModel from './config.model';
-const apiUrl = configModel.apiUrl;
-const ecrmUrl = configModel.ecrmUrl;
-const hubUrl = configModel.hubUrl;
+const { apiUrl, ecrmUrl, hubUrl } = configModel;
 
 export default {
   // 主页
-  
+
   // 会员中心
   mc_save_formid: `${apiUrl}/api/miniapp-formid`, // 保存formid
   mc_qrcode_barcode: `${ecrmUrl}/get/code`, // 获取条形码&&二维码

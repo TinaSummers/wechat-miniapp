@@ -1,0 +1,6 @@
+<comp-nav-dynamic id='comp-nav-dynamic'></comp-nav-dynamic>
+<comp-seal id="comp-seal"></comp-seal>
+
+<view class="container" style='padding-top: {{navHeight}}px;'>
+  <view class="seal-wrapper" bindtouchstart="judgeSealStatus"></view>
+</view>

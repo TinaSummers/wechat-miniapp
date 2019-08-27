@@ -1,0 +1,5 @@
+<comp-nav-dynamic id='comp-nav-dynamic'></comp-nav-dynamic>
+<comp-auth id='comp-auth'></comp-auth>
+<view class="container" style='padding-top: {{navHeight}}px;'>
+  <button class='btn-main' bind:tap='authHandle'>Hello World</button>
+</view>

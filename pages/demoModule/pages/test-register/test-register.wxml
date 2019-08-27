@@ -1,0 +1,5 @@
+<comp-nav-dynamic id='comp-nav-dynamic'></comp-nav-dynamic>
+<comp-register id='comp-register'></comp-register>
+<view class="container" style='padding-top: {{navHeight}}px;'>
+  <button class='btn-main' bind:tap='registerHandle'>Hello World</button>
+</view>

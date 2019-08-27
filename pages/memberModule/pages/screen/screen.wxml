@@ -1,16 +1,17 @@
 <comp-nav-dynamic id='comp-nav-dynamic'></comp-nav-dynamic>
-
 <view class="container">
   <image class='banner {{isBigScreen?"big":""}}' mode="widthFix" src="{{isBigScreen?imgModel.screen_banner_big:imgModel.screen_banner_init}}" />
-  <view class='btn-wrapper'>
+  <view class='btn-wrapper {{isBigScreen?"big":""}}'>
+    <image class='decorate' src="{{imgModel.screen_decorate}}" mode='widthFix' />
     <button class="btn-auth" hover-class="tap" hover-stay-time="100" wx:if='{{btnShow && !userModel.isAuthUnionid}}' bindgetuserinfo="getUserInfo" open-type="getUserInfo">
       <image mode='widthFix' src='{{imgModel.screen_btn}}' />
     </button>
     <button class="btn-auth" hover-class="tap" hover-stay-time="100" wx:if='{{btnShow && userModel.isAuthUnionid}}' bindtap="jumpPage">
       <image mode='widthFix' src='{{imgModel.screen_btn}}' />
     </button>
-    <view class='logo-box'>
-      <image mode='widthFix' src='{{imgModel.screen_logo}}' />
-    </view>
+    <button class="btn-auth btn-fake" hover-class="tap" hover-stay-time="100" wx:if='{{!btnShow}}'>
+      <image mode='widthFix' src='{{imgModel.screen_btn}}' />
+    </button>
   </view>
+  <image class='logo' src="{{imgModel.screen_logo}}" mode='widthFix' />
 </view>

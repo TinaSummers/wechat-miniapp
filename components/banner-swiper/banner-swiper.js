@@ -56,9 +56,6 @@ Component({
       var height = e.detail.height; // 图片真实高
       var viewHeight = 750 * height / width; // 图片小程序高
       this.data.imgHeights[index] = viewHeight;
-      this.setData({
-        imgHeights: this.data.imgHeights,
-      })
       if (index == 0) {
         // 初始化第一个
         this.setData({

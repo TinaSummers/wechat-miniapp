@@ -1,7 +1,6 @@
 /**
  * 项目配置表
  * 
- * 小程序appid：
  * 测试 wx5aba59796c912478
  * 正式 
  * 
@@ -12,8 +11,8 @@
  * @param {string} organizationId 机构id（与会员中心有关）
  * @param {string} brandId 品牌id（与商城有关）
  * @param {string} shopId 店铺id（与商城有关）
- * @param {string} publicAppid 公众号appid（与门店有关）
  * @param {string} ecrmSource ecrm来源（与商城有关）
+ * @param {string} publicAppid 公众号appid（与门店有关）
  * @param {number} needUnionid 初始进入小程序，是否微信授权unionid 1-需要 0-不需要
  * @param {string} trackUrl track域名
  * @param {string} apiUrl api域名
@@ -35,8 +34,8 @@ switch (miniAppid) {
       organizationId: '127',
       brandId: '',
       shopId: '',
-      publicAppid: 'wx6d5e92b278c3bdc2',
       ecrmSource: '',
+      publicAppid: 'wx6d5e92b278c3bdc2',
       needUnionid: 0,
       trackUrl: 'https://apitrack.woaap.com',
       apiUrl: 'https://api-test.woaap.com',
@@ -44,9 +43,6 @@ switch (miniAppid) {
       hubUrl: 'https://woaapsh.woaap.com',
       surveyId: '1',
     }
-    break;
-  case '':
-
     break;
 }
 

@@ -67,17 +67,16 @@ Component({
         return
       }
       // @请求后台，判断unionid授权状态
-      configModel.needUnionid = 1;
-      mainService.login(() => {
-        if (userModel.isAuthUnionid) {
-          // 已授权
-          this.data.successCb && this.data.successCb();
-          return
-        }
-        this.setData({
-          compShow: true,
-        })
+      // mainService.login(() => {
+      if (userModel.isAuthUnionid) {
+        // 已授权
+        this.data.successCb && this.data.successCb();
+        return
+      }
+      this.setData({
+        compShow: true,
       })
+      // })
     },
     getUserInfo(e) {
       if (e.detail.errMsg == 'getUserInfo:ok') {

@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/homeModule/pages/index/index",
-    "pages/homeModule/pages/test/test",
 
     "pages/memberModule/pages/index/index",
     "pages/memberModule/pages/screen/screen",
@@ -20,7 +19,12 @@
     "pages/memberModule/pages/prize_detail/prize_detail",
 
     "pages/demoModule/pages/index/index",
-    "pages/demoModule/pages/test/test"
+    "pages/demoModule/pages/test-nav/test-nav",
+    "pages/demoModule/pages/test-auth/test-auth",
+    "pages/demoModule/pages/test-register/test-register",
+    "pages/demoModule/pages/test-seal/test-seal",
+    "pages/demoModule/pages/test-painter/test-painter",
+    "pages/demoModule/pages/test-interceptor/test-interceptor"
   ],
   "subpackages": [
     {
@@ -44,6 +48,7 @@
     "comp-register": "/pages/memberModule/components/register/register",
     "comp-auth": "/pages/memberModule/components/auth/auth",
     "comp-banner-swiper": "/components/banner-swiper/banner-swiper",
+    "comp-painter": "/components/painter/painter",
     "comp-seal": "/components/seal/seal",
     "navigation": "/components/navigation/navigation",
     "image-link": "/components/image-link/image-link",

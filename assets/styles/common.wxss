@@ -138,6 +138,7 @@ form {
   margin: 0;
   border-radius: 0;
   line-height: initial;
+  background-color: transparent;
 }
 .container button::after {
   border-radius: 0;
@@ -146,7 +147,7 @@ form {
 .container button.btn-main {
   width: 500rpx;
   height: 80rpx;
-  background: #2d5495;
+  background: #2358a5;
   color: #fff;
   border-radius: 6rpx;
   font-size: 32rpx;

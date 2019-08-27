@@ -4,22 +4,31 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
+		"coverView": true,
 		"autoAudits": false,
-		"coverView": true
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.8.0",
+	"libVersion": "2.7.7",
 	"appid": "wx5aba59796c912478",
-	"projectname": "%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%A8%A1%E6%9D%BF",
+	"projectname": "%E5%AE%9C%E5%AE%B6%E5%98%89%E5%B9%B4%E5%8D%8E",
+	"cloudfunctionTemplateRoot": "",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
-	"isGameTourist": false,
+	"scripts": {},
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {
@@ -36,11 +45,10 @@
 			"list": []
 		},
 		"game": {
-			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 17,
 			"list": [
 				{
 					"id": -1,
@@ -51,15 +59,121 @@
 				},
 				{
 					"id": -1,
-					"name": "demo_test",
-					"pathName": "pages/demoModule/pages/test/test",
+					"name": "mc_screen",
+					"pathName": "pages/memberModule/pages/screen/screen",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "mc_index",
+					"pathName": "pages/memberModule/pages/index/index",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "mc_screen",
-					"pathName": "pages/memberModule/pages/screen/screen",
+					"name": "demo_test_auth",
+					"pathName": "pages/demoModule/pages/test-auth/test-auth",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "demo_test_nav",
+					"pathName": "pages/demoModule/pages/test-nav/test-nav",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "demo_test_register",
+					"pathName": "pages/demoModule/pages/test-register/test-register",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "demo_test_seal",
+					"pathName": "pages/demoModule/pages/test-seal/test-seal",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "demo_test_painter",
+					"pathName": "pages/demoModule/pages/test-painter/test-painter",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "hm_reserve",
+					"pathName": "pages/homeModule/pages/reserve/reserve",
+					"query": "status=2",
+					"scene": null
+				},
+				{
+					"id": 9,
+					"name": "领券",
+					"pathName": "pages/giftModule/pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "yangq",
+					"pathName": "pages/giftModule/pages/giftDetail/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 11,
+					"name": "hm_painter",
+					"pathName": "pages/homeModule/pages/painter/painter",
+					"query": "type=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/giftModule/pages/payment/index",
+					"pathName": "pages/giftModule/pages/payment/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "礼包",
+					"pathName": "pages/giftModule/pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "支付成功",
+					"pathName": "pages/giftModule/pages/payment/index",
+					"query": "theIndex=0",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "vw_index",
+					"pathName": "pages/viewModule/pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "3D寻宝",
+					"pathName": "pages/viewModule/pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 17,
+					"name": "demo_test_interceptor",
+					"pathName": "pages/demoModule/pages/test-interceptor/test-interceptor",
+					"query": "",
 					"scene": null
 				}
 			]

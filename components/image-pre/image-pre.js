@@ -34,7 +34,7 @@ Component({
         this.setData({
           imageLoaded: true,
         })
-      }, 50)
+      }, 30)
       this.triggerEvent('load', e.detail);
     },
   }

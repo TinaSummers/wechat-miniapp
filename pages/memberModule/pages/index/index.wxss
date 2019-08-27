@@ -1,4 +1,6 @@
 /**
+* 通用样式（页面）
+* 
 * 样式命名规范：
 * 容器层级 container > wrapper > area > box > chunk
 */
@@ -32,7 +34,6 @@ form {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  font-family: Arial, Helvetica, sans-serif;
 }
 .container .scroll-view-container {
   /*分页刷新数据*/
@@ -65,7 +66,7 @@ form {
 .container .scroll-view-container .zero-wrapper {
   /*无数据提示区块*/
   width: 100%;
-  padding: 40rpx 0;
+  padding: 60rpx 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -136,6 +137,8 @@ form {
   padding: 0;
   margin: 0;
   border-radius: 0;
+  line-height: initial;
+  background-color: transparent;
 }
 .container button::after {
   border-radius: 0;
@@ -144,7 +147,7 @@ form {
 .container button.btn-main {
   width: 500rpx;
   height: 80rpx;
-  background: #2d5495;
+  background: #2358a5;
   color: #fff;
   border-radius: 6rpx;
   font-size: 32rpx;
@@ -318,120 +321,39 @@ form {
   margin-right: 20rpx;
 }
 .container {
-  background: #fff;
+  background: #f9f9f9;
 }
 .container .header-wrapper {
-  width: 100%;
   position: relative;
 }
-.container .header-wrapper .bg {
+.container .header-wrapper .banner {
   width: 750rpx;
-  height: 520rpx;
-}
-.container .header-wrapper .bg.bigScreen {
-  width: 750rpx;
-  height: 600rpx;
+  height: 300rpx;
 }
 .container .header-wrapper .header-area {
   position: absolute;
-  left: 50%;
-  bottom: 176rpx;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-}
-.container .header-wrapper .header-area.bigScreen {
-  bottom: 219rpx;
-}
-.container .header-wrapper .header-area .avatar-box {
-  position: relative;
-  width: 161rpx;
-  height: 161rpx;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-.container .header-wrapper .header-area .avatar-box .userAvatarUrl {
-  width: 150rpx;
-  height: 150rpx;
-}
-.container .header-wrapper .name-area {
-  position: absolute;
-  left: 40rpx;
-  bottom: 55rpx;
-  font-size: 36rpx;
-  color: #fff;
-}
-.container .header-wrapper .name-area.bigScreen {
-  bottom: 58rpx;
-}
-.container .header-wrapper .name-area text {
-  font-size: 28rpx;
-}
-.container .list-wrapper {
-  width: 100%;
-  height: 361rpx;
-  border-bottom: 15rpx solid #f9f9f9;
-  padding: 0 65rpx;
-}
-.container .list-wrapper.bigScreen {
-  height: 381rpx;
-}
-.container .list-wrapper .list-area {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-.container .list-wrapper .list-area .list-box {
-  height: 173rpx;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.container .list-wrapper .list-area .list-box.bigScreen {
-  height: 183rpx;
+.container .header-wrapper .header-area .avatar-nickname-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.container .list-wrapper .list-area .list-box image {
-  width: 44rpx;
-  height: 42rpx;
+.container .header-wrapper .header-area .avatar-nickname-box .userAvatarUrl {
+  width: 160rpx;
+  height: 160rpx;
+  border: 4rpx solid #fff;
 }
-.container .list-wrapper .list-area .list-box text {
+.container .header-wrapper .header-area .avatar-nickname-box .userNickName {
+  color: #11143d;
+  margin-top: 8rpx;
   font-size: 30rpx;
-  color: #4e4e50;
-  margin-top: 25rpx;
-  text-align: center;
-}
-.container .share-wrapper {
-  width: 100%;
-  padding: 0 40rpx 20rpx;
-}
-.container .share-wrapper .title {
-  padding: 40rpx 0 20rpx;
-  font-size: 34rpx;
-  color: #0052a1;
-  font-weight: bold;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-}
-.container .share-wrapper .title image {
-  width: 35rpx;
-  height: 40rpx;
-  margin-right: 12rpx;
-}
-.container .contact-box {
-  width: 102rpx;
-  height: 102rpx;
-  position: fixed;
-  right: 40rpx;
-  bottom: 76rpx;
 }

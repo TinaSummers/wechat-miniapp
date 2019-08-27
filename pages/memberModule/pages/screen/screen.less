@@ -1,49 +1,62 @@
 @import '../../../../assets/styles/common.less';
 
 .container {
-  background: #a63286;
+  background: #eacbd8;
   height: 100%;
   overflow: hidden;
 
   .banner {
     width: 750rpx;
-    height: 1624rpx;
+    height: 1334rpx;
     flex-shrink: 0;
 
     &.big {
-      height: 1334rpx;
+      height: 1624rpx;
     }
   }
 
   .btn-wrapper {
     position: fixed;
     left: 0;
-    bottom: 0;
+    bottom: 180rpx;
     right: 0;
-    .flex(column, flex-start, center);
+    .flex(column, center, center);
+
+    &.big {
+      bottom: 210rpx;
+
+      .decorate {
+        width: 750rpx;
+        height: 910rpx;
+      }
+    }
+
+    .decorate {
+      width: 600rpx;
+      height: 728rpx;
+      margin-bottom: 100rpx;
+    }
 
     .btn-auth {
-      width: 100%;
-      height: 140rpx;
-      background: #ff585d;
-      .flex(row, center, center);
+      width: 490rpx;
+      height: 110rpx;
+
+      &.btn-fake{
+        opacity: 0;
+      }
 
       image {
-        width: 400rpx;
-        height: 91rpx;
+        width: 100%;
+        height: 100%;
       }
     }
+  }
 
-    .logo-box {
-      width: 100%;
-      height: 227rpx;
-      background: #69138e;
-      .flex(row, center, center);
-
-      image {
-        width: 479rpx;
-        height: 103rpx;
-      }
-    }
+  .logo {
+    width: 159rpx;
+    height: 102rpx;
+    position: fixed;
+    right: 40rpx;
+    bottom: 30rpx;
   }
 }

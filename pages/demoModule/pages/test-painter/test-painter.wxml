@@ -1,0 +1,17 @@
+<comp-nav-dynamic id='comp-nav-dynamic'></comp-nav-dynamic>
+<view class="container" style='padding-top: {{navHeight}}px;'>
+  <comp-painter wx:for="{{configArr}}" wx:key='{{index}}' data-index='{{index}}' palette="{{item.palette}}" bind:imgOK="painterSuccessHandle" bind:imgErr="painterFailHandle" />
+  <swiper wx:if='{{swiperArr.length > 1}}' style='width: {{isBigScreen ? 687 : 600}}rpx;height: {{isBigScreen ? 981 : 875}}rpx;' indicator-dots='{{true}}' bindchange="swiperChange">
+    <block wx:for="{{swiperArr}}" wx:key='{{index}}'>
+      <swiper-item>
+        <image src='{{item}}' mode='widthFix' />
+      </swiper-item>
+    </block>
+  </swiper>
+  <image wx:if='{{swiperArr.length == 1}}' style='width: {{isBigScreen ? 687 : 600}}rpx;height: {{isBigScreen ? 981 : 875}}rpx;' src='{{swiperArr[0]}}' mode='widthFix' />
+  <button wx:if='{{posterUrl && !isOpenSetting}}' catch:tap='saveImageHandle'>一键保存，奔走相告</button>
+  <button wx:if='{{!posterUrl}}' style='opacity: 0;'>我是占位按钮</button>
+  <button wx:if='{{posterUrl && isOpenSetting}}' open-type="openSetting" bindopensetting="openSettingHandle">
+    一键保存，奔走相告
+  </button>
+</view>

@@ -8,7 +8,7 @@
 @color-border: #c9c9c9; // 边框
 @color-placeholder: #999; // placeholder文案
 @color-black: #000000; // 字体颜色
-@color-main: #2d5495; // 主色调
+@color-main: #2358a5; // 主色调
 @color-danger: #c61c32; // 错误
 @color-warning: #d58512; // 警告
 
@@ -33,6 +33,12 @@ form {
   box-sizing: border-box;
   word-break: break-all;
 }
+
+// ::-webkit-scrollbar {
+//   width: 0;
+//   height: 0;
+//   color: transparent;
+// }
 
 .flex(@direction: row, @justify: center, @align: center) {
   display: flex;
@@ -160,6 +166,7 @@ form {
     margin: 0;
     border-radius: 0;
     line-height: initial;
+    background-color: transparent;
 
     &::after {
       border-radius: 0;

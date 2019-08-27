@@ -1,37 +1,14 @@
-<!--pages/memberModule/pages/index/index.wxml-->
 <comp-nav-dynamic id='comp-nav-dynamic'></comp-nav-dynamic>
+<comp-auth id='comp-auth'></comp-auth>
 <comp-register id='comp-register'></comp-register>
 <view class="container">
-    <view class="header-wrapper">
-        <image class="bg {{isBigScreen?'bigScreen':''}}" mode='widthFix' src="{{isBigScreen?imgModel.index_banner_big:imgModel.index_banner}}" />
-        <view class="header-area {{isBigScreen?'bigScreen':''}}" wx:if="{{pageShow}}">
-            <view class="avatar-box">
-                <open-data class='userAvatarUrl' type="userAvatarUrl"></open-data>
-            </view>
-        </view>
-        <view class="name-area {{isBigScreen?'bigScreen':''}}" wx:if="{{pageShow}}">
-            <text>您好，</text>
-            <open-data class='userNickName hidden-e' type="userNickName"></open-data>
-        </view>
+  <view class='header-wrapper'>
+    <image class='banner' mode='widthFix' src='{{imgModel.index_banner}}' />
+    <view class='header-area'>
+      <view class='avatar-nickname-box' wx:if="{{pageShow}}">
+        <open-data class='userAvatarUrl' type="userAvatarUrl"></open-data>
+        <open-data class='userNickName hidden-e' type="userNickName"></open-data>
+      </view>
     </view>
-    <view class="list-wrapper {{isBigScreen?'bigScreen':''}}">
-        <view class="list-area" wx:for='{{optList}}' wx:key='{{index}}'>
-            <view class="list-box {{isBigScreen?'bigScreen':''}}" wx:for='{{item}}' wx:for-item="subItem" wx:key='{{subItem.title}}' data-item='{{subItem}}' bindtap='jumpPage'>
-                <image mode='widthFix' src="{{subItem.icon}}" />
-                <text>{{subItem.title}}</text>
-            </view>
-        </view>
-    </view>
-    <view class="share-wrapper">
-        <view class="title"><image src="{{imgModel.icon_index_share_title}}"/>邀请好友，入会体验</view>
-        <view bindtap='linkShareRecord'>
-            <comp-image-pre mode="widthFix" width='670' height='340' src="{{imgModel.index_banner_share}}" />
-        </view>
-    </view>
-    <button open-type='contact' style="background: transparent;">
-        <image class="contact-box" mode="widthFix" src="{{imgModel.icon_contact}}" />
-    </button>
-    
+  </view>
 </view>
-
-

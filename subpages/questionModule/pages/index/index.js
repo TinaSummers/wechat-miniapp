@@ -46,7 +46,7 @@ Page({
       scrollMax: 0, // 最大滚动间距（保持初始值，设置为0），单位px
       homeShow: true, // 是否展示home图标
       homeJudgeStack: false, // home图标展示是否判断页面栈
-      homePath: '/pages/memberModule/pages/index/index', // 默认的home页面
+      homePath: '/pages/homeModule/pages/index/index', // 默认的home页面
       homeColorInit: 'white', // home图标颜色-初始值 white / black
       homeColorRoll: '', // home图标颜色-滚动值 white / black
     })
@@ -154,7 +154,7 @@ Page({
             if (v.config.mode == 1) {
               v.config.details.forEach((v2, k2) => {
                 if (v2.redirect_type == 4) {
-                  options.jump_need = 1;
+                  options[v2.choices].jump_need = 1;
                   options[v2.choices].jump_type = 2;
                   options[v2.choices].jump_id = v2.related;
                 }
@@ -166,7 +166,7 @@ Page({
                   // 跳转到指定题目
                   v2.jump_need = 1;
                   v2.jump_type = 2;
-                  v2.jump_id = v.details[0].related;
+                  v2.jump_id = v.config.details[0].related;
                 }
                 if (v.config.details[0].redirect_type == 2) {
                   // 跳转到文末
