@@ -19,7 +19,7 @@ Component({
   properties: {
     closeBtnShow: { // 关闭按钮是否显示
       type: Number,
-      value: 0,
+      value: 1,
     },
   },
   data: {
@@ -80,7 +80,6 @@ Component({
         return
       }
       // @请求后台，判断unionid授权状态
-      configModel.needUnionid = 1;
       mainService.login(() => {
         if (!userModel.isAuthUnionid) {
           // 未授权
@@ -201,9 +200,6 @@ Component({
       this.setData({
         checked: !this.data.checked
       })
-    },
-    jumpRule() {
-      mainService.link(pathModel.mc_rule);
     },
     jumpClausePrivacy(){
       mainService.link(pathModel.mc_clause_privacy);
