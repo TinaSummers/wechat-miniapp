@@ -45,10 +45,10 @@ Page({
       scrollMin: 0, // 最小滚动间距（保持初始值，设置为0），单位px
       scrollMax: 0, // 最大滚动间距（保持初始值，设置为0），单位px
       homeShow: true, // 是否展示home图标
-      homeJudgeStack: false, // home图标展示是否判断页面栈
-      homePath: '/pages/homeModule/pages/index/index', // 默认的home页面
-      homeColorInit: 'white', // home图标颜色-初始值 white / black
-      homeColorRoll: '', // home图标颜色-滚动值 white / black
+      homeJudgeStack: true, // home图标展示是否判断页面栈
+      homePath: '/pages/memberModule/pages/index/index', // 默认的home页面
+      homeColorInit: 'black', // home图标颜色-初始值 white / black
+      homeColorRoll: 'black', // home图标颜色-滚动值 white / black
     })
     this.setData({
       navHeight: this.selectComponent('#comp-nav-dynamic').getNavHeight(),
@@ -70,7 +70,7 @@ Page({
       if (errcode == 0) {
         if (data.submited) {
           mainService.modal('您已参与过该活动', '提示', () => {
-            const pages = getCurrentPages(); // 获取加载的页面
+            const pages = getCurrentPages();
             console.log(pages.length);
             if (pages.length < 2) {
               mainService.link(pathModel.mc_index, 3);
