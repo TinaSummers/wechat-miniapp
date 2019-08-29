@@ -4,20 +4,20 @@ export default {
   questions: [
     {
       id: '1', // 题目id
-      subject: '您的年薪是多少？？', // 题目名称
+      subject: '诗词名句网 -古诗词大全|诗歌|诗词鉴赏|古诗名句|诗句赏析!', // 题目名称
       choiced: 1, // 题目是否显示 0-不显示 1-显示
       required: '1', // 是否必填 0-非必填 1-必填
-      type: '1', // 答题类型 1-单选（文本） 2-多选（文本） 3-单选（图片） 4-多选（图片） 5-input输入 6-picker选择器 7-textarea输入 8-单选 多选（文本）+其他
+      type: '1', // 答题类型 1-单选（文本） 2-多选（文本） 3-单选（图片） 4-多选（图片） 5-input输入 6-picker选择器 7-textarea输入 8-单选 多选（文本）+其他 9-⭐+其他
       picker_mode: '', // picker的模式（date/time/selector/region） type==6
       picker_start: '', // picker开始时间 picker_mode==date || picker_mode==time
       picker_end: '', // picker结束时间 picker_mode==date || picker_mode==time
       value: '', // 值
-      value_k: '', // picker的key值 picker_mode==selector
+      value_k: '', // picker的key值 picker_mode==selector || type==9
       value_other: '', // 其他的值 type==8
       placeholder: '', // placeholder提示框
       options: [ // 选项集合
         {
-          text: '潇洒江梅', // 选项key
+          text: '武帝祠前云欲散，仙人掌上雨初晴。河山北枕秦关险，驿路西连汉畤平。', // 选项key
           img: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1750434062,2659185363&fm=27&gp=0.jpg', // 图片资源 type==3 || type==4
           selected: 0, // 是否选中
           relation_need: '0', // 是否有关联逻辑 0-无 1-有
@@ -54,7 +54,7 @@ export default {
       choiced: 1, // 题目是否显示 0-不显示 1-显示
       required: '0', // 是否必填 0-非必填 1-必填
       type: '2', // 答题类型 1-单选（文本） 2-多选（文本） 3-单选（图片） 4-多选（图片） 5-input输入 6-picker选择器 7-textarea输入
-      picker_mode: 'time', // picker的模式 date/time/selector
+      picker_mode: '', // picker的模式 date/time/selector
       picker_start: '', // picker_mode==date || picker_mode==time
       picker_end: '', // picker_mode==date || picker_mode==time
       value: '', // 值
@@ -101,7 +101,7 @@ export default {
       choiced: 1, // 题目是否显示 0-不显示 1-显示
       required: '0', // 是否必填 0-非必填 1-必填
       type: '3', // 答题类型 1-单选（文本） 2-多选（文本） 3-单选（图片） 4-多选（图片） 5-input输入 6-picker选择器 7-textarea输入
-      picker_mode: 'time', // picker的模式 date/time/selector
+      picker_mode: '', // picker的模式 date/time/selector
       picker_start: '', // picker_mode==date || picker_mode==time
       picker_end: '', // picker_mode==date || picker_mode==time
       value: '', // 值
@@ -159,7 +159,7 @@ export default {
       choiced: 1, // 题目是否显示 0-不显示 1-显示
       required: '0', // 是否必填 0-非必填 1-必填
       type: '4', // 答题类型 1-单选（文本） 2-多选（文本） 3-单选（图片） 4-多选（图片） 5-input输入 6-picker选择器 7-textarea输入
-      picker_mode: 'time', // picker的模式 date/time/selector
+      picker_mode: '', // picker的模式 date/time/selector
       picker_start: '', // picker_mode==date || picker_mode==time
       picker_end: '', // picker_mode==date || picker_mode==time
       value: '', // 值
@@ -302,6 +302,19 @@ export default {
           jump_id: '', // 跳转到的题目id jump_type==2
         },
       ],
+    },
+    {
+      id: '9', // 题目id
+      subject: '满意度调查', // 题目名称
+      choiced: 1, // 题目是否显示 0-不显示 1-显示
+      required: '1', // 是否必填 0-非必填 1-必填
+      type: '9', // 答题类型 1-单选（文本） 2-多选（文本） 3-单选（图片） 4-多选（图片） 5-input输入 6-picker选择器 7-textarea输入
+      picker_mode: '', // picker的模式 date/time/selector
+      picker_start: '', // picker_mode==date || picker_mode==time
+      picker_end: '', // picker_mode==date || picker_mode==time
+      value: '', // 值
+      value_k: '', // key值 type==6 && picker_mode==selector
+      value_other: '', // 其他的值 type==8
     },
   ]
 }

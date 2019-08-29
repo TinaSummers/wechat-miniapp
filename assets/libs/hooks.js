@@ -2,7 +2,8 @@ import interceptor from 'interceptor';
 import mainService from '../../services/main.service';
 
 interceptor(function (e, next) {
-  const { mark: { auth, register } } = e;
+  const auth = e.mark && e.mark.auth;
+  const register = e.mark && e.mark.register;
   let page = mainService.getCurrPage().page;
   if (auth) {
     // 授权unionid拦截

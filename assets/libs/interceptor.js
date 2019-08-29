@@ -6,13 +6,13 @@ export default function interceptor() {
     bindContext = function (key, args, hook) {
       if (args[key]) {
         let originMethod = args[key];
-        args[key] = function (args2) {
-          if (hook && args2 && args2.currentTarget) {
-            hook.call(this, args2, () => {
-              return originMethod.call(this, args2);
+        args[key] = function (...args2) {
+          if (hook && args2[0] && args2[0].currentTarget) {
+            hook.call(this, args2[0], () => {
+              return originMethod.apply(this, args2);
             });
           } else {
-            return originMethod.call(this, args2);
+            return originMethod.apply(this, args2);
           }
         };
       }

@@ -2,29 +2,28 @@
 <comp-register id='comp-register'></comp-register>
 
 <view class='container' style='padding-top: {{navHeight}}px;'>
-  <view class='num-wrapper'>
-    <view class='num-area' wx:if="{{renderData.questions.length}}">
-      <image src='{{imgModel.num_decorate}}' mode='widthFix' />
-      <text>Q{{currIndex+1}}</text>
-    </view>
-  </view>
+  <comp-image-pre mode='widthFix' src='{{imgModel.banner}}' width='750' height='518'></comp-image-pre>
   <form report-submit='true' bindsubmit="submitHandle">
     <view class='list-wrapper'>
-      <view wx:for='{{renderData.questions}}' wx:key='{{index}}' wx:if='{{item.choiced==1 && index == currIndex}}'>
+      <view wx:for='{{renderData.questions}}' wx:key='{{index}}' wx:if='{{item.choiced==1}}'>
         <view class='subject-area'>
           <!-- <view class='star' wx:if='{{item.required==1}}'>*</view> -->
-          <view class='subject'>{{item.subject}}</view>
+          <view class='subject'>
+            <text>{{index+1}}.</text>
+            <text>{{item.subject}}</text>
+          </view>
         </view>
         <view class='options-area'>
           <view class='text-box' wx:if='{{item.type==1 || item.type==2 || item.type == 8}}'>
             <!-- 文本选择类型 -->
-            <view class='{{v.selected==1?"selected":""}}' wx:for='{{item.options}}' wx:for-item='v' wx:for-index='i' wx:key='{{i}}' bindtap='chooseChange' data-index='{{index}}' data-i='{{i}}'>
+            <view wx:for='{{item.options}}' wx:for-item='v' wx:for-index='i' wx:key='{{i}}' bindtap='chooseChange' data-index='{{index}}' data-i='{{i}}'>
               <view class='text-chunk'>
-                <image class='icon' wx:if='{{v.selected==1}}' mode='widthFix' src='{{imgModel.icon_select}}' />
+                <image class='icon' wx:if='{{v.selected==0}}' mode='widthFix' src='{{imgModel.icon_text_radio_unselect}}' />
+                <image class='icon' wx:if='{{v.selected==1}}' mode='widthFix' src='{{imgModel.icon_text_radio_select}}' />
                 <text class='text'>{{v.text}}</text>
               </view>
             </view>
-            <input class='other' data-index='{{index}}' bindinput='inputChange_other' wx:if='{{item.type == 8 && item.options[item.options.length-1].selected==1}}' type="text" />
+            <input placeholder="请输入" placeholder-class="placeholder" data-index='{{index}}' bindinput='inputChange_other' wx:if='{{item.type == 8 && item.options[item.options.length-1].selected==1}}' type="text" />
           </view>
           <view class='img-box' wx:if='{{item.type==3 || item.type==4}}'>
             <!-- 图片选择类型 -->
@@ -39,7 +38,7 @@
           </view>
           <view class='input-box' wx:if='{{item.type==5}}'>
             <!-- input输入类型 -->
-            <input type="text" value='{{item.value}}' data-index='{{index}}' placeholder="" bindinput='inputChange' />
+            <input placeholder="请输入" type="text" placeholder-class="placeholder" value='{{item.value}}' data-index='{{index}}' bindinput='inputChange' />
           </view>
           <view class='picker-box' wx:if='{{item.type==6}}'>
             <!-- picker类型 -->
@@ -60,12 +59,27 @@
           </view>
           <view class='textarea-box' wx:if='{{item.type==7}}'>
             <!-- textarea输入类型 -->
-            <textarea value='{{item.value}}' data-index='{{index}}' placeholder="" bindinput="inputChange"></textarea>
+            <view class='textarea-chunk'>
+              <textarea value='{{item.value}}' maxlength='100' data-index='{{index}}' bindinput="inputChange" placeholder='请输入' placeholder-class="placeholder"></textarea>
+              <view class='hint placeholder'>({{item.value.length}}/100)</view>
+            </view>
+          </view>
+          <view class='star-box' wx:if='{{item.type==9}}'>
+            <!-- ⭐打分类型 -->
+            <view class='star-chunk'>
+              <view>
+                <image wx:for='{{starList}}' wx:key='{{i}}' wx:for-item='v' wx:for-index='i' data-index='{{index}}' data-i='{{i}}' bind:tap='starChange' src='{{item.value < v.value ? imgModel.icon_star_unselect : imgModel.icon_star_select}}' mode='widthFix' />
+              </view>
+              <view class='{{item.value < 3 ? "" : "nice"}}'>{{item.value_k}}</view>
+            </view>
+            <view class='textarea-chunk' wx:if='{{item.value && item.value < 3}}'>
+              <textarea value='{{item.value_other}}' maxlength='100' data-index='{{index}}' bindinput="inputChange_other" placeholder='请留下您的宝贵建议' placeholder-class="placeholder"></textarea>
+              <view class='hint placeholder'>({{item.value_other.length}}/100)</view>
+            </view>
           </view>
         </view>
       </view>
     </view>
-    <button class='btn' wx:if='{{renderData && canSubmit}}' formType="submit">完成</button>
-    <button class='btn' bindtap='nextHandle' wx:if='{{renderData && !canSubmit}}'>下一题</button>
+    <button class='btn' wx:if='{{renderData}}' formType="submit">提交问卷</button>
   </form>
 </view>

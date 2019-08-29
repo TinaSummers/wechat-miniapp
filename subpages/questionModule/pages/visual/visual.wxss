@@ -1,6 +1,4 @@
 /**
-* 通用样式（页面）
-* 
 * 样式命名规范：
 * 容器层级 container > wrapper > area > box > chunk
 */
@@ -67,6 +65,7 @@ form {
   /*无数据提示区块*/
   width: 100%;
   padding: 60rpx 0;
+  color: #999;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -137,8 +136,6 @@ form {
   padding: 0;
   margin: 0;
   border-radius: 0;
-  line-height: initial;
-  background-color: transparent;
 }
 .container button::after {
   border-radius: 0;
@@ -147,7 +144,7 @@ form {
 .container button.btn-main {
   width: 500rpx;
   height: 80rpx;
-  background: #2358a5;
+  background: #2d5495;
   color: #fff;
   border-radius: 6rpx;
   font-size: 32rpx;
@@ -320,28 +317,272 @@ form {
 .scroll-x-list .list-item {
   margin-right: 20rpx;
 }
+.footer-button {
+  background: #fff;
+  height: 170rpx;
+  box-shadow: 0 -5rpx 8rpx rgba(0, 0, 0, 0.08);
+  padding: 30rpx 65rpx 0 65rpx;
+}
+.footer-button .btn {
+  font-size: 34rpx;
+  color: #fff;
+  background: #2d5495;
+  text-align: center;
+  letter-spacing: 2px;
+  border-radius: 8rpx;
+}
+.footer-button .btn.btn-gray {
+  background: #d8d8d8;
+}
 .container {
-  background: #f6f6f6;
+  background: #fff;
+}
+.container form {
+  width: 100%;
+}
+.container form .placeholder {
+  color: #aaa !important;
+}
+.container form .list-wrapper {
+  padding: 0 40rpx;
+  color: #000000;
+}
+.container form .list-wrapper > view {
+  margin-bottom: 40rpx;
+}
+.container form .list-wrapper > view .subject-area {
+  padding: 20rpx 0;
+}
+.container form .list-wrapper > view .subject-area .star {
+  color: red;
+  font-size: 32rpx;
+}
+.container form .list-wrapper > view .subject-area .subject {
+  line-height: 48rpx;
+  font-size: 34rpx;
+  color: #000;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.container form .list-wrapper > view .subject-area .subject text:nth-child(1) {
+  width: max-content;
+  padding-right: 8rpx;
+}
+.container form .list-wrapper > view .subject-area .subject text:nth-child(2) {
+  flex: 1;
+}
+.container form .list-wrapper > view .options-area .text-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.container form .list-wrapper > view .options-area .text-box > view {
+  width: 100%;
+  margin-bottom: 24rpx;
+  color: #000;
+}
+.container form .list-wrapper > view .options-area .text-box > view .text-chunk {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.container form .list-wrapper > view .options-area .text-box > view .text-chunk .icon {
+  width: 30rpx;
+  height: 30rpx;
+  margin: 8rpx 20rpx 0 0;
+}
+.container form .list-wrapper > view .options-area .text-box > view .text-chunk .text {
+  flex: 1;
+  font-size: 32rpx;
+  line-height: 44rpx;
+}
+.container form .list-wrapper > view .options-area .text-box input {
+  width: 545rpx;
+  height: 76rpx;
+  border-bottom: 2rpx dashed #c9c9c9;
+  font-size: 30rpx;
+}
+.container form .list-wrapper > view .options-area .img-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.container form .list-wrapper > view .options-area .img-box > view {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 16rpx;
+  margin-right: 20rpx;
+  flex: 1;
+}
+.container form .list-wrapper > view .options-area .img-box > view:last-child {
+  margin-right: 0;
+  margin-bottom: 0;
+}
+.container form .list-wrapper > view .options-area .img-box > view .img-icon-chunk {
+  width: 100%;
+  position: relative;
+}
+.container form .list-wrapper > view .options-area .img-box > view .img-icon-chunk .img {
+  width: 100%;
+  height: 100rpx;
+}
+.container form .list-wrapper > view .options-area .img-box > view .img-icon-chunk .icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40rpx;
+  height: 40rpx;
+}
+.container form .list-wrapper > view .options-area .img-box > view .text {
+  width: 100%;
+  padding: 10rpx 20rpx;
+  font-size: 28rpx;
+}
+.container form .list-wrapper > view .options-area .input-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-left: 40rpx;
+}
+.container form .list-wrapper > view .options-area .input-box input {
+  width: 100%;
+  height: 88rpx;
+  font-size: 30rpx;
+  padding: 0 20rpx;
+  border: 1rpx solid #c9c9c9;
+}
+.container form .list-wrapper > view .options-area .picker-box {
+  padding-left: 40rpx;
+}
+.container form .list-wrapper > view .options-area .picker-box picker {
+  width: 100%;
+  height: 88rpx;
+  border: 1rpx solid #c9c9c9;
+  border-radius: 2rpx;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.container form .list-wrapper > view .options-area .picker-box picker .seat {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+}
+.container form .list-wrapper > view .options-area .picker-box picker text {
+  padding-left: 10rpx;
+  color: #333;
+  font-size: 28rpx;
+}
+.container form .list-wrapper > view .options-area .picker-box picker .push-chunk {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 80rpx;
+  height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.container form .list-wrapper > view .options-area .picker-box picker .push-chunk .arrow-push-solid {
+  border-width: 20rpx 16rpx 0 16rpx;
+  border-color: #2d5495 transparent transparent transparent;
+}
+.container form .list-wrapper > view .options-area .textarea-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-left: 40rpx;
+}
+.container form .list-wrapper > view .options-area .textarea-box .textarea-chunk {
+  position: relative;
+  width: 100%;
+}
+.container form .list-wrapper > view .options-area .textarea-box .textarea-chunk textarea {
+  width: 100%;
+  height: 280rpx;
+  font-size: 30rpx;
+  padding: 20rpx;
+  border: 1rpx solid #c9c9c9;
+  border-radius: 4rpx;
+}
+.container form .list-wrapper > view .options-area .textarea-box .textarea-chunk .hint {
+  position: absolute;
+  right: 10rpx;
+  bottom: 10rpx;
+  font-size: 28rpx;
+}
+.container form .list-wrapper > view .options-area .star-box {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-left: 40rpx;
 }
-.container comp-painter {
-  position: fixed;
-  top: 300%;
-  z-index: -99;
-}
-.container swiper image {
+.container form .list-wrapper > view .options-area .star-box .star-chunk {
   width: 100%;
-  height: 100%;
+  display: flex;
+  flex-direction: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
-.container button {
-  width: 490rpx;
-  height: 110rpx;
-  border-radius: 55rpx;
+.container form .list-wrapper > view .options-area .star-box .star-chunk view:nth-child(1) {
+  flex: 1;
+}
+.container form .list-wrapper > view .options-area .star-box .star-chunk view:nth-child(1) image {
+  width: 52rpx;
+  height: 52rpx;
+  margin-right: 28rpx;
+}
+.container form .list-wrapper > view .options-area .star-box .star-chunk view:nth-child(1) image:last-child {
+  margin-right: 0;
+}
+.container form .list-wrapper > view .options-area .star-box .star-chunk view:nth-child(2) {
+  font-size: 34rpx;
+}
+.container form .list-wrapper > view .options-area .star-box .star-chunk view:nth-child(2).nice {
+  color: #245194;
+}
+.container form .list-wrapper > view .options-area .star-box .textarea-chunk {
+  position: relative;
+  width: 100%;
+  margin-top: 48rpx;
+}
+.container form .list-wrapper > view .options-area .star-box .textarea-chunk textarea {
+  width: 100%;
+  height: 280rpx;
+  font-size: 30rpx;
+  padding: 20rpx;
+  border: 1rpx solid #c9c9c9;
+  border-radius: 4rpx;
+}
+.container form .list-wrapper > view .options-area .star-box .textarea-chunk .hint {
+  position: absolute;
+  right: 10rpx;
+  bottom: 10rpx;
+  font-size: 28rpx;
+}
+.container form .btn {
+  width: 500rpx;
+  height: 88rpx;
+  border-radius: 6rpx;
+  background: #2c5596;
+  color: #fff;
   font-size: 36rpx;
-  color: #11143d;
-  margin: 100rpx auto 0 auto;
-  background: #fbd914;
+  margin: 100rpx auto 80rpx auto;
 }

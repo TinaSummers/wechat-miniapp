@@ -159,7 +159,7 @@ class MainService {
   isTabPage(url) {
     let path = url.split('?')[0];
     path = path[0] == '/' ? path : '/' + path;
-    let isTab = this.tabRoute.findIndex((item, key, arr) => { return path == pathModel[item] }) >=0 ? true : false;
+    let isTab = this.tabRoute.findIndex((item, key, arr) => { return path == pathModel[item] }) >= 0 ? true : false;
     console.log(isTab ? 'tabber页面' : '非tabber页面');
     return isTab;
   }
@@ -281,12 +281,7 @@ class MainService {
               requestNum++;
               resolveArr.push(resolve);
               this.login(() => {
-                if (!wx.getStorageSync('sessionid')) {
-                  memberService.setBackJump();
-                  this.link(pathModel.mc_screen);
-                } else {
-                  closure.call(this);
-                }
+                closure.call(this);
               })
               return
             }

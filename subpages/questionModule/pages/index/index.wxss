@@ -64,7 +64,8 @@ form {
 .container .scroll-view-container .zero-wrapper {
   /*无数据提示区块*/
   width: 100%;
-  padding: 40rpx 0;
+  padding: 60rpx 0;
+  color: #999;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -316,6 +317,23 @@ form {
 .scroll-x-list .list-item {
   margin-right: 20rpx;
 }
+.footer-button {
+  background: #fff;
+  height: 170rpx;
+  box-shadow: 0 -5rpx 8rpx rgba(0, 0, 0, 0.08);
+  padding: 30rpx 65rpx 0 65rpx;
+}
+.footer-button .btn {
+  font-size: 34rpx;
+  color: #fff;
+  background: #2d5495;
+  text-align: center;
+  letter-spacing: 2px;
+  border-radius: 8rpx;
+}
+.footer-button .btn.btn-gray {
+  background: #d8d8d8;
+}
 .container {
   background: #fff;
 }
@@ -347,7 +365,7 @@ form {
 }
 .container form .list-wrapper {
   padding: 0 40rpx;
-  color: #fff;
+  color: #000000;
 }
 .container form .list-wrapper > view .subject-area {
   padding: 0 60rpx 70rpx 60rpx;
@@ -381,7 +399,7 @@ form {
   color: #333;
 }
 .container form .list-wrapper > view .options-area .text-box > view.selected {
-  background: #ffffff;
+  background: #fff;
   color: #2c5596;
   border: 2rpx solid #2c5596;
 }
@@ -408,7 +426,7 @@ form {
 .container form .list-wrapper > view .options-area .text-box input.other {
   width: 545rpx;
   height: 76rpx;
-  border-bottom: 1rpx dashed #fff;
+  border-bottom: 2rpx dashed #c9c9c9;
   font-size: 30rpx;
 }
 .container form .list-wrapper > view .options-area .img-box {
@@ -462,7 +480,7 @@ form {
   height: 80rpx;
   font-size: 30rpx;
   padding: 0 20rpx;
-  border-bottom: 1rpx solid #fff;
+  border-bottom: 2rpx solid #c9c9c9;
 }
 .container form .list-wrapper > view .options-area .picker-box {
   padding: 0 60rpx;
@@ -517,10 +535,10 @@ form {
 }
 .container form .list-wrapper > view .options-area .textarea-box textarea {
   width: 545rpx;
-  height: 120rpx;
+  height: 150rpx;
   font-size: 30rpx;
-  padding: 0 20rpx;
-  border-bottom: 1rpx solid #fff;
+  padding: 20rpx;
+  border: 2rpx solid #c9c9c9;
 }
 .container form .btn {
   width: 300rpx;

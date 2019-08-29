@@ -30,7 +30,8 @@
     {
       "root": "subpages",
       "pages": [
-        "questionModule/pages/index/index"
+        "questionModule/pages/index/index",
+        "questionModule/pages/visual/visual"
       ]
     }
   ],

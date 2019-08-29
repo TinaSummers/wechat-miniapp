@@ -1,5 +1,5 @@
 const etdsdk = require('assets/libs/etd-sdk.min.js');
-require('./assets/libs/tracking');
+// require('./assets/libs/tracking');
 
 App({
   onLaunch() { },

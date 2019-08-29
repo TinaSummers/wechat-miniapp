@@ -4,31 +4,22 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"coverView": true,
 		"autoAudits": false,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		}
+		"coverView": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.7.7",
+	"libVersion": "2.8.1",
 	"appid": "wx5aba59796c912478",
-	"projectname": "%E5%AE%9C%E5%AE%B6%E5%98%89%E5%B9%B4%E5%8D%8E",
-	"cloudfunctionTemplateRoot": "",
+	"projectname": "%E5%B0%8F%E9%A9%AC%E6%89%8E",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
-	"scripts": {},
+	"isGameTourist": false,
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {
@@ -45,135 +36,23 @@
 			"list": []
 		},
 		"game": {
+			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": 17,
+			"current": 1,
 			"list": [
 				{
 					"id": -1,
-					"name": "demo_index",
-					"pathName": "pages/demoModule/pages/index/index",
+					"name": "qs_index",
+					"pathName": "subpages/questionModule/pages/index/index",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "mc_screen",
-					"pathName": "pages/memberModule/pages/screen/screen",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 3,
-					"name": "mc_index",
-					"pathName": "pages/memberModule/pages/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "demo_test_auth",
-					"pathName": "pages/demoModule/pages/test-auth/test-auth",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "demo_test_nav",
-					"pathName": "pages/demoModule/pages/test-nav/test-nav",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "demo_test_register",
-					"pathName": "pages/demoModule/pages/test-register/test-register",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "demo_test_seal",
-					"pathName": "pages/demoModule/pages/test-seal/test-seal",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "demo_test_painter",
-					"pathName": "pages/demoModule/pages/test-painter/test-painter",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 8,
-					"name": "hm_reserve",
-					"pathName": "pages/homeModule/pages/reserve/reserve",
-					"query": "status=2",
-					"scene": null
-				},
-				{
-					"id": 9,
-					"name": "领券",
-					"pathName": "pages/giftModule/pages/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "yangq",
-					"pathName": "pages/giftModule/pages/giftDetail/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 11,
-					"name": "hm_painter",
-					"pathName": "pages/homeModule/pages/painter/painter",
-					"query": "type=1",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/giftModule/pages/payment/index",
-					"pathName": "pages/giftModule/pages/payment/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "礼包",
-					"pathName": "pages/giftModule/pages/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "支付成功",
-					"pathName": "pages/giftModule/pages/payment/index",
-					"query": "theIndex=0",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "vw_index",
-					"pathName": "pages/viewModule/pages/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "3D寻宝",
-					"pathName": "pages/viewModule/pages/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 17,
-					"name": "demo_test_interceptor",
-					"pathName": "pages/demoModule/pages/test-interceptor/test-interceptor",
-					"query": "",
+					"name": "qs_visual",
+					"pathName": "subpages/questionModule/pages/visual/visual",
 					"scene": null
 				}
 			]

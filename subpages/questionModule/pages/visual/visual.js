@@ -5,7 +5,6 @@ import mockModel from '../../models/mock.model';
 import memberService from '../../../../pages/memberModule/services/member.service';
 import pathModel from '../../../../models/path.model';
 import configModel from '../../../../models/config.model';
-import questionService from '../../services/question.service';
 /**
  * 备注：
  * 关联题可以有多个被关联题，被关联题只能有一个关联题；
@@ -25,6 +24,13 @@ Page({
     resultList: [], // 保存题目的值集合
     currIndex: 0, // 当前题下标
     canSubmit: false, // 是否可答题
+    starList: [
+      { key: '非常不满意', value: 1, },
+      { key: '不满意', value: 2, },
+      { key: '一般', value: 3, },
+      { key: '满意', value: 4, },
+      { key: '非常满意', value: 5, },
+    ],
   },
   onLoad() {
     this.setNav();
@@ -39,7 +45,7 @@ Page({
       navBackgroundRoll: '#ffffff', // 导航栏背景颜色-滚动值
       titleColorInit: '#000000', // 标题颜色-初始值
       titleColorRoll: '#000000', // 标题颜色-滚动值
-      titleTextInit: '美丽问卷', // 标题文字-初始值
+      titleTextInit: '满意度问卷', // 标题文字-初始值
       titleTextRoll: '', // 标题文字-滚动值
       historyShow: true, // 历史图标是否显示
       scrollMin: 0, // 最小滚动间距（保持初始值，设置为0），单位px
@@ -65,7 +71,7 @@ Page({
   },
   getRenderData() {
     // 获取renderData
-    // ajaxService.questionList({}, configModel.surveyId).then((res) => {
+    // ajaxService.questionList({}, configModel.surveyId2).then((res) => {
     //   let { data: { errcode, data, errmsg } } = res;
     //   if (errcode == 0) {
     //     if (data.submited) {
@@ -113,6 +119,7 @@ Page({
       item.questions.type == 1 && item.questions.mode == 3 && (question.type = 6) && (question.picker_mode = 'selector');
       item.questions.type == 6 && (question.type = 7);
       item.questions.type == 5 && (question.type = 8);
+      item.questions.type == 8 && (question.type = 9);
       question.picker_start = '';
       question.picker_end = '';
       question.value = '';
@@ -343,6 +350,15 @@ Page({
       })
     }
   },
+  starChange(e) {
+    // 打分类型事件
+    let { currentTarget: { dataset: { index, i } } } = e;
+    let star = this.data.starList[i];
+    this.setData({
+      [`renderData.questions[${index}].value`]: star.value,
+      [`renderData.questions[${index}].value_k`]: star.key,
+    })
+  },
   getIndexById(id) {
     // 根据题目id获取下标
     let result = -1;
@@ -389,7 +405,7 @@ Page({
       currIndex: next,
     })
   },
-  judgeCanSubmit(){
+  judgeCanSubmit() {
     // 判断是否可提交答案
     let canSubmit = true;
     let curr = this.data.currIndex;
@@ -406,12 +422,15 @@ Page({
   submitHandle(e) {
     mainService.throttle(() => {
       this.submitHandleCb(e);
-    }, 5000)
+    }, 2000)
   },
   submitHandleCb(e) {
     // 判断是否完成答题
-    if (!this.judgeCanNext(this.data.currIndex)) {
-      return
+    for (let i = 0; i < this.data.renderData.questions.length; i++) {
+      let canSubmit = this.judgeCanNext(i);
+      if (!canSubmit) {
+        return
+      }
     }
     memberService.saveFormId(e);
     // 获取parmas
@@ -426,14 +445,14 @@ Page({
     }
     console.log(params);
     ajaxService.questionReport({
-      survey_id: configModel.surveyId,
+      survey_id: configModel.surveyId2,
       status: 1,
       details: JSON.stringify(params),
     }).then((res) => {
       let { data: { errcode, data, errmsg } } = res;
       if (errcode == 0) {
         mainService.modal('提交成功！', '提示', () => {
-          mainService.link(pathModel.mc_scratch, 1);
+          mainService.link(pathModel.mc_index, 3);
         });
       } else {
         mainService.modal(errmsg);
