@@ -10,15 +10,15 @@
   </view>
 
   <view class='city-wrapper'>
-    <picker class='{{item.value?"":"value-no"}} hidden-e' wx:for='{{cityGroup}}' wx:key='{{index}}' mode='selector' bindchange="areaChange" data-index='{{index}}' range="{{item.range}}">
+    <picker class='{{item.value?"":"value-no"}} hidden-e' wx:for='{{cityGroup}}' wx:key='{{index}}' mode='selector' bindchange="areaChange" data-index='{{index}}' range="{{item.range}}" range-key='title'>
       <view class='value-box'>
-        <text class='hidden-e'>{{item.value ? item.value : item.placeholder}}</text>
+        <text class='hidden-e'>{{item.value_k ? item.value_k : item.placeholder}}</text>
         <view class='arrow-push'></view>
       </view>
     </picker>
     <picker class='{{params.label_name?"":"value-no"}} hidden-e' mode='selector' bindchange="labelChange" range="{{labelGroup}}" range-key='title'>
       <view class='value-box'>
-        <text class='hidden-e'>{{params.label_name ? params.label_name : '产品类型'}}</text>
+        <text class='hidden-e'>{{params.label_name ? params.label_name : '选择品牌'}}</text>
         <view class='arrow-push'></view>
       </view>
     </picker>

@@ -146,6 +146,17 @@ class AjaxService {
     });
   }
 
+  getLocationByip(params){
+    // 地图-根据ip获取经纬度
+    return mainService.request({
+      url: apiModel.mc_map_ip,
+      params,
+      method: 'GET',
+      header: 1,
+      loadingType: 0,
+    });
+  }
+
   adList(params) {
     // 广告位列表
     return mainService.request({

@@ -2,7 +2,7 @@
  * 后台请求地址集合
  */
 import configModel from './config.model';
-const { apiUrl, ecrmUrl, hubUrl } = configModel;
+const { apiUrl, ecrmUrl, hubUrl, mapUrl } = configModel;
 
 export default {
   // 主页
@@ -24,6 +24,7 @@ export default {
   mc_store_list_default: `${hubUrl}/store`, // 门店-默认门店列表（未授权经纬度）
   mc_store_labels: `${hubUrl}/labels/list`, // 门店-标签列表
   mc_store_city: `${hubUrl}/store/fetchCity`, // 门店-省市区
+  mc_map_ip: `${mapUrl}/ws/location/v1/ip`, // 腾讯地图-根据ip获取经纬度
   mc_signin_detail: `${ecrmUrl}/api/sign/detail`, // 签到详情
   mc_signin: `${ecrmUrl}/api/sign`, // 签到
   mc_share_record: `${ecrmUrl}/miniapp/invite/record`, //邀请好友记录

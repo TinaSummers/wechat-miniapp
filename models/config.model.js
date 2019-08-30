@@ -18,6 +18,8 @@
  * @param {string} apiUrl api域名
  * @param {string} ecrmUrl ecrm域名
  * @param {string} hubUrl hub域名（门店的省市区列表+门店列表）
+ * @param {string} mapUrl 腾讯地图域名
+ * @param {string} mapKey 腾讯地图key
  * @param {string} surveyId 调查问卷id
  */
 
@@ -41,6 +43,8 @@ switch (miniAppid) {
       apiUrl: 'https://api-test.woaap.com',
       ecrmUrl: 'https://ecrm-test.woaap.com',
       hubUrl: 'https://woaapsh.woaap.com',
+      mapUrl: 'https://apis.map.qq.com',
+      mapKey: 'G5WBZ-RZ6WU-Z5XVV-24E7D-RKR3Z-HHFQJ',
       surveyId: '1',
     }
     break;

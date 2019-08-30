@@ -14,13 +14,13 @@ Page({
     zeroShow: false, // 是否显示无数据状态
     hasMore: true, // 是否仍有列表数据
     cityGroup: [
-      { placeholder: '省', range: [], key: 'province', value: '' },
-      { placeholder: '市', range: [], key: 'city', value: '' },
-      { placeholder: '区', range: [], key: 'district', value: '' },
+      { placeholder: '选择省', range: [], key: 'province', value: '', value_k: '', },
+      { placeholder: '选择市', range: [], key: 'city', value: '', value_k: '', },
+      { placeholder: '选择区', range: [], key: 'district', value: '', value_k: '', },
     ],
     labelGroup: [],
     params_city: {
-      appid: configModel.publicAppid, // 公众号appid 
+      appid: configModel.publicAppid, // 公众号appid
       select: 'province', //  province city district
       condition: '', // 当前选项name
     },
@@ -69,6 +69,7 @@ Page({
     })
   },
   getLocation() {
+    // 获取经纬度
     wx.getLocation({
       type: 'gcj02',
       success: (res) => {
@@ -77,7 +78,26 @@ Page({
         this.getRenderList(1);
       },
       fail: (res) => {
-        this.getRenderList(1);
+        // wx.request({
+        //   url: `https://apis.map.qq.com/ws/location/v1/ip?key=${configModel.mapKey}`,
+        //   success: (e) => {
+        //     let { data: { result: { location: { lat, lng } } } } = e;
+        //     this.data.params.latitude = lat;
+        //     this.data.params.longitude = lng;
+        //     this.getRenderList(1);
+        //   }
+        // });
+        ajaxService.getLocationByip({ key: configModel.mapKey }).then((res) => {
+          console.log(res);
+          let { data: { status, message, result: { location: { lat, lng } } } } = res;
+          if (status == 0) {
+            this.data.params.latitude = lat;
+            this.data.params.longitude = lng;
+            this.getRenderList(1);
+          } else {
+            mainService.modal(message);
+          }
+        })
       }
     })
   },
@@ -110,6 +130,7 @@ Page({
     }
   },
   getRenderList(status) {
+    // 获取门店数据
     // status 1-筛选(初始进入) 2-下拉加载
     this.data.params.province = this.data.cityGroup[0].value;
     this.data.params.city = this.data.cityGroup[1].value;
@@ -170,6 +191,7 @@ Page({
     })
   },
   downPullHandle() {
+    // 上拉加载事件
     mainService.throttle(() => {
       this.setData({
         loadingShow: true,
@@ -190,6 +212,7 @@ Page({
     mainService.link(`${pathModel.mc_store_detail}`);
   },
   getProvinceCity(index) {
+    // 获取省市区列表
     // index：当前cityGroup下标
     this.data.params_city.select = this.data.cityGroup[index].key;
     if (index - 1 >= 0) {
@@ -199,11 +222,39 @@ Page({
       // 省
       this.data.params_city.condition = '';
     }
+    let result = [];
+    console.log(this.data.cityGroup);
+    switch (index - 0) {
+      case 0:
+        result.push({ id: '', title: '全部省' })
+        break;
+      case 1:
+        if (this.data.cityGroup[0].value_k && !this.data.cityGroup[0].value) {
+          return
+        }
+        result.push({ id: '', title: '全部市' })
+        break;
+      case 2:
+        if (this.data.cityGroup[0].value_k && !this.data.cityGroup[0].value) {
+          return
+        }
+        if (this.data.cityGroup[1].value_k && !this.data.cityGroup[1].value) {
+          return
+        }
+        result.push({ id: '', title: '全部区' })
+        break;
+    }
     ajaxService.storeOfCity(this.data.params_city).then((res) => {
       let { data: { data, errcode, errmsg } } = res;
       if (errcode == 0) {
+        data.forEach((item, key) => {
+          result.push({
+            id: item,
+            title: item,
+          })
+        })
         this.setData({
-          [`cityGroup[${index}].range`]: data
+          [`cityGroup[${index}].range`]: result
         })
       } else {
         mainService.modal(errmsg);
@@ -211,12 +262,13 @@ Page({
     });
   },
   getLabel() {
+    // 获取label列表
     ajaxService.storeOfLabel({
       appid: configModel.publicAppid, // 公众号appid 
     }).then((res) => {
       let { data: { data, errcode, errmsg } } = res;
       if (errcode == 0) {
-        data.unshift({ id: '', title: '全部机构' });
+        data.unshift({ id: '', title: '全部品牌' });
         this.setData({
           labelGroup: data,
         })
@@ -226,13 +278,20 @@ Page({
     })
   },
   areaChange(e) {
+    // 城市三级联动事件
     let value = e.detail.value;  // selector为下标值
     let index = e.currentTarget.dataset.index; // cityGroup的列
-    let result = this.data.cityGroup[index].range[value]; // 当前value
-    this.data.cityGroup[index].value = result ? result : '';
+    let result = this.data.cityGroup[index].range[value]; // 当前城市对象
+    if (!result) {
+      return
+    }
+    this.data.cityGroup[index].value = result.id ? result.id : '';
+    this.data.cityGroup[index].value_k = result.title ? result.title : '';
     this.data.cityGroup.forEach((item, key) => {
       if (key > index) {
         item.value = '';
+        item.value_k = '';
+        item.range = [];
         this.getProvinceCity(key);
       }
     })
@@ -242,6 +301,7 @@ Page({
     this.getRenderList(1);
   },
   labelChange(e) {
+    // label改变事件
     let value = e.detail.value;  // selector为下标值
     let id = this.data.labelGroup[value].id; // id
     let name = this.data.labelGroup[value].title; // name
