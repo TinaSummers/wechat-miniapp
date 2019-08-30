@@ -7,7 +7,7 @@ export default function interceptor() {
       if (args[key]) {
         let originMethod = args[key];
         args[key] = function (...args2) {
-          if (hook && args2[0] && args2[0].mark) {
+          if (hook && args2[0] && args2[0].currentTarget) {
             hook.call(this, args2[0], () => {
               return originMethod.apply(this, args2);
             });

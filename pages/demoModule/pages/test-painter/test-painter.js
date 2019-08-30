@@ -1,3 +1,7 @@
+/**
+ * 使用规范：
+ * canvas绘图需要先将线上的图片资源download到本地，所以在mp后台要将图片域名配置在downloadFile域名列表中
+ */
 import mainService from '../../../../services/main.service';
 import memberService from '../../../../pages/memberModule/services/member.service';
 import imgModel from '../../models/img.model';
