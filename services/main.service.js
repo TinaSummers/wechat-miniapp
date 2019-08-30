@@ -7,7 +7,6 @@ import pathModel from '../models/path.model';
 import barcode from '../assets/libs/barcode';
 import qrcode from '../assets/libs/qrcode';
 import userModel from '../pages/memberModule/models/user.model';
-import memberService from '../pages/memberModule/services/member.service';
 
 class MainService {
   constructor() {
@@ -243,7 +242,6 @@ class MainService {
         target.params.shop_id = configModel.shopId;
         target.params.shopId = configModel.shopId;
         target.params.ecrmSource = configModel.ecrmSource;
-
         wx.request({
           url: target.url,
           method: target.method,
