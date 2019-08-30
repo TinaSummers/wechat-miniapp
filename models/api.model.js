@@ -32,6 +32,6 @@ export default {
   // mc_ad_list: etoshopUrl + `/Home/AdPosition/getAdStatusOne`, // 广告列表（与商城有关）
 
   // 调查问卷
-  qs_list: `${ecrmUrl}/miniapp/survey/detail/#`, // 题库
+  qs_list: `${ecrmUrl}/miniapp/survey/detail/#`, // 题库（#代表题库id）
   qs_report: `${ecrmUrl}/miniapp/survey/report`, // 提交答案
 }

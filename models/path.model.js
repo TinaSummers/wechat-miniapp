@@ -24,5 +24,6 @@ export default {
   mc_prize_detail: "/pages/memberModule/pages/prize_detail/prize_detail", // 我的奖品详情
 
   // 调查问卷
-  qs_index: "/subpages/questionModule/pages/index/index",
+  qs_index: "/subpages/questionModule/pages/index/index", // 问卷（题型依次展示）
+  qs_visual: "/subpages/questionModule/pages/visual/visual", // 问卷（题型全部展示）
 }
