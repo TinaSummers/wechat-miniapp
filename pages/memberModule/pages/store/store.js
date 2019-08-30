@@ -77,18 +77,8 @@ Page({
         this.data.params.longitude = res.longitude;
         this.getRenderList(1);
       },
-      fail: (res) => {
-        // wx.request({
-        //   url: `https://apis.map.qq.com/ws/location/v1/ip?key=${configModel.mapKey}`,
-        //   success: (e) => {
-        //     let { data: { result: { location: { lat, lng } } } } = e;
-        //     this.data.params.latitude = lat;
-        //     this.data.params.longitude = lng;
-        //     this.getRenderList(1);
-        //   }
-        // });
+      fail: () => {
         ajaxService.getLocationByip({ key: configModel.mapKey }).then((res) => {
-          console.log(res);
           let { data: { status, message, result: { location: { lat, lng } } } } = res;
           if (status == 0) {
             this.data.params.latitude = lat;
