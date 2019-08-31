@@ -1,7 +1,6 @@
 import mainService from '../../../../services/main.service';
 import memberService from '../../../../pages/memberModule/services/member.service';
 import imgModel from '../../models/img.model';
-import '../../../../assets/libs/hooks';
 
 Page({
   data: {

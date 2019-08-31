@@ -1,4 +1,5 @@
 const etdsdk = require('assets/libs/etd-sdk.min.js');
+import './assets/libs/hooks';
 // require('./assets/libs/tracking');
 
 App({
