@@ -306,7 +306,7 @@ Page({
     this.data.params.keywords = e.detail.value;
   },
   searchHandle(e) {
-    mainService.debounce(() => {
+    mainService.throttle(() => {
       this.getRenderList(1);
     }, 1000);
   },
