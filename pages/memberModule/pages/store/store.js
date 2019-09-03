@@ -282,9 +282,9 @@ Page({
         item.value = '';
         item.value_k = '';
         item.range = [];
-        this.getProvinceCity(key);
       }
     })
+    index + 1 <= this.data.cityGroup.length - 1 && this.getProvinceCity(index + 1); 
     this.setData({
       cityGroup: this.data.cityGroup
     })
