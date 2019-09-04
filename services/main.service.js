@@ -163,7 +163,9 @@ class MainService {
     return isTab;
   }
 
-  /**分享内容 */
+  /**
+   * 默认分享配置
+   */
   shareInfo() {
     return {
       title: '小马扎',
@@ -172,7 +174,9 @@ class MainService {
     }
   }
 
-  /**判断屏幕大小 */
+  /**
+   * 判断大小屏幕
+   */
   judgeBigScreen() {
     let result = false;
     const res = wx.getSystemInfoSync();
@@ -185,7 +189,9 @@ class MainService {
     return result;
   }
 
-  /**获取当前页面参数 */
+  /**
+   * 获取当前页面
+   */
   getCurrPage() {
     const page = getCurrentPages()[getCurrentPages().length - 1]; // 当前页面对象
     const path = '/' + (page.route || page.__route__); // 当前页面路由
@@ -195,6 +201,58 @@ class MainService {
       path,
       options,
     }
+  }
+
+  /**
+   * 唤起授权组件
+   * @param {function} obj.success 成功入会的回调
+   * @param {function} obj.fail 失败入会的回调
+   */
+  awakeAuthComponent(obj) {
+    const successCb = obj.success, failCb = obj.fail;
+    if (successCb && Object.prototype.toString.call(successCb) != '[object Function]') {
+      throw new Error('传参错误');
+    }
+    if (failCb && Object.prototype.toString.call(failCb) != '[object Function]') {
+      throw new Error('传参错误');
+    }
+    let page = this.getCurrPage().page;
+    page.selectComponent('#comp-auth').openHandle({
+      success: () => {
+        console.log('授权成功');
+        successCb && successCb();
+      },
+      fail: () => {
+        console.log('授权失败');
+        failCb && failCb();
+      }
+    })
+  }
+
+  /**
+   * 唤起注册组件
+   * @param {function} obj.success 成功入会的回调
+   * @param {function} obj.fail 失败入会的回调
+   */
+  awakeRegisterComponent(obj) {
+    const successCb = obj.success, failCb = obj.fail;
+    if (successCb && Object.prototype.toString.call(successCb) != '[object Function]') {
+      throw new Error('传参错误');
+    }
+    if (failCb && Object.prototype.toString.call(failCb) != '[object Function]') {
+      throw new Error('传参错误');
+    }
+    let page = this.getCurrPage().page;
+    page.selectComponent('#comp-register').openHandle({
+      success: () => {
+        console.log('注册成功');
+        successCb && successCb();
+      },
+      fail: () => {
+        console.log('注册失败');
+        failCb && failCb();
+      }
+    })
   }
 
   /**
@@ -259,14 +317,11 @@ class MainService {
             }
             if (errcode == 30002) {
               // 接口需要unionid && unionid不存在
-              let page = this.getCurrPage().page;
-              page.selectComponent('#comp-auth').openHandle({
+              this.awakeAuthComponent({
                 success: () => {
-                  console.log('接口级别，授权成功');
+                  closure.call(this);
                 },
-                fail: () => {
-                  console.log('接口级别，授权失败');
-                }
+                fail: () => { }
               })
               return
             }
@@ -338,7 +393,6 @@ class MainService {
             if (code == 200) {
               // 登录成功
               wx.setStorageSync('sessionid', data.miniapp_session_id);
-              wx.setStorageSync('sessionid_temp', data.miniapp_session_id);
               userModel.isAuthUnionid = data.allow_auth == 1 ? true : false;
               userModel.openid = data.openid;
               userModel.unionid = data.unionid ? data.unionid : '';
@@ -348,7 +402,7 @@ class MainService {
             }
             if (code == 201) {
               // 需要userinfo授权
-              wx.setStorageSync('sessionid_temp', data.temp_miniapp_auth_token);
+              wx.setStorageSync('sessionid', data.temp_miniapp_auth_token);
               userModel.isAuthUnionid = false;
               cb && cb();
               return
@@ -381,7 +435,7 @@ class MainService {
         appid: configModel.miniAppid,
         templateid: configModel.templateId,
         organization_id: configModel.organizationId,
-        temp_miniapp_auth_token: wx.getStorageSync('sessionid_temp'),
+        temp_miniapp_auth_token: wx.getStorageSync('sessionid'),
       },
       success: (res) => {
         if (res.statusCode != 200) {

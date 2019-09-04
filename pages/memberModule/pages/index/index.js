@@ -19,7 +19,6 @@ Page({
       this.setData({
         pageShow: true,
       })
-      memberService.getMemberDetail();
     });
   },
   setNav() {

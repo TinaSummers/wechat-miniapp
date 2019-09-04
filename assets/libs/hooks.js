@@ -4,30 +4,23 @@ import mainService from '../../services/main.service';
 interceptor(function (e, next) {
   const auth = e.mark && e.mark.auth;
   const register = e.mark && e.mark.register;
-  let page = mainService.getCurrPage().page;
   if (auth) {
     // 授权unionid拦截
-    page.selectComponent('#comp-auth').openHandle({
+    mainService.awakeAuthComponent({
       success: () => {
-        console.log('拦截器，授权成功');
         next();
       },
-      fail: () => {
-        console.log('拦截器，授权失败');
-      }
+      fail: () => { }
     })
     return
   }
   if (register) {
     // 注册拦截
-    page.selectComponent('#comp-register').openHandle({
+    mainService.awakeRegisterComponent({
       success: () => {
-        console.log('拦截器，入会成功');
         next();
       },
-      fail: () => {
-        console.log('拦截器，入会失败');
-      }
+      fail: () => { }
     })
     return
   }

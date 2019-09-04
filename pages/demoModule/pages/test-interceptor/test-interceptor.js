@@ -11,7 +11,7 @@ Page({
     this.setNav();
   },
   onShow() {
-    memberService.initMiniProgram(() => { });
+    memberService.initMiniProgram(() => {});
   },
   setNav() {
     this.selectComponent('#comp-nav-dynamic').setOptions({

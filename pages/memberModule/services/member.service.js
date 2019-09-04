@@ -5,7 +5,7 @@ import userModel from '../models/user.model';
 import configModel from '../../../models/config.model';
 
 /**
- * 授权流程：进入小程序，静默授权；页面区块唤起非静默授权组件；接口状态码30002唤起非静默授权组件；
+ * 授权流程：进入小程序，静默授权；页面节点唤起非静默授权组件；接口状态码30002唤起非静默授权组件；
  * 
  * 属性：
  * @param {string} backPath 授权/注册成功后的回跳路由
@@ -165,7 +165,7 @@ class MemberService {
     ajaxService.memberDetail({}).then((res) => {
       let { data: { errcode, data, errmsg } } = res;
       if (errcode == 0) {
-        this.setUserModel(data);
+        this.setUserModel(userModel, data);
         cb && cb(userModel.vipType);
       } else {
         mainService.modal(errmsg);
@@ -246,14 +246,11 @@ class MemberService {
         cb && cb(userModel.unionid);
         return
       }
-      let page = mainService.getCurrPage().page;
-      page.selectComponent('#comp-auth').openHandle({
+      mainService.awakeAuthComponent({
         success: () => {
-          console.log('memberService，授权成功');
+          cb && cb(userModel.unionid);
         },
-        fail: () => {
-          console.log('memberService，授权失败');
-        }
+        fail: () => { }
       })
     })
   }

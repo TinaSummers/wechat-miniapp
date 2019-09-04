@@ -65,13 +65,15 @@ Component({
       this.data.failCb = failCb ? failCb : function () {
         console.log('默认回调：失败入会');
       };
-      if(!userModel.isAuthUnionid){
-        console.log('未授权');
-        return
-      }
-      if (userModel.isAuthUnionid && userModel.isBind == 1) {
-        // 授权 && 已绑定
-        this.data.successCb && this.data.successCb();
+      // mainService.login(() => {
+      if (!userModel.isAuthUnionid) {
+        // 未授权
+        mainService.awakeAuthComponent({
+          success: () => {
+            this.memberDetail();
+          },
+          fail: () => { }
+        })
         return
       }
       if (userModel.isAuthUnionid && userModel.isBind != 1) {
@@ -79,16 +81,12 @@ Component({
         this.memberDetail();
         return
       }
-      // @请求后台，判断unionid授权状态
-      mainService.login(() => {
-        if (!userModel.isAuthUnionid) {
-          // 未授权
-          memberService.setBackJump();
-          mainService.link(pathModel.mc_screen);
-          return
-        }
-        this.memberDetail();
-      })
+      if (userModel.isAuthUnionid && userModel.isBind == 1) {
+        // 授权 && 已绑定
+        this.data.successCb && this.data.successCb();
+        return
+      }
+      // })
     },
     memberDetail() {
       ajaxService.memberDetail({}).then((res) => {
@@ -201,10 +199,10 @@ Component({
         checked: !this.data.checked
       })
     },
-    jumpClausePrivacy(){
+    jumpClausePrivacy() {
       mainService.link(pathModel.mc_clause_privacy);
     },
-    jumpClauseUse(){
+    jumpClauseUse() {
       mainService.link(pathModel.mc_clause_use);
     },
     submitHandle(e) {
