@@ -2,8 +2,8 @@ import interceptor from 'interceptor';
 import mainService from '../../services/main.service';
 
 interceptor(function (e, next) {
-  const auth = e.mark && e.mark.auth;
-  const register = e.mark && e.mark.register;
+  const auth = e.currentTarget && e.currentTarget.dataset.mark == 'auth';
+  const register = e.currentTarget && e.currentTarget.dataset.mark == 'register';
   if (auth) {
     // 授权unionid拦截
     mainService.awakeAuthComponent({

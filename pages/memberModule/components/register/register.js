@@ -8,7 +8,6 @@ import imgModel from '../../models/img.model';
 import userModel from '../../models/user.model';
 import ajaxService from '../../services/ajax.service';
 import mainService from '../../../../services/main.service';
-import configModel from '../../../../models/config.model';
 import memberService from '../../services/member.service';
 import pathModel from '../../../../models/path.model';
 

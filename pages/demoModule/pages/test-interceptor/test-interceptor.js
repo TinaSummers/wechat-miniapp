@@ -11,7 +11,7 @@ Page({
     this.setNav();
   },
   onShow() {
-    memberService.initMiniProgram(() => {});
+    memberService.initMiniProgram(() => { });
   },
   setNav() {
     this.selectComponent('#comp-nav-dynamic').setOptions({
@@ -34,10 +34,10 @@ Page({
       navHeight: this.selectComponent('#comp-nav-dynamic').getNavHeight(),
     })
   },
-  authHandle() {
+  authHandle(e) {
     console.log('Hello World（授权）');
   },
-  registerHandle() {
+  registerHandle(e) {
     console.log('Hello World（入会）');
   },
   helloHandle(e) {
