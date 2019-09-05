@@ -35,8 +35,8 @@ Page({
     })
   },
   authHandle() {
-    // 调用授权组件
-    this.selectComponent('#comp-auth').openHandle({
+    // 唤起授权组件
+    mainService.awakeAuthComponent({
       success: () => {
         console.log('授权成功');
       },

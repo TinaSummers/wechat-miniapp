@@ -1,4 +1,5 @@
 <comp-nav-dynamic id='comp-nav-dynamic'></comp-nav-dynamic>
+<comp-auth id='comp-auth'></comp-auth>
 <view class="container" style='padding-top: {{navHeight}}px;'>
   <view class='build-wrapper'>
     <image class='icon-build' src='{{imgModel.icon_build}}' />

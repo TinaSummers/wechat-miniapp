@@ -61,11 +61,6 @@ Component({
       this.data.failCb = failCb ? failCb : function () {
         console.log('默认回调：失败授权');
       };
-      if (userModel.isAuthUnionid) {
-        // 已授权
-        this.data.successCb && this.data.successCb();
-        return
-      }
       // @请求后台，判断unionid授权状态
       // mainService.login(() => {
       if (userModel.isAuthUnionid) {

@@ -36,7 +36,7 @@ Page({
   },
   registerHandle() {
     // 调用注册组件
-    this.selectComponent('#comp-register').openHandle({
+    mainService.awakeRegisterComponent({
       success: () => {
         console.log('入会成功');
       },

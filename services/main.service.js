@@ -219,11 +219,11 @@ class MainService {
     let page = this.getCurrPage().page;
     page.selectComponent('#comp-auth').openHandle({
       success: () => {
-        console.log('授权成功');
+        console.log('默认提示：授权成功');
         successCb && successCb();
       },
       fail: () => {
-        console.log('授权失败');
+        console.log('默认提示：授权失败');
         failCb && failCb();
       }
     })
@@ -245,11 +245,11 @@ class MainService {
     let page = this.getCurrPage().page;
     page.selectComponent('#comp-register').openHandle({
       success: () => {
-        console.log('注册成功');
+        console.log('默认提示：注册成功');
         successCb && successCb();
       },
       fail: () => {
-        console.log('注册失败');
+        console.log('默认提示：注册失败');
         failCb && failCb();
       }
     })
