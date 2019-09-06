@@ -64,30 +64,23 @@ Component({
       this.data.failCb = failCb ? failCb : function () {
         console.log('默认回调：失败入会');
       };
-      // mainService.login(() => {
-      if (!userModel.isAuthUnionid) {
-        // 未授权
-        mainService.awakeAuthComponent({
-          success: () => {
+      mainService.awakeAuthComponent({
+        success: () => {
+          if (userModel.isBind != 1) {
+            // 授权 && 未绑定
             this.memberDetail();
-          },
-          fail: () => {
-            this.data.failCb && this.data.failCb();
+            return
           }
-        })
-        return
-      }
-      if (userModel.isAuthUnionid && userModel.isBind != 1) {
-        // 授权 && 未绑定
-        this.memberDetail();
-        return
-      }
-      if (userModel.isAuthUnionid && userModel.isBind == 1) {
-        // 授权 && 已绑定
-        this.data.successCb && this.data.successCb();
-        return
-      }
-      // })
+          if (userModel.isBind == 1) {
+            // 授权 && 已绑定
+            this.data.successCb && this.data.successCb();
+            return
+          }
+        },
+        fail: () => {
+          this.data.failCb && this.data.failCb();
+        }
+      })
     },
     memberDetail() {
       ajaxService.memberDetail({}).then((res) => {

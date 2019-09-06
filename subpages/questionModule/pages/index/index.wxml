@@ -1,4 +1,5 @@
 <comp-nav-dynamic id='comp-nav-dynamic'></comp-nav-dynamic>
+<comp-auth id='comp-auth'></comp-auth>
 <comp-register id='comp-register'></comp-register>
 
 <view class='container' style='padding-top: {{navHeight}}px;'>
