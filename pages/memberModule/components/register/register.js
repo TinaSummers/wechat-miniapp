@@ -71,7 +71,9 @@ Component({
           success: () => {
             this.memberDetail();
           },
-          fail: () => { }
+          fail: () => {
+            this.data.failCb && this.data.failCb();
+          }
         })
         return
       }
