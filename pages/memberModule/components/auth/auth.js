@@ -75,6 +75,8 @@ Component({
     },
     getUserInfo(e) {
       if (e.detail.errMsg == 'getUserInfo:ok') {
+        // 允许授权
+        console.log('允许授权unionid');
         mainService.throttle(() => {
           mainService.getUserInfo(e.detail, () => {
             this.data.successCb && this.data.successCb();
@@ -83,6 +85,13 @@ Component({
             })
           })
         }, 5000)
+      } else {
+        // 拒绝授权
+        console.log('拒绝授权unionid');
+        // this.data.failCb && this.data.failCb();
+        // this.setData({
+        //   compShow: false,
+        // })
       }
     },
     cancelHandle() {

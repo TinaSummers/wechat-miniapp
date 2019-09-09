@@ -105,13 +105,13 @@ Component({
     hintHandle() {
       // 未阅读隐私条款的触发事件
       mainService.throttle(() => {
-        mainService.toast('阅读<隐私条款>并勾选');
+        mainService.toast('阅读<隐私条款>和<使用条款>并勾选');
       }, 1000)
     },
     getphonenumberHandle(e) {
       if (e.detail.errMsg == 'getPhoneNumber:ok') {
-        // @允许授权，请求后台，解密手机号
-        console.log('允许授权');
+        // 允许授权
+        console.log('允许授权手机号码');
         ajaxService.decrypt({
           encrypted_data: e.detail.encryptedData,
           iv: e.detail.iv,
@@ -151,30 +151,12 @@ Component({
         })
       } else {
         // 拒绝授权
-        console.log('拒绝授权');
-        this.data.failCb && this.data.failCb();
-        this.setData({
-          compShow: false,
-        })
+        console.log('拒绝授权手机号码');
+        // this.data.failCb && this.data.failCb();
+        // this.setData({
+        //   compShow: false,
+        // })
       }
-    },
-    showHandle(obj) {
-      const successCb = obj.success, failCb = obj.fail;
-      if (successCb && Object.prototype.toString.call(successCb) != '[object Function]') {
-        throw new Error('注册组件的传参错误');
-      }
-      if (failCb && Object.prototype.toString.call(failCb) != '[object Function]') {
-        throw new Error('注册组件的传参错误');
-      }
-      this.data.successCb = successCb ? successCb : function () {
-        console.log('默认回调：成功入会');
-      };
-      this.data.failCb = failCb ? failCb : function () {
-        console.log('默认回调：失败入会');
-      };
-      this.setData({
-        compShow: true,
-      })
     },
     cancelHandle() {
       this.data.failCb && this.data.failCb();
