@@ -50,10 +50,10 @@ Component({
     openHandle(obj) {
       const successCb = obj.success, failCb = obj.fail;
       if (successCb && Object.prototype.toString.call(successCb) != '[object Function]') {
-        throw new Error('注册组件的传参错误');
+        throw new Error('授权组件的传参错误');
       }
       if (failCb && Object.prototype.toString.call(failCb) != '[object Function]') {
-        throw new Error('注册组件的传参错误');
+        throw new Error('授权组件的传参错误');
       }
       this.data.successCb = successCb ? successCb : function () {
         console.log('默认回调：成功授权');
